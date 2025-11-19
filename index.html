@@ -3781,27 +3781,28 @@ $(document).ready(function() {
         'Golden Knight': 'Cavaleiro Dourado', 'Monk': 'Monge', 'Phoenix': 'Fênix', 'Little Prince': 'Pequeno Príncipe'
     };
 
-    // ============================================
-    // VERIFICAÇÃO DE ID COMENTADA TEMPORARIAMENTE
-    // Descomente quando for fazer upload do projeto
-    // ============================================
-    
-    /*
     // Função para buscar jogador via API do Clash Royale
     function searchPlayerByTag(playerTag) {
         return new Promise(function(resolve, reject) {
             // Remove # se presente e formata
+            let originalTag = playerTag;
             playerTag = playerTag.replace('#', '').trim().toUpperCase();
             
-            // Validação
+            console.log('Tag original:', originalTag);
+            console.log('Tag formatada:', playerTag);
+            
+            // Validação - aceita apenas letras e números (formato padrão do Clash Royale)
             if (!playerTag || !/^[A-Z0-9]+$/.test(playerTag)) {
-                reject({ reason: 'invalidTag', message: 'Tag inválida. Use apenas letras e números.' });
+                reject({ reason: 'invalidTag', message: 'Tag inválida. Use apenas letras e números. Exemplo: #VCYJCYYR2 ou VCYJCYYR2' });
                 return;
             }
             
-            // URL-encode a tag
+            // URL-encode a tag (adiciona # de volta para a API)
             const encodedTag = encodeURIComponent('#' + playerTag);
             const apiUrl = `https://api.clashroyale.com/v1/players/${encodedTag}`;
+            
+            console.log('Tag codificada para API:', encodedTag);
+            console.log('URL da API:', apiUrl);
             
             // Tenta obter chave de API do localStorage
             let apiKey = localStorage.getItem('clashRoyaleApiKey');
@@ -3885,7 +3886,6 @@ $(document).ready(function() {
             });
         });
     }
-    */
 
     $('#submitButton').on('click', function(event) {
         playSound();
@@ -3896,16 +3896,9 @@ $(document).ready(function() {
 
         formMessage.hide().text('').removeClass('error success');
 
-        // ============================================
-        // VERIFICAÇÃO DE ID COMENTADA - PULA DIRETO
-        // Descomente quando for fazer upload do projeto
-        // ============================================
-        
         // Desabilita o botão
         submitButton.prop('disabled', true).text('Verificando...');
 
-        // Simula resposta (comentado - descomente quando for usar a API)
-        /*
         // Busca o jogador
         searchPlayerByTag(playerTag)
         .then(function(response) {
@@ -3932,35 +3925,35 @@ $(document).ready(function() {
             
             // Atualiza Clã
             if (response && response.clan && response.clan.name) {
-                $('.clan').html(`<img style="margin-left:5px" src="img/battle.png" alt="Clan Badge"> ${response.clan.name}`);
+                $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> ${response.clan.name}`);
                 $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.clan.name}</span>`);
             } else {
-                $('.clan').html(`<img style="margin-left:5px" src="img/battle.png" alt="Clan Badge"> Sem Clã`);
+                $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> Sem Clã`);
                 $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
             }
 
             // Atualiza Experiência
             if (response && typeof response.expLevel !== 'undefined') {
-                $('.exp').html(`<img style="margin-left:5px" src="img/exp.webp" alt="Experience"> ${response.expLevel}`);
+                $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> ${response.expLevel}`);
                 $('.text-on-image').html(`${response.expLevel}`);
             } else {
-                $('.exp').html(`<img style="margin-left:5px" src="img/exp.webp" alt="Experience"> N/A`);
+                $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> N/A`);
                 $('.text-on-image').html(`N/A`);
             }
 
             // Atualiza Arena
             if (response && response.arena && response.arena.name) {
-                $('.th').html(`<img style="margin-left:5px" src="img/tournament.png" alt="Arena ${response.arena.name}"> ${response.arena.name}`);
+                $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Arena ${response.arena.name}"> ${response.arena.name}`);
             } else {
-                $('.th').html(`<img style="margin-left:5px" src="img/tournament.png"> N/A`);
+                $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp"> N/A`);
             }
 
             // Atualiza Troféus
             if (response && typeof response.trophies !== 'undefined') {
-                $('.trophy').html(`<img style="margin-left:5px" src="img/trophy.webp" alt="Trophies"> ${response.trophies}`);
+                $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> ${response.trophies}`);
                 $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.trophies}</span>`);
             } else {
-                $('.trophy').html(`<img style="margin-left:5px" src="img/trophy.webp" alt="Trophies"> N/A`);
+                $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> N/A`);
                 $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
             }
 
@@ -4022,59 +4015,6 @@ $(document).ready(function() {
             formMessage.html(errorIcon + ' ' + errorText).addClass('error').show();
             submitButton.prop('disabled', false).text('Buscar');
         });
-        */
-        
-        // ============================================
-        // CÓDIGO TEMPORÁRIO - PULA VERIFICAÇÃO
-        // Remove este bloco quando descomentar a API acima
-        // ============================================
-        
-        // Simula um pequeno delay e avança direto
-        setTimeout(function() {
-            // Pega o valor digitado e usa como nome
-            let playerTagFormatted = playerTag.replace('#', '').trim().toUpperCase();
-            let playerTagFinal = playerTagFormatted ? '#' + playerTagFormatted : '#TAG123';
-            
-            // Avança para a próxima etapa sem verificação
-            const loginElements = $('.klik');
-            if (loginElements.length > 0) {
-                loginElements.on('click', function() {
-                    open_account_login();
-                });
-            }
-            
-            $('#id-verification').hide(); 
-            $('#player-verification').show();
-            $('#tombol1').hide(); 
-            $('#tombol2').show(); 
-            $('#content1').hide(); 
-            $('#content2').show(); 
-            $('.has-submenu').click();
-            
-            // Usa valores padrão ou do input
-            let defaultName = playerTagFormatted || 'Player';
-            $('.nickname').html(defaultName);
-            $('.player-nickname').html(defaultName);
-            $('#nicksuccess').html('Hi, ' + defaultName);
-            
-            // Valores padrão
-            $('.clan').html(`<img style="margin-left:5px" src="img/battle.png" alt="Clan Badge"> Sem Clã`);
-            $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
-            $('.exp').html(`<img style="margin-left:5px" src="img/exp.webp" alt="Experience"> N/A`);
-            $('.text-on-image').html(`N/A`);
-            $('.th').html(`<img style="margin-left:5px" src="img/tournament.png"> N/A`);
-            $('.trophy').html(`<img style="margin-left:5px" src="img/trophy.webp" alt="Trophies"> N/A`);
-            $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
-            $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
-            
-            $('#isitownhall').val('N/A');
-            $('#isiexp').val('N/A');
-            $('#isiplayertag').val(playerTagFinal);
-            $('#isiplayername').val(defaultName);
-            $('#isiclan').val('No Clan');
-            
-            submitButton.prop('disabled', false).text('Buscar');
-        }, 500); // Pequeno delay para simular verificação
     });
 
 });

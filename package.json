@@ -1,0 +1,21 @@
+{
+  "name": "clash-royale-store",
+  "version": "1.0.0",
+  "description": "Clash Royale Store - Loja de itens do Clash Royale",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": [
+    "clash-royale",
+    "store",
+    "gaming"
+  ],
+  "author": "idkafael",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.x"
+  }
+}
+

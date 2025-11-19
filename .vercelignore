@@ -1,0 +1,18 @@
+# Documentação
+*.md
+!README.md
+
+# Arquivos de desenvolvimento
+.git
+.gitignore
+.vscode
+.idea
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos temporários
+.DS_Store
+Thumbs.db
+

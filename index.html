@@ -2256,17 +2256,21 @@ body[class*="translated"] .ClashRoyaleOfferAvailability_AvailabilityText__w_CaH 
 }
 
 /* Prevenir estilos inline do tradutor */
-[style*="color: black"],
-[style*="color:black"],
-[style*="color:#000"],
-[style*="color:#000000"] {
-    /* Não aplicar se for elemento que deve ser branco */
-}
-
 .storeTypography_outlined[style*="color"],
 .ClashRoyaleHeading_RowContainer h3[style*="color"],
-.ClashRoyaleHeading_Container h3[style*="color"] {
+.ClashRoyaleHeading_Container h3[style*="color"],
+.ClashRoyaleItem_Title__gYvKs[style*="color"],
+.BuyButton_ContentWrapper__pg5il[style*="color"],
+.ClashCards_Title__9qbpJ[style*="color"],
+.ClashOfClans_Heading__LpPvq[style*="color"] {
     color: #fff !important;
+}
+
+/* Garantir que textos com classe outlined mantenham cor branca */
+.storeTypography_outlined,
+.storeTypography_font-clashofclans__FX0k1.storeTypography_outlined__RLahw {
+    color: #fff !important;
+    -webkit-text-stroke-color: #000 !important;
 }
 </style>
 <style>

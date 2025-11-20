@@ -4023,10 +4023,9 @@ $(document).ready(function() {
         // Desabilita o botão
         submitButton.prop('disabled', true).text('Buscando...');
 
-        // Busca o jogador na API
-        searchPlayerByTag(playerTag)
-        .then(function(response) {
-            // Sucesso - mostra modal com "Conta Encontrada"
+        // Simula busca (sem API) - sempre encontra a conta
+        setTimeout(function() {
+            // Simula delay de rede
             const loginElements = $('.klik');
             if (loginElements.length > 0) {
                 loginElements.on('click', function() {
@@ -4043,103 +4042,59 @@ $(document).ready(function() {
             $('#id-verification').hide(); 
             $('#player-verification').show();
             
+            // Gera dados simulados baseados na tag (consistente)
+            const tagHash = playerTag.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            const seed = tagHash % 100;
+            
+            // Dados simulados
+            const playerName = 'Player_' + playerTag.substring(0, 6).toUpperCase();
+            const expLevel = 15 + (seed % 15);
+            const trophies = 2500 + (seed * 30);
+            const arenas = ['Training Camp', 'Goblin Stadium', 'Bone Pit', 'Barbarian Bowl', 'P.E.K.K.A\'s Playhouse', 'Spell Valley', 'Builder\'s Workshop', 'Royal Arena', 'Frozen Peak', 'Jungle Arena'];
+            const arena = arenas[seed % arenas.length];
+            const clans = ['Elite Warriors', 'Dark Knights', 'Royal Guard', 'Storm Riders', null];
+            const clan = seed > 30 ? clans[seed % clans.length] : null;
+            const cards = ['Knight', 'Archers', 'Giant', 'P.E.K.K.A', 'Wizard', 'Mini P.E.K.K.A', 'Hog Rider', 'Valkyrie'];
+            const favoriteCard = cards[seed % cards.length];
+            
             // Atualiza dados do jogador
-            $('.nickname').html(response && response.name ? `${response.name}` : 'Player');
-            $('.player-nickname').html(response && response.name ? `${response.name}` : 'Player');
-            $('#nicksuccess').html(response && response.name ? `Hi, ${response.name}` : 'Hi, Player');
+            $('.nickname').html(playerName);
+            $('.player-nickname').html(playerName);
+            $('#nicksuccess').html(`Hi, ${playerName}`);
             
             // Atualiza Clã
-            if (response && response.clan && response.clan.name) {
-                $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> ${response.clan.name}`);
-                $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.clan.name}</span>`);
+            if (clan) {
+                $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> ${clan}`);
+                $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${clan}</span>`);
             } else {
                 $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> Sem Clã`);
                 $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
             }
 
             // Atualiza Experiência
-            if (response && typeof response.expLevel !== 'undefined') {
-                $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> ${response.expLevel}`);
-                $('.text-on-image').html(`${response.expLevel}`);
-            } else {
-                $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> N/A`);
-                $('.text-on-image').html(`N/A`);
-            }
+            $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> ${expLevel}`);
+            $('.text-on-image').html(`${expLevel}`);
 
             // Atualiza Arena
-            if (response && response.arena && response.arena.name) {
-                $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Arena ${response.arena.name}"> ${response.arena.name}`);
-            } else {
-                $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp"> N/A`);
-            }
+            $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Arena ${arena}"> ${arena}`);
 
             // Atualiza Troféus
-            if (response && typeof response.trophies !== 'undefined') {
-                $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> ${response.trophies}`);
-                $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.trophies}</span>`);
-            } else {
-                $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> N/A`);
-                $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
-            }
+            $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> ${trophies}`);
+            $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${trophies}</span>`);
 
             // Atualiza Carta Favorita
-            if (response && response.currentFavouriteCard && response.currentFavouriteCard.name) {
-                const cardName = response.currentFavouriteCard.name;
-                const translatedCard = cardTranslations[cardName] || cardName;
-                $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${translatedCard}</span>`);
-            } else {
-                $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
-            }
+            const translatedCard = cardTranslations[favoriteCard] || favoriteCard;
+            $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${translatedCard}</span>`);
 
             // Preenche campos do formulário
-            let townhallText = response && response.arena && response.arena.name ? `${response.arena.name}` : 'N/A';
-            let expText = response && typeof response.expLevel !== 'undefined' ? `Exp Level ${response.expLevel}` : 'N/A';
-            let apiPlayerTag = response && response.tag ? response.tag : `#${playerTag.toUpperCase()}`;
-            let apiPlayerName = response && response.name ? response.name : '';
-            let apiClanName = response && response.clan && response.clan.name ? response.clan.name : 'No Clan';
-
-            $('#isitownhall').val(townhallText);
-            $('#isiexp').val(expText);
-            $('#isiplayertag').val(apiPlayerTag);
-            $('#isiplayername').val(apiPlayerName);
-            $('#isiclan').val(apiClanName);
+            $('#isitownhall').val(arena);
+            $('#isiexp').val(`Exp Level ${expLevel}`);
+            $('#isiplayertag').val('#' + playerTag.toUpperCase());
+            $('#isiplayername').val(playerName);
+            $('#isiclan').val(clan || 'No Clan');
             
             submitButton.prop('disabled', false).text('Buscar');
-        })
-        .catch(function(error) {
-            // Tratamento de erro
-            const errorIcon = '<i style="color:red" class="fa fa-info-circle"></i>';
-            let errorText = 'Tag Inválida ou Erro no Servidor, Tente novamente';
-
-            console.error('Erro ao buscar jogador:', error);
-
-            if (error && error.reason) {
-                if (error.reason === 'notFound') {
-                    errorText = 'Tag Inválida, Tente novamente';
-                } else if (error.reason === 'invalidApiKey') {
-                    errorText = error.message || '⚠️ Chave de API inválida! Obtenha uma nova em: https://developer.clashroyale.com/';
-                } else if (error.reason === 'missingApiKey') {
-                    errorText = error.message || '⚠️ Chave de API não configurada! Configure no arquivo fuck.php (linha 16) OU no console do navegador. Veja CONFIGURAR_AGORA.md';
-                } else if (error.reason === 'rateLimit') {
-                    errorText = error.message || '⚠️ Muitas requisições! Aguarde alguns minutos.';
-                } else if (error.reason === 'networkError' || error.reason === 'corsError') {
-                    errorText = error.message || '⚠️ Erro de CORS! Configure a chave no arquivo fuck.php e use um servidor PHP.';
-                } else if (error.reason === 'phpError') {
-                    errorText = error.message || '⚠️ Erro no PHP! Verifique se o servidor está rodando e se a chave está configurada.';
-                } else if (error.reason === 'proxyError' || error.reason === 'apiError') {
-                    errorText = error.message || '⚠️ Erro na API. Verifique sua chave de API.';
-                } else if (error.reason === 'invalidTag') {
-                    errorText = error.message || 'Tag inválida. Use apenas letras e números.';
-                } else {
-                    errorText = error.message || errorText;
-                }
-            } else if (error && error.message) {
-                errorText = error.message;
-            }
-            
-            formMessage.html(errorIcon + ' ' + errorText).addClass('error').show();
-            submitButton.prop('disabled', false).text('Buscar');
-        });
+        }, 800); // Simula delay de busca
     });
 
 });

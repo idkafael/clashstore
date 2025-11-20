@@ -2220,6 +2220,54 @@ video {
         overflow-wrap: break-word !important;
     }
 }
+
+/* Preservar cores de texto quando tradutor está ativo */
+/* Títulos com texto branco (outlined) */
+.storeTypography_outlined,
+.ClashRoyaleHeading_RowContainer h3,
+.ClashRoyaleHeading_Container h3,
+.ClashRoyaleItem_Title__gYvKs {
+    color: #fff !important;
+    -webkit-text-stroke-color: #000 !important;
+    text-shadow: 0 .1em 0 #000, -.03em .1em 0 #000, .03em .1em 0 #000 !important;
+}
+
+/* Textos em botões e elementos com cor branca */
+.BuyButton_ContentWrapper__pg5il,
+.ClashRoyaleOfferAvailability_AvailabilityText__w_CaH,
+.PointsTag_PointsLabel__ECj3x {
+    color: #fff !important;
+}
+
+/* Textos em elementos dark */
+.PointsTag_Dark__0bud_,
+.BuyButton_Dark__Ww3Wu .BuyButton_ContentWrapper__pg5il {
+    color: #fff !important;
+}
+
+/* Prevenir que tradutor mude cores para preto */
+body[class*="translated"] .storeTypography_outlined,
+body[class*="translated"] .ClashRoyaleHeading_RowContainer h3,
+body[class*="translated"] .ClashRoyaleHeading_Container h3,
+body[class*="translated"] .ClashRoyaleItem_Title__gYvKs,
+body[class*="translated"] .BuyButton_ContentWrapper__pg5il,
+body[class*="translated"] .ClashRoyaleOfferAvailability_AvailabilityText__w_CaH {
+    color: #fff !important;
+}
+
+/* Prevenir estilos inline do tradutor */
+[style*="color: black"],
+[style*="color:black"],
+[style*="color:#000"],
+[style*="color:#000000"] {
+    /* Não aplicar se for elemento que deve ser branco */
+}
+
+.storeTypography_outlined[style*="color"],
+.ClashRoyaleHeading_RowContainer h3[style*="color"],
+.ClashRoyaleHeading_Container h3[style*="color"] {
+    color: #fff !important;
+}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');

@@ -3823,24 +3823,24 @@ $(document).ready(function() {
             console.log('Buscando jogador com tag:', playerTag);
             console.log('URL da API:', apiUrl);
             
-            // Tenta usar o arquivo PHP como proxy primeiro (se disponível)
+            // Tenta usar a API route do Vercel primeiro (se disponível)
             // Isso evita problemas de CORS e usa a chave configurada no servidor
-            const phpProxyUrl = 'fuck.php?player_tag=' + encodeURIComponent('#' + playerTag);
-            console.log('Tentando via PHP proxy primeiro:', phpProxyUrl);
+            const apiProxyUrl = '/api/clash-royale?player_tag=' + encodeURIComponent('#' + playerTag);
+            console.log('Tentando via API route do Vercel primeiro:', apiProxyUrl);
             
-            // Tenta primeiro via PHP proxy
-            fetch(phpProxyUrl, {
+            // Tenta primeiro via API route do Vercel
+            fetch(apiProxyUrl, {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
                 }
             })
             .then(response => {
-                console.log('Resposta PHP proxy - Status:', response.status);
+                console.log('Resposta API route - Status:', response.status);
                 
                 if (response.ok) {
                     return response.json().then(data => {
-                        console.log('✅ Dados recebidos via PHP proxy:', data);
+                        console.log('✅ Dados recebidos via API route:', data);
                         resolve(data);
                         return null; // Marca como resolvido
                     });
@@ -3855,13 +3855,13 @@ $(document).ready(function() {
                         errorData = { message: text, reason: 'parseError' };
                     }
                     
-                    console.log('Erro do PHP:', errorData);
+                    console.log('Erro da API route:', errorData);
                     
-                    // Se PHP não está configurado (chave faltando), mostra erro claro
+                    // Se API não está configurada (chave faltando), mostra erro claro
                     if (errorData.reason === 'missingApiKey') {
                         throw { 
                             reason: 'missingApiKey', 
-                            message: '⚠️ Configure a chave de API no arquivo fuck.php (linha 16) e use um servidor PHP, ou configure no localStorage do navegador.',
+                            message: '⚠️ Configure a chave de API no arquivo api/clash-royale.js (linha 3) ou no localStorage do navegador.',
                             phpError: true
                         };
                     }
@@ -3871,10 +3871,10 @@ $(document).ready(function() {
                         throw { reason: 'notFound', message: 'Jogador não encontrado. Verifique se a tag está correta.' };
                     }
                     
-                    // Outros erros do PHP
+                    // Outros erros da API route
                     throw { 
-                        reason: 'phpError', 
-                        message: 'Erro no servidor PHP: ' + (errorData.message || 'Erro desconhecido'),
+                        reason: 'apiError', 
+                        message: 'Erro na API route: ' + (errorData.message || 'Erro desconhecido'),
                         details: errorData
                     };
                 });
@@ -3886,19 +3886,39 @@ $(document).ready(function() {
                     return;
                 }
                 
-                // Se PHP falhou, verifica se temos chave no localStorage para tentar direto
-                if (!apiKey || apiKey.length < 20) {
-                    console.log('❌ Sem chave de API no localStorage e PHP não configurado');
-                    reject({ 
-                        reason: 'missingApiKey', 
-                        message: '⚠️ Chave de API não configurada! Configure no arquivo fuck.php (linha 16) OU no console: localStorage.setItem("clashRoyaleApiKey", "sua-chave")'
-                    });
-                    return;
-                }
+                // Se API route falhou, tenta PHP proxy como fallback
+                console.log('API route não disponível, tentando PHP proxy como fallback...');
+                const phpProxyUrl = 'fuck.php?player_tag=' + encodeURIComponent('#' + playerTag);
                 
-                // Se PHP falhou mas temos chave, tenta requisição direta (pode falhar por CORS)
-                console.log('PHP não disponível, tentando requisição direta com chave do localStorage (pode falhar por CORS)...');
-                return fetch(apiUrl, {
+                return fetch(phpProxyUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        return response.json().then(data => {
+                            console.log('✅ Dados recebidos via PHP proxy:', data);
+                            resolve(data);
+                            return null;
+                        });
+                    }
+                    // Se PHP também falhou, tenta requisição direta (último recurso)
+                    throw new Error('PHP proxy also failed');
+                }).catch(phpError => {
+                    // Se ambos falharam, verifica se temos chave no localStorage
+                    if (!apiKey || apiKey.length < 20) {
+                        console.log('❌ Sem chave de API no localStorage e servidores não disponíveis');
+                        reject({ 
+                            reason: 'missingApiKey', 
+                            message: '⚠️ Chave de API não configurada! Configure no arquivo fuck.php (linha 16) OU no console: localStorage.setItem("clashRoyaleApiKey", "sua-chave")'
+                        });
+                        return;
+                    }
+                    
+                    // Último recurso: requisição direta (pode falhar por CORS)
+                    console.log('Servidores não disponíveis, tentando requisição direta com chave do localStorage (pode falhar por CORS)...');
+                    return fetch(apiUrl, {
                     method: 'GET',
                     headers: {
                         'Authorization': 'Bearer ' + apiKey,

@@ -3097,49 +3097,18 @@ video {
 </div>
 
 <div id="player-verification" style="display:none" class="storefrontModal_Modal__rdA_q storefrontModal_Middle__udpjF storefrontModal_creatorCodeModal__zBAMl" dir="ltr">
-   <div class="storefrontModal_ModalContent__GFahI" style="max-width: 400px; width: 90%;">
+   <div class="storefrontModal_ModalContent__GFahI" style="max-width: 280px; width: 85%; padding: 20px;">
       <div class="CreatorCodeModalContent_Container__s6rAQ">
-        <div class="Countdown_Container__6oe2L Countdown_clashofclans__rSJa_">
-            <img alt="timer clock" loading="lazy" width="32" height="32" decoding="async" data-nimg="1" class="Countdown_ClockIcon___mS3U" style="color: transparent;margin-left: 10px;" src="images/id1.png">
+        <div class="Countdown_Container__6oe2L Countdown_clashofclans__rSJa_" style="margin-bottom: 15px;">
+            <img alt="timer clock" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" class="Countdown_ClockIcon___mS3U" style="color: transparent;margin-left: 10px;" src="images/id1.png">
             <div class="Countdown_Countdown__CyU1m Countdown_clashofclans__rSJa_">
-                <p class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW Countdown_Time__R_HKH Countdown_clashofclans__rSJa_" style="font-family: clash;">Conta Encontrada</p>
+                <p class="storeTypography_textBase__B5TeC storeTypography_font-clashofclans__FX0k1 storeTypography_size-sm__Yr6oa storeTypography_outlined__RLahw storeTypography_line-height-tight__D7jBW Countdown_Time__R_HKH Countdown_clashofclans__rSJa_" style="font-family: clash; font-size: 14px;">Conta Encontrada</p>
             </div>
         </div>
-         <div class="player-profile-container-v2" style="padding: 15px;">
-
-  <p style="font-family: 'Lilita One', cursive; color: black; text-align: center; font-size: 12px; margin-bottom: 10px;">Enviar seus pedidos para esta conta?</p>
-
-  <div class="profile-row player-info" style="margin-bottom: 10px;">
-    <div class="xp-level-wrapper" style="width: 40px; height: 40px;">
-      <img src="images/exp.webp" alt="XP Level" style="width: 100%; height: 100%;">
-      <span class="text-on-image" style="font-size: 10px;">N/A</span>
-    </div>
-    <span class="player-nickname" style="font-size: 14px;">Player</span>
-  </div>
-
-  <div style="margin-top: 8px;">
-    <p style="font-family: 'Lilita One', cursive; color: black; font-size: 12px; margin-bottom: 3px;">Clã:</p>
-    <div class="profile-row clan-info clan-display" style="padding: 5px; font-size: 11px;">
-      <span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>
-    </div>
-  </div>
-
-  <div style="margin-top: 8px;">
-    <p style="font-family: 'Lilita One', cursive; color: black; font-size: 12px; margin-bottom: 3px;">Carta Favorita:</p>
-    <div class="profile-row clan-info favorite-card-display" style="padding: 5px; font-size: 11px;">
-      <span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>
-    </div>
-  </div>
-
-  <div style="margin-top: 8px;">
-    <p style="font-family: 'Lilita One', cursive; color: black; font-size: 12px; margin-bottom: 3px;">Troféus:</p>
-    <div class="profile-row clan-info trophy-display" style="padding: 5px; font-size: 11px;">
-      <span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>
-    </div>
-  </div>
-
-</div>
-         <button onclick="confirmProfile()" class="Button_Button__Msu2a Button_Primary__anIDa">Confirmar</button>
+        <div style="text-align: center; margin: 15px 0;">
+            <p id="player-tag-display" style="font-family: 'Lilita One', cursive; color: black; font-size: 16px; font-weight: bold; margin: 0;">#VCYJCYYR2</p>
+        </div>
+        <button onclick="confirmProfile()" class="Button_Button__Msu2a Button_Primary__anIDa" style="width: 100%; margin-top: 15px;">Confirmar</button>
       </div>
    </div>
 </div>
@@ -4037,6 +4006,9 @@ $(document).ready(function() {
             
             // Atualiza título para "Conta Encontrada"
             $('#player-verification .Countdown_Time__R_HKH').html('Conta Encontrada');
+            
+            // Atualiza o ID exibido no modal
+            $('#player-tag-display').html('#' + playerTag.toUpperCase());
             
             // Fecha modal de verificação e mostra perfil
             $('#id-verification').hide(); 

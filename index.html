@@ -4371,4 +4371,181 @@ $(document).ready(function() {
     console.log('✅ Proteção de cores ATIVADA - Textos permanecerão BRANCOS mesmo após tradução');
 })();
 </script>
+
+<script>
+// ============================================
+// BLOQUEAR TRADUÇÃO AUTOMÁTICA
+// ============================================
+
+(function() {
+    'use strict';
+    
+    // 1. Adicionar atributo translate="no" em todos os elementos
+    function addNoTranslate() {
+        document.querySelectorAll('*').forEach(el => {
+            if (!el.hasAttribute('translate')) {
+                el.setAttribute('translate', 'no');
+            }
+        });
+    }
+    
+    // 2. Remover banner de tradução do Google se aparecer
+    function removeTranslationBanner() {
+        // Remove banner do Google Translate
+        const banners = [
+            'div[id*="google_translate"]',
+            'div[class*="goog-te-banner"]',
+            'div[class*="goog-te-balloon"]',
+            'iframe[title*="translate"]',
+            'div[class*="skiptranslate"]'
+        ];
+        
+        banners.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    el.style.display = 'none';
+                    el.remove();
+                });
+            } catch (e) {
+                // Ignorar erros
+            }
+        });
+    }
+    
+    // 3. Prevenir detecção de idioma
+    if (navigator.language) {
+        Object.defineProperty(navigator, 'language', {
+            get: function() { return 'en-US'; },
+            configurable: true
+        });
+    }
+    
+    if (navigator.languages) {
+        Object.defineProperty(navigator, 'languages', {
+            get: function() { return ['en-US', 'en']; },
+            configurable: true
+        });
+    }
+    
+    // 4. Remover classes de tradução se adicionadas
+    function removeTranslationClasses() {
+        document.body.classList.remove('translated-ltr', 'translated-rtl', 'translated');
+        document.documentElement.classList.remove('translated-ltr', 'translated-rtl', 'translated');
+        document.body.removeAttribute('dir');
+        document.documentElement.removeAttribute('dir');
+    }
+    
+    // 5. Observar mudanças e remover tradução
+    const observer = new MutationObserver(function(mutations) {
+        let shouldClean = false;
+        
+        mutations.forEach(function(mutation) {
+            // Se adicionar classes de tradução
+            if (mutation.type === 'attributes' && 
+                (mutation.attributeName === 'class' || mutation.attributeName === 'dir')) {
+                const target = mutation.target;
+                if (target.classList.contains('translated') || 
+                    target.classList.contains('translated-ltr') ||
+                    target.classList.contains('translated-rtl') ||
+                    target.hasAttribute('dir')) {
+                    shouldClean = true;
+                }
+            }
+            
+            // Se adicionar elementos de tradução
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) {
+                        const id = node.id || '';
+                        const className = node.className || '';
+                        if (id.includes('google_translate') || 
+                            className.includes('goog-te') ||
+                            className.includes('skiptranslate')) {
+                            shouldClean = true;
+                        }
+                    }
+                });
+            }
+        });
+        
+        if (shouldClean) {
+            removeTranslationBanner();
+            removeTranslationClasses();
+            addNoTranslate();
+        }
+    });
+    
+    // Iniciar observação
+    function startObserver() {
+        if (document.body) {
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['class', 'dir', 'lang', 'translate'],
+                childList: true,
+                subtree: true
+            });
+            
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['class', 'dir', 'lang', 'translate'],
+                childList: true
+            });
+        } else {
+            setTimeout(startObserver, 10);
+        }
+    }
+    
+    startObserver();
+    
+    // Executar imediatamente
+    addNoTranslate();
+    removeTranslationBanner();
+    removeTranslationClasses();
+    
+    // Executar periodicamente
+    setInterval(function() {
+        addNoTranslate();
+        removeTranslationBanner();
+        removeTranslationClasses();
+    }, 500);
+    
+    // Executar quando DOM estiver pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            addNoTranslate();
+            removeTranslationBanner();
+            removeTranslationClasses();
+        });
+    }
+    
+    // Executar quando página carregar
+    window.addEventListener('load', function() {
+        addNoTranslate();
+        removeTranslationBanner();
+        removeTranslationClasses();
+    });
+    
+    console.log('🚫 Tradução automática BLOQUEADA');
+})();
+</script>
+
+<style>
+/* Esconder banner de tradução do Google */
+div[id*="google_translate"],
+div[class*="goog-te-banner"],
+div[class*="goog-te-balloon"],
+iframe[title*="translate"],
+div[class*="skiptranslate"],
+.goog-te-banner-frame,
+#google_translate_element {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+</style>
 </body></html>

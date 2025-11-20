@@ -3,7 +3,7 @@
 
 const API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjQ3NDZkZGFhLTM2MDYtNDJiNC05ZTcyLWQzNTUwNTVjZWY0NSIsImlhdCI6MTc2MzU5ODE3MCwic3ViIjoiZGV2ZWxvcGVyLzI3YWFkZGZiLWY2NWItYTY3YS0yMjA5LTFjODViMTM1MGFhMCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxMDMuMjEwLjc4LjI1MCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.APCGXIcJ-3BaYM4QPlda7WNOJFDyprUOqF5HFjaXVhSoORfFuRn6VJ7NGjij9a8Vwfrv9BfDcZ3MZ2R5zfu0NQ';
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
     // Permitir CORS
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');

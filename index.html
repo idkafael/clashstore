@@ -3919,11 +3919,12 @@ $(document).ready(function() {
                     // Último recurso: requisição direta (pode falhar por CORS)
                     console.log('Servidores não disponíveis, tentando requisição direta com chave do localStorage (pode falhar por CORS)...');
                     return fetch(apiUrl, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'Bearer ' + apiKey,
-                        'Accept': 'application/json'
-                    }
+                        method: 'GET',
+                        headers: {
+                            'Authorization': 'Bearer ' + apiKey,
+                            'Accept': 'application/json'
+                        }
+                    });
                 });
             })
             .then(response => {

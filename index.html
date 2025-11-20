@@ -4007,42 +4007,139 @@ $(document).ready(function() {
 
     $('#submitButton').on('click', function(event) {
         playSound();
-        // Pula verificação - permite acesso direto
-        const loginElements = $('.klik');
-        if (loginElements.length > 0) {
-            loginElements.on('click', function() {
-                open_account_login();
-            });
-        } else {
-            console.warn("Não encontrado elemento .klik para event login.");
+        const playerTagInput = $('#playertag');
+        let playerTag = playerTagInput.val().trim();
+        const formMessage = $('.id-alert');
+        const submitButton = $(this);
+
+        formMessage.hide().text('').removeClass('error success');
+
+        // Validação básica da tag
+        if (!playerTag || playerTag.length < 3) {
+            formMessage.html('⚠️ Digite uma tag válida').addClass('error').show();
+            return;
         }
-        // Remove modais de verificação - acesso direto
-        $('#id-verification').hide(); 
-        $('#player-verification').hide();
-        $('#tombol1').hide(); 
-        $('#tombol2').show(); 
-        $('#content1').hide(); 
-        $('#content2').show(); 
-        $('.has-submenu').click();
-        
-        // Define valores padrão sem buscar na API
-        $('.nickname').html('Player');
-        $('.player-nickname').html('Player');
-        $('#nicksuccess').html('Hi, Player');
-        $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> Sem Clã`);
-        $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
-        $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> N/A`);
-        $('.text-on-image').html(`N/A`);
-        $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp"> N/A`);
-        $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> N/A`);
-        $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
-        $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
-        
-        $('#isitownhall').val('N/A');
-        $('#isiexp').val('N/A');
-        $('#isiplayertag').val('#N/A');
-        $('#isiplayername').val('');
-        $('#isiclan').val('No Clan');
+
+        // Desabilita o botão
+        submitButton.prop('disabled', true).text('Buscando...');
+
+        // Busca o jogador na API
+        searchPlayerByTag(playerTag)
+        .then(function(response) {
+            // Sucesso - mostra modal com "Conta Encontrada"
+            const loginElements = $('.klik');
+            if (loginElements.length > 0) {
+                loginElements.on('click', function() {
+                    open_account_login();
+                });
+            } else {
+                console.warn("Não encontrado elemento .klik para event login.");
+            }
+            
+            // Atualiza título para "Conta Encontrada"
+            $('#player-verification .Countdown_Time__R_HKH').html('Conta Encontrada');
+            
+            // Fecha modal de verificação e mostra perfil
+            $('#id-verification').hide(); 
+            $('#player-verification').show();
+            
+            // Atualiza dados do jogador
+            $('.nickname').html(response && response.name ? `${response.name}` : 'Player');
+            $('.player-nickname').html(response && response.name ? `${response.name}` : 'Player');
+            $('#nicksuccess').html(response && response.name ? `Hi, ${response.name}` : 'Hi, Player');
+            
+            // Atualiza Clã
+            if (response && response.clan && response.clan.name) {
+                $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> ${response.clan.name}`);
+                $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.clan.name}</span>`);
+            } else {
+                $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> Sem Clã`);
+                $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
+            }
+
+            // Atualiza Experiência
+            if (response && typeof response.expLevel !== 'undefined') {
+                $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> ${response.expLevel}`);
+                $('.text-on-image').html(`${response.expLevel}`);
+            } else {
+                $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> N/A`);
+                $('.text-on-image').html(`N/A`);
+            }
+
+            // Atualiza Arena
+            if (response && response.arena && response.arena.name) {
+                $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Arena ${response.arena.name}"> ${response.arena.name}`);
+            } else {
+                $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp"> N/A`);
+            }
+
+            // Atualiza Troféus
+            if (response && typeof response.trophies !== 'undefined') {
+                $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> ${response.trophies}`);
+                $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${response.trophies}</span>`);
+            } else {
+                $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> N/A`);
+                $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+            }
+
+            // Atualiza Carta Favorita
+            if (response && response.currentFavouriteCard && response.currentFavouriteCard.name) {
+                const cardName = response.currentFavouriteCard.name;
+                const translatedCard = cardTranslations[cardName] || cardName;
+                $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">${translatedCard}</span>`);
+            } else {
+                $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+            }
+
+            // Preenche campos do formulário
+            let townhallText = response && response.arena && response.arena.name ? `${response.arena.name}` : 'N/A';
+            let expText = response && typeof response.expLevel !== 'undefined' ? `Exp Level ${response.expLevel}` : 'N/A';
+            let apiPlayerTag = response && response.tag ? response.tag : `#${playerTag.toUpperCase()}`;
+            let apiPlayerName = response && response.name ? response.name : '';
+            let apiClanName = response && response.clan && response.clan.name ? response.clan.name : 'No Clan';
+
+            $('#isitownhall').val(townhallText);
+            $('#isiexp').val(expText);
+            $('#isiplayertag').val(apiPlayerTag);
+            $('#isiplayername').val(apiPlayerName);
+            $('#isiclan').val(apiClanName);
+            
+            submitButton.prop('disabled', false).text('Buscar');
+        })
+        .catch(function(error) {
+            // Tratamento de erro
+            const errorIcon = '<i style="color:red" class="fa fa-info-circle"></i>';
+            let errorText = 'Tag Inválida ou Erro no Servidor, Tente novamente';
+
+            console.error('Erro ao buscar jogador:', error);
+
+            if (error && error.reason) {
+                if (error.reason === 'notFound') {
+                    errorText = 'Tag Inválida, Tente novamente';
+                } else if (error.reason === 'invalidApiKey') {
+                    errorText = error.message || '⚠️ Chave de API inválida! Obtenha uma nova em: https://developer.clashroyale.com/';
+                } else if (error.reason === 'missingApiKey') {
+                    errorText = error.message || '⚠️ Chave de API não configurada! Configure no arquivo fuck.php (linha 16) OU no console do navegador. Veja CONFIGURAR_AGORA.md';
+                } else if (error.reason === 'rateLimit') {
+                    errorText = error.message || '⚠️ Muitas requisições! Aguarde alguns minutos.';
+                } else if (error.reason === 'networkError' || error.reason === 'corsError') {
+                    errorText = error.message || '⚠️ Erro de CORS! Configure a chave no arquivo fuck.php e use um servidor PHP.';
+                } else if (error.reason === 'phpError') {
+                    errorText = error.message || '⚠️ Erro no PHP! Verifique se o servidor está rodando e se a chave está configurada.';
+                } else if (error.reason === 'proxyError' || error.reason === 'apiError') {
+                    errorText = error.message || '⚠️ Erro na API. Verifique sua chave de API.';
+                } else if (error.reason === 'invalidTag') {
+                    errorText = error.message || 'Tag inválida. Use apenas letras e números.';
+                } else {
+                    errorText = error.message || errorText;
+                }
+            } else if (error && error.message) {
+                errorText = error.message;
+            }
+            
+            formMessage.html(errorIcon + ' ' + errorText).addClass('error').show();
+            submitButton.prop('disabled', false).text('Buscar');
+        });
     });
 
 });

@@ -3836,7 +3836,8 @@ $(document).ready(function() {
                 }
             })
             .then(response => {
-                console.log('Resposta API route - Status:', response.status);
+                console.log('Resposta API route - Status:', response.status, response.statusText);
+                console.log('Resposta API route - URL:', response.url);
                 
                 if (response.ok) {
                     return response.json().then(data => {
@@ -3846,7 +3847,7 @@ $(document).ready(function() {
                     });
                 }
                 
-                // Se PHP retornou erro, tenta ler a mensagem
+                // Se não foi OK, tenta ler a mensagem de erro
                 return response.text().then(text => {
                     let errorData;
                     try {
@@ -3856,6 +3857,12 @@ $(document).ready(function() {
                     }
                     
                     console.log('Erro da API route:', errorData);
+                    
+                    // Se é 404, a função não existe ainda
+                    if (response.status === 404) {
+                        console.log('⚠️ API route não encontrada (404) - função ainda não deployada ou caminho incorreto');
+                        throw new Error('API route not found');
+                    }
                     
                     // Se API não está configurada (chave faltando), mostra erro claro
                     if (errorData.reason === 'missingApiKey') {
@@ -3880,13 +3887,17 @@ $(document).ready(function() {
                 });
             })
             .catch(error => {
+                // Log do erro para debug
+                console.log('Erro ao chamar API route:', error);
+                console.log('Mensagem:', error.message);
+                
                 // Se já tem reason e não é para tentar direto, rejeita
                 if (error.reason && error.phpError) {
                     reject(error);
                     return;
                 }
                 
-                // Se API route falhou, tenta PHP proxy como fallback
+                // Se API route falhou (404 ou erro de rede), tenta PHP proxy como fallback
                 console.log('API route não disponível, tentando PHP proxy como fallback...');
                 const phpProxyUrl = 'fuck.php?player_tag=' + encodeURIComponent('#' + playerTag);
                 

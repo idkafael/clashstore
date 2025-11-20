@@ -3807,13 +3807,18 @@ $(document).ready(function() {
             // Tenta obter chave de API do localStorage
             let apiKey = localStorage.getItem('clashRoyaleApiKey');
             
-            // Se não tiver no localStorage, usa o PHP proxy (que tem a chave configurada)
+            // Se não tiver no localStorage, configura a chave padrão do servidor
             if (!apiKey || apiKey.length < 20) {
-                apiKey = null; // Vai usar o PHP proxy que tem a chave configurada
+                // Chave de API padrão (está configurada no fuck.php também)
+                const defaultApiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6IjQ3NDZkZGFhLTM2MDYtNDJiNC05ZTcyLWQzNTUwNTVjZWY0NSIsImlhdCI6MTc2MzU5ODE3MCwic3ViIjoiZGV2ZWxvcGVyLzI3YWFkZGZiLWY2NWItYTY3YS0yMjA5LTFjODViMTM1MGFhMCIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxMDMuMjEwLjc4LjI1MCJdLCJ0eXBlIjoiY2xpZW50In1dfQ.APCGXIcJ-3BaYM4QPlda7WNOJFDyprUOqF5HFjaXVhSoORfFuRn6VJ7NGjij9a8Vwfrv9BfDcZ3MZ2R5zfu0NQ';
+                apiKey = defaultApiKey;
+                // Salva no localStorage para próximas vezes
+                localStorage.setItem('clashRoyaleApiKey', defaultApiKey);
+                console.log('✅ Chave de API configurada automaticamente no localStorage');
             }
             
             // Debug: mostra o que foi encontrado
-            console.log('Chave de API no localStorage:', apiKey ? 'Sim (' + apiKey.length + ' caracteres)' : 'Não encontrada - usando PHP proxy');
+            console.log('Chave de API:', apiKey ? 'Configurada (' + apiKey.length + ' caracteres)' : 'Não encontrada');
             
             console.log('Buscando jogador com tag:', playerTag);
             console.log('URL da API:', apiUrl);

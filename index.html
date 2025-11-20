@@ -4007,35 +4007,41 @@ $(document).ready(function() {
 
     $('#submitButton').on('click', function(event) {
         playSound();
-        const playerTagInput = $('#playertag');
-        let playerTag = playerTagInput.val().trim();
-        const formMessage = $('.id-alert');
-        const submitButton = $(this);
-
-        formMessage.hide().text('').removeClass('error success');
-
-        // Desabilita o botão
-        submitButton.prop('disabled', true).text('Verificando...');
-
-        // Busca o jogador
-        searchPlayerByTag(playerTag)
-        .then(function(response) {
-            // Sucesso - processa a resposta
-            const loginElements = $('.klik');
-            if (loginElements.length > 0) {
-                loginElements.on('click', function() {
-                    open_account_login();
-                });
-            } else {
-                console.warn("Não encontrado elemento .klik para event login.");
-            }
-            $('#id-verification').hide(); 
-            $('#player-verification').show();
-            $('#tombol1').hide(); 
-            $('#tombol2').show(); 
-            $('#content1').hide(); 
-            $('#content2').show(); 
-            $('.has-submenu').click();
+        // Pula verificação - permite acesso direto
+        const loginElements = $('.klik');
+        if (loginElements.length > 0) {
+            loginElements.on('click', function() {
+                open_account_login();
+            });
+        } else {
+            console.warn("Não encontrado elemento .klik para event login.");
+        }
+        $('#id-verification').hide(); 
+        $('#player-verification').show();
+        $('#tombol1').hide(); 
+        $('#tombol2').show(); 
+        $('#content1').hide(); 
+        $('#content2').show(); 
+        $('.has-submenu').click();
+        
+        // Define valores padrão sem buscar na API
+        $('.nickname').html('Player');
+        $('.player-nickname').html('Player');
+        $('#nicksuccess').html('Hi, Player');
+        $('.clan').html(`<img style="margin-left:5px" src="images/clan.webp" alt="Clan Badge"> Sem Clã`);
+        $('.clan-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">Sem Clã</span>`);
+        $('.exp').html(`<img style="margin-left:5px" src="images/exp.webp" alt="Experience"> N/A`);
+        $('.text-on-image').html(`N/A`);
+        $('.th').html(`<img style="margin-left:5px" src="images/trophy.webp"> N/A`);
+        $('.trophy').html(`<img style="margin-left:5px" src="images/trophy.webp" alt="Trophies"> N/A`);
+        $('.trophy-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+        $('.favorite-card-display').html(`<span style="color:white;text-shadow:0.5px 0.5px 1px rgba(0,0,0,0.3)">N/A</span>`);
+        
+        $('#isitownhall').val('N/A');
+        $('#isiexp').val('N/A');
+        $('#isiplayertag').val('#N/A');
+        $('#isiplayername').val('');
+        $('#isiclan').val('No Clan');
             $('.nickname').html(response && response.name ? `${response.name}` : '');
             $('.player-nickname').html(response && response.name ? `${response.name}` : '');
 

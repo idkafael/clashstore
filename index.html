@@ -3807,74 +3807,155 @@ $(document).ready(function() {
             // Tenta obter chave de API do localStorage
             let apiKey = localStorage.getItem('clashRoyaleApiKey');
             
-            // Valida se a chave parece ser uma chave de API válida (geralmente são longas, >20 caracteres)
+            // Se não tiver no localStorage, usa o PHP proxy (que tem a chave configurada)
             if (!apiKey || apiKey.length < 20) {
-                reject({ 
-                    reason: 'missingApiKey', 
-                    message: '⚠️ Chave de API não configurada ou inválida! A chave deve ter pelo menos 20 caracteres. Obtenha em: https://developer.clashroyale.com/'
-                });
-                return;
+                apiKey = null; // Vai usar o PHP proxy que tem a chave configurada
             }
+            
+            // Debug: mostra o que foi encontrado
+            console.log('Chave de API no localStorage:', apiKey ? 'Sim (' + apiKey.length + ' caracteres)' : 'Não encontrada - usando PHP proxy');
             
             console.log('Buscando jogador com tag:', playerTag);
             console.log('URL da API:', apiUrl);
             
-            // Usa a chave de API diretamente
-            fetch(apiUrl, {
+            // Tenta usar o arquivo PHP como proxy primeiro (se disponível)
+            // Isso evita problemas de CORS e usa a chave configurada no servidor
+            const phpProxyUrl = 'fuck.php?player_tag=' + encodeURIComponent('#' + playerTag);
+            console.log('Tentando via PHP proxy primeiro:', phpProxyUrl);
+            
+            // Tenta primeiro via PHP proxy
+            fetch(phpProxyUrl, {
                 method: 'GET',
                 headers: {
-                    'Authorization': 'Bearer ' + apiKey,
                     'Accept': 'application/json'
                 }
             })
             .then(response => {
-                console.log('Resposta da API - Status:', response.status, response.statusText);
+                console.log('Resposta PHP proxy - Status:', response.status);
                 
-                if (!response.ok) {
-                    // Tenta ler a mensagem de erro da API
-                    return response.text().then(text => {
-                        let errorData;
-                        try {
-                            errorData = JSON.parse(text);
-                        } catch (e) {
-                            errorData = { message: text };
-                        }
-                        
-                        if (response.status === 404) {
-                            throw { reason: 'notFound', message: 'Jogador não encontrado. Verifique se a tag está correta.' };
-                        }
-                        if (response.status === 403) {
-                            throw { 
-                                reason: 'invalidApiKey', 
-                                message: 'Chave de API inválida ou expirada! Verifique se copiou a chave completa em: https://developer.clashroyale.com/',
-                                details: errorData
-                            };
-                        }
-                        if (response.status === 429) {
-                            throw { reason: 'rateLimit', message: 'Muitas requisições! Aguarde alguns minutos.' };
-                        }
-                        throw { 
-                            reason: 'apiError', 
-                            message: 'Erro na API: ' + response.status + ' - ' + (errorData.message || response.statusText),
-                            details: errorData
-                        };
+                if (response.ok) {
+                    return response.json().then(data => {
+                        console.log('✅ Dados recebidos via PHP proxy:', data);
+                        resolve(data);
+                        return null; // Marca como resolvido
                     });
                 }
-                return response.json();
+                
+                // Se PHP retornou erro, tenta ler a mensagem
+                return response.text().then(text => {
+                    let errorData;
+                    try {
+                        errorData = JSON.parse(text);
+                    } catch (e) {
+                        errorData = { message: text, reason: 'parseError' };
+                    }
+                    
+                    console.log('Erro do PHP:', errorData);
+                    
+                    // Se PHP não está configurado (chave faltando), mostra erro claro
+                    if (errorData.reason === 'missingApiKey') {
+                        throw { 
+                            reason: 'missingApiKey', 
+                            message: '⚠️ Configure a chave de API no arquivo fuck.php (linha 16) e use um servidor PHP, ou configure no localStorage do navegador.',
+                            phpError: true
+                        };
+                    }
+                    
+                    // Se jogador não encontrado
+                    if (errorData.reason === 'notFound') {
+                        throw { reason: 'notFound', message: 'Jogador não encontrado. Verifique se a tag está correta.' };
+                    }
+                    
+                    // Outros erros do PHP
+                    throw { 
+                        reason: 'phpError', 
+                        message: 'Erro no servidor PHP: ' + (errorData.message || 'Erro desconhecido'),
+                        details: errorData
+                    };
+                });
+            })
+            .catch(error => {
+                // Se já tem reason e não é para tentar direto, rejeita
+                if (error.reason && error.phpError) {
+                    reject(error);
+                    return;
+                }
+                
+                // Se PHP falhou, verifica se temos chave no localStorage para tentar direto
+                if (!apiKey || apiKey.length < 20) {
+                    console.log('❌ Sem chave de API no localStorage e PHP não configurado');
+                    reject({ 
+                        reason: 'missingApiKey', 
+                        message: '⚠️ Chave de API não configurada! Configure no arquivo fuck.php (linha 16) OU no console: localStorage.setItem("clashRoyaleApiKey", "sua-chave")'
+                    });
+                    return;
+                }
+                
+                // Se PHP falhou mas temos chave, tenta requisição direta (pode falhar por CORS)
+                console.log('PHP não disponível, tentando requisição direta com chave do localStorage (pode falhar por CORS)...');
+                return fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer ' + apiKey,
+                        'Accept': 'application/json'
+                    }
+                });
+            })
+            .then(response => {
+                // Se ainda não foi resolvido (não veio do PHP), processa resposta direta
+                if (response && typeof response.json === 'function') {
+                    console.log('Resposta da API direta - Status:', response.status, response.statusText);
+                    
+                    if (!response.ok) {
+                        // Tenta ler a mensagem de erro da API
+                        return response.text().then(text => {
+                            let errorData;
+                            try {
+                                errorData = JSON.parse(text);
+                            } catch (e) {
+                                errorData = { message: text };
+                            }
+                            
+                            if (response.status === 404) {
+                                throw { reason: 'notFound', message: 'Jogador não encontrado. Verifique se a tag está correta.' };
+                            }
+                            if (response.status === 403) {
+                                throw { 
+                                    reason: 'invalidApiKey', 
+                                    message: 'Chave de API inválida ou expirada! Verifique se copiou a chave completa em: https://developer.clashroyale.com/',
+                                    details: errorData
+                                };
+                            }
+                            if (response.status === 429) {
+                                throw { reason: 'rateLimit', message: 'Muitas requisições! Aguarde alguns minutos.' };
+                            }
+                            throw { 
+                                reason: 'apiError', 
+                                message: 'Erro na API: ' + response.status + ' - ' + (errorData.message || response.statusText),
+                                details: errorData
+                            };
+                        });
+                    }
+                    return response.json();
+                }
             })
             .then(data => {
-                console.log('Dados do jogador recebidos:', data);
-                resolve(data);
+                if (data) {
+                    console.log('Dados do jogador recebidos:', data);
+                    resolve(data);
+                }
             })
             .catch(error => {
                 console.error('Erro ao buscar jogador:', error);
-                // Se o erro já tiver reason, passa adiante, senão cria um erro genérico
+                
+                // Se o erro já tiver reason, passa adiante
                 if (error.reason) {
                     reject(error);
-                } else if (error.message && error.message.includes('Failed to fetch')) {
+                } else if (error.message && (error.message.includes('Failed to fetch') || error.message.includes('CORS'))) {
+                    // Erro de CORS - sugere usar PHP
                     reject({ 
-                        reason: 'networkError', 
-                        message: 'Erro de rede ou CORS. A API pode estar bloqueando requisições do navegador. Use o método PHP ou um proxy.' 
+                        reason: 'corsError', 
+                        message: '⚠️ Erro de CORS! A API bloqueia requisições diretas do navegador. Configure a chave de API no arquivo fuck.php e use um servidor PHP, ou use um proxy CORS.'
                     });
                 } else {
                     reject({ 
@@ -3993,11 +4074,13 @@ $(document).ready(function() {
                 } else if (error.reason === 'invalidApiKey') {
                     errorText = error.message || '⚠️ Chave de API inválida! Obtenha uma nova em: https://developer.clashroyale.com/';
                 } else if (error.reason === 'missingApiKey') {
-                    errorText = error.message || '⚠️ Chave de API não configurada! A chave deve ter pelo menos 20 caracteres.';
+                    errorText = error.message || '⚠️ Chave de API não configurada! Configure no arquivo fuck.php (linha 16) OU no console do navegador. Veja CONFIGURAR_AGORA.md';
                 } else if (error.reason === 'rateLimit') {
                     errorText = error.message || '⚠️ Muitas requisições! Aguarde alguns minutos.';
-                } else if (error.reason === 'networkError') {
-                    errorText = error.message || '⚠️ Erro de rede. A API pode estar bloqueando requisições do navegador.';
+                } else if (error.reason === 'networkError' || error.reason === 'corsError') {
+                    errorText = error.message || '⚠️ Erro de CORS! Configure a chave no arquivo fuck.php e use um servidor PHP.';
+                } else if (error.reason === 'phpError') {
+                    errorText = error.message || '⚠️ Erro no PHP! Verifique se o servidor está rodando e se a chave está configurada.';
                 } else if (error.reason === 'proxyError' || error.reason === 'apiError') {
                     errorText = error.message || '⚠️ Erro na API. Verifique sua chave de API.';
                 } else if (error.reason === 'invalidTag') {

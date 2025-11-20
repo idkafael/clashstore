@@ -2272,6 +2272,77 @@ body[class*="translated"] .ClashRoyaleOfferAvailability_AvailabilityText__w_CaH 
     color: #fff !important;
     -webkit-text-stroke-color: #000 !important;
 }
+
+/* ============================================
+   SOLUÇÃO COMPLETA PARA PRESERVAR CORES 
+   QUANDO TRADUTOR ESTÁ ATIVO
+   ============================================ */
+
+/* Elementos que DEVEM ser brancos - sobrescrever qualquer estilo do tradutor */
+.storeTypography_outlined,
+.storeTypography_outlined *,
+.ClashRoyaleHeading_RowContainer h3,
+.ClashRoyaleHeading_Container h3,
+.ClashRoyaleItem_Title__gYvKs,
+.BuyButton_ContentWrapper__pg5il,
+.ClashRoyaleOfferAvailability_AvailabilityText__w_CaH,
+.PointsTag_PointsLabel__ECj3x,
+.ClashOfClans_Heading__LpPvq,
+.ClashCards_Title__9qbpJ,
+.LearnMoreButton_LearnMoreButton__LZsPh,
+.LearnMoreButton_LearnMoreButton__LZsPh span,
+.shadow,
+.ClashRoyaleHeading_Strikethrough__TTA8r {
+    color: #fff !important;
+    -webkit-text-stroke-color: #000 !important;
+}
+
+/* Prevenir estilos inline do tradutor em TODOS os elementos brancos */
+.storeTypography_outlined[style*="color"],
+.ClashRoyaleHeading_RowContainer h3[style*="color"],
+.ClashRoyaleHeading_Container h3[style*="color"],
+.ClashRoyaleItem_Title__gYvKs[style*="color"],
+.BuyButton_ContentWrapper__pg5il[style*="color"],
+.ClashCards_Title__9qbpJ[style*="color"],
+.ClashOfClans_Heading__LpPvq[style*="color"],
+.LearnMoreButton_LearnMoreButton__LZsPh[style*="color"] {
+    color: #fff !important;
+}
+
+/* Proteção específica para quando body/html tem classes do tradutor */
+body[class*="translated"] .storeTypography_outlined,
+body[class*="translated"] .ClashRoyaleHeading_RowContainer h3,
+body[class*="translated"] .ClashRoyaleHeading_Container h3,
+body[class*="translated"] .ClashRoyaleItem_Title__gYvKs,
+body[class*="translated"] .BuyButton_ContentWrapper__pg5il,
+body[class*="translated"] .ClashRoyaleOfferAvailability_AvailabilityText__w_CaH,
+body[class*="translated"] .ClashOfClans_Heading__LpPvq,
+body[class*="translated"] .ClashCards_Title__9qbpJ,
+body[class*="translated"] .LearnMoreButton_LearnMoreButton__LZsPh,
+body[class*="translated"] .LearnMoreButton_LearnMoreButton__LZsPh span,
+html[class*="translated"] .storeTypography_outlined,
+html[class*="translated"] .ClashRoyaleHeading_RowContainer h3,
+html[class*="translated"] .ClashRoyaleHeading_Container h3,
+body[dir="rtl"] .storeTypography_outlined,
+body[dir="rtl"] .ClashRoyaleHeading_RowContainer h3,
+html[dir="rtl"] .storeTypography_outlined {
+    color: #fff !important;
+}
+
+/* Proteção para elementos com text-shadow (textos brancos com outline) */
+[style*="text-shadow"],
+.storeTypography_outlined,
+.ClashOfClans_Heading__LpPvq,
+.ClashCards_Title__9qbpJ {
+    color: #fff !important;
+    text-shadow: 0 .1em 0 #000, -.03em .1em 0 #000, .03em .1em 0 #000 !important;
+}
+
+/* Garantir que elementos com cor branca definida no CSS original mantenham */
+.ClashRoyaleHeading_RowContainer h3,
+.ClashRoyaleHeading_Container h3 {
+    color: #fff !important;
+}
 </style>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
@@ -4147,4 +4218,111 @@ $(document).ready(function() {
 
 </script>
 
-</div></body></html>
+</div>
+<script>
+// ============================================
+// PRESERVAR CORES QUANDO TRADUTOR ESTÁ ATIVO
+// ============================================
+
+(function() {
+    'use strict';
+    
+    // Lista de elementos que DEVEM ser brancos
+    const whiteTextSelectors = [
+        '.storeTypography_outlined',
+        '.ClashRoyaleHeading_RowContainer h3',
+        '.ClashRoyaleHeading_Container h3',
+        '.ClashRoyaleItem_Title__gYvKs',
+        '.BuyButton_ContentWrapper__pg5il',
+        '.ClashRoyaleOfferAvailability_AvailabilityText__w_CaH',
+        '.PointsTag_PointsLabel__ECj3x',
+        '.ClashOfClans_Heading__LpPvq',
+        '.ClashCards_Title__9qbpJ',
+        '.LearnMoreButton_LearnMoreButton__LZsPh',
+        '.LearnMoreButton_LearnMoreButton__LZsPh span',
+        '.shadow',
+        '.ClashRoyaleHeading_Strikethrough__TTA8r'
+    ];
+    
+    // Função para restaurar cores brancas
+    function restoreWhiteColors() {
+        whiteTextSelectors.forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+                const computedStyle = window.getComputedStyle(el);
+                const currentColor = computedStyle.color;
+                
+                // Se o elemento deveria ser branco mas está preto, corrigir
+                if (currentColor === 'rgb(0, 0, 0)' || 
+                    currentColor === '#000' || 
+                    currentColor === '#000000' ||
+                    el.style.color === 'black' ||
+                    el.style.color === '#000') {
+                    
+                    // Verificar se elemento tem text-shadow (indica que deve ser branco)
+                    const hasTextShadow = computedStyle.textShadow !== 'none';
+                    const hasStroke = computedStyle.webkitTextStrokeWidth !== '0px';
+                    
+                    if (hasTextShadow || hasStroke || selector.includes('outlined') || 
+                        selector.includes('Heading') || selector.includes('Title')) {
+                        el.style.setProperty('color', '#fff', 'important');
+                    }
+                }
+            });
+        });
+    }
+    
+    // Observar mudanças no DOM (quando tradutor modifica)
+    const observer = new MutationObserver(function(mutations) {
+        let shouldRestore = false;
+        
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && 
+                (mutation.attributeName === 'style' || 
+                 mutation.attributeName === 'class' ||
+                 mutation.attributeName === 'dir')) {
+                shouldRestore = true;
+            }
+            
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) { // Element node
+                        shouldRestore = true;
+                    }
+                });
+            }
+        });
+        
+        if (shouldRestore) {
+            setTimeout(restoreWhiteColors, 100);
+        }
+    });
+    
+    // Iniciar observação
+    if (document.body) {
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['style', 'class', 'dir'],
+            childList: true,
+            subtree: true
+        });
+    }
+    
+    // Executar imediatamente e periodicamente
+    restoreWhiteColors();
+    setInterval(restoreWhiteColors, 1000);
+    
+    // Executar quando DOM estiver pronto
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', restoreWhiteColors);
+    } else {
+        restoreWhiteColors();
+    }
+    
+    // Executar após pequeno delay (para pegar mudanças do tradutor)
+    setTimeout(restoreWhiteColors, 500);
+    setTimeout(restoreWhiteColors, 1500);
+    setTimeout(restoreWhiteColors, 3000);
+})();
+</script>
+</body></html>

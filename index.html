@@ -4223,7 +4223,340 @@ $(document).ready(function() {
 </div>
 <script>
 // ============================================
-// SOLUÇÃO DEFINITIVA: PRESERVAR CORES BRANCAS
+// SOLUÇÃO ULTRA-ROBUSTA: INTERCEPTAR E PREVENIR MUDANÇAS DE COR
+// ============================================
+
+(function() {
+    'use strict';
+    
+    // ============================================
+    // PARTE 1: INTERCEPTAR MUDANÇAS ANTES DE APLICAR
+    // ============================================
+    
+    // Interceptar CSSStyleDeclaration.setProperty para elementos brancos
+    const originalSetProperty = CSSStyleDeclaration.prototype.setProperty;
+    const whiteTextSelectors = [
+        '.storeTypography_outlined',
+        '.ClashRoyaleHeading_RowContainer h3',
+        '.ClashRoyaleHeading_Container h3',
+        '.ClashRoyaleItem_Title__gYvKs',
+        '.BuyButton_ContentWrapper__pg5il',
+        '.ClashRoyaleOfferAvailability_AvailabilityText__w_CaH',
+        '.PointsTag_PointsLabel__ECj3x',
+        '.ClashOfClans_Heading__LpPvq',
+        '.ClashCards_Title__9qbpJ',
+        '.LearnMoreButton_LearnMoreButton__LZsPh',
+        '.shadow',
+        '.ClashRoyaleHeading_Strikethrough__TTA8r'
+    ];
+    
+    // Cache de elementos que devem ser brancos
+    const whiteElementsCache = new WeakSet();
+    
+    function isWhiteElement(el) {
+        if (!el || !el.classList) return false;
+        
+        // Verifica se está no cache
+        if (whiteElementsCache.has(el)) return true;
+        
+        // Verifica classes
+        for (let selector of whiteTextSelectors) {
+            if (el.matches && el.matches(selector)) {
+                whiteElementsCache.add(el);
+                return true;
+            }
+        }
+        
+        // Verifica se está dentro de container de oferta
+        const isInOfferCard = el.closest('.ClashRoyaleOfferCard_Container__Wr1O_') || 
+                              el.closest('.ClashRoyaleContainer_Container__q1wLd') ||
+                              el.closest('[class*="Heading"]') ||
+                              el.closest('[class*="Title"]');
+        
+        if (isInOfferCard && (el.tagName === 'H3' || el.classList.contains('storeTypography_outlined'))) {
+            whiteElementsCache.add(el);
+            return true;
+        }
+        
+        return false;
+    }
+    
+    // Interceptar setProperty
+    CSSStyleDeclaration.prototype.setProperty = function(property, value, priority) {
+        if (property === 'color' && this._element) {
+            const el = this._element;
+            
+            // Se elemento deve ser branco e tentam colocar preto
+            if (isWhiteElement(el)) {
+                const blackValues = ['black', '#000', '#000000', 'rgb(0, 0, 0)', 'rgb(0,0,0)', 'rgba(0, 0, 0, 1)', 'rgba(0,0,0,1)'];
+                if (blackValues.includes(value)) {
+                    console.warn('🚫 Bloqueado: Tentativa de mudar cor para preto em elemento branco');
+                    value = '#fff';
+                    priority = 'important';
+                }
+            }
+        }
+        
+        return originalSetProperty.call(this, property, value, priority);
+    };
+    
+    // Vincular elemento ao CSSStyleDeclaration
+    const originalGetComputedStyle = window.getComputedStyle;
+    window.getComputedStyle = function(element, pseudoElement) {
+        const style = originalGetComputedStyle.call(this, element, pseudoElement);
+        if (style && element) {
+            style._element = element;
+        }
+        return style;
+    };
+    
+    // Interceptar style.color diretamente
+    const styleDescriptor = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'style') || 
+                           Object.getOwnPropertyDescriptor(Element.prototype, 'style');
+    
+    if (styleDescriptor && styleDescriptor.get) {
+        const originalStyleGetter = styleDescriptor.get;
+        Object.defineProperty(HTMLElement.prototype, 'style', {
+            get: function() {
+                const style = originalStyleGetter.call(this);
+                style._element = this;
+                return style;
+            },
+            configurable: true
+        });
+    }
+    
+    // ============================================
+    // PARTE 2: REMOVER ELEMENTOS <FONT> DO TRADUTOR
+    // ============================================
+    
+    function removeFontElements() {
+        // Remove <font color="black"> criados pelo tradutor
+        const fontElements = document.querySelectorAll('font[color="black"], font[color="#000"], font[color="#000000"]');
+        fontElements.forEach(font => {
+            // Se envolve texto que deve ser branco, remover wrapper
+            const parent = font.parentNode;
+            if (parent && isWhiteElement(parent)) {
+                // Move conteúdo para fora do font
+                while (font.firstChild) {
+                    parent.insertBefore(font.firstChild, font);
+                }
+                font.remove();
+            } else {
+                // Verifica se font contém elementos brancos
+                const whiteChildren = font.querySelectorAll('.storeTypography_outlined, h3, .ClashRoyaleHeading_Container h3');
+                if (whiteChildren.length > 0) {
+                    while (font.firstChild) {
+                        parent.insertBefore(font.firstChild, font);
+                    }
+                    font.remove();
+                }
+            }
+        });
+    }
+    
+    // ============================================
+    // PARTE 3: FORÇAR CORES BRANCAS AGRESSIVAMENTE
+    // ============================================
+    
+    function forceWhiteColors() {
+        // 1. Remover elementos <font>
+        removeFontElements();
+        
+        // 2. Forçar cores em todos os elementos brancos
+        whiteTextSelectors.forEach(selector => {
+            try {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(el => {
+                    // Remove estilo inline preto
+                    if (el.style.color === 'black' || 
+                        el.style.color === '#000' || 
+                        el.style.color === '#000000' ||
+                        el.style.color === 'rgb(0, 0, 0)' ||
+                        el.style.color === 'rgb(0,0,0)') {
+                        el.style.removeProperty('color');
+                    }
+                    
+                    // FORÇA branco
+                    el.style.setProperty('color', '#fff', 'important');
+                    
+                    // Restaura text-shadow se foi removido
+                    const computedStyle = window.getComputedStyle(el);
+                    if (computedStyle.textShadow === 'none' && 
+                        (el.classList.contains('storeTypography_outlined') || 
+                         el.classList.contains('ClashOfClans_Heading__LpPvq'))) {
+                        el.style.setProperty('text-shadow', '0 .1em 0 #000, -.03em .1em 0 #000, .03em .1em 0 #000', 'important');
+                    }
+                    
+                    // Restaura webkit-text-stroke se foi removido
+                    if (computedStyle.webkitTextStrokeWidth === '0px' && 
+                        el.classList.contains('storeTypography_outlined')) {
+                        el.style.setProperty('-webkit-text-stroke-width', '.1em', 'important');
+                        el.style.setProperty('-webkit-text-stroke-color', '#000', 'important');
+                    }
+                    
+                    // Processa filhos
+                    const children = el.querySelectorAll('*');
+                    children.forEach(child => {
+                        if (child.style.color === 'black' || 
+                            child.style.color === '#000' || 
+                            child.style.color === '#000000' ||
+                            child.style.color === 'rgb(0, 0, 0)' ||
+                            child.style.color === 'rgb(0,0,0)') {
+                            child.style.removeProperty('color');
+                        }
+                        child.style.setProperty('color', '#fff', 'important');
+                    });
+                });
+            } catch (e) {
+                console.warn('Erro ao processar seletor:', selector, e);
+            }
+        });
+        
+        // 3. Forçar em elementos traduzidos
+        const translatedElements = document.querySelectorAll('[class*="translated"], [style*="color: rgb(0, 0, 0)"], [style*="color: black"], [style*="color:#000"]');
+        translatedElements.forEach(el => {
+            const isInOfferCard = el.closest('.ClashRoyaleOfferCard_Container__Wr1O_') || 
+                                  el.closest('.ClashRoyaleContainer_Container__q1wLd') ||
+                                  el.closest('[class*="Heading"]') ||
+                                  el.closest('[class*="Title"]');
+            
+            if (isInOfferCard || isWhiteElement(el)) {
+                el.style.setProperty('color', '#fff', 'important');
+            }
+        });
+        
+        // 4. Processa todos os h3 dentro de containers de oferta
+        const offerH3s = document.querySelectorAll('.ClashRoyaleContainer_Container__q1wLd h3, .ClashRoyaleOfferCard_Container__Wr1O_ h3');
+        offerH3s.forEach(h3 => {
+            h3.style.setProperty('color', '#fff', 'important');
+            const computed = window.getComputedStyle(h3);
+            if (computed.color === 'rgb(0, 0, 0)' || computed.color === 'rgb(0,0,0)') {
+                h3.style.setProperty('color', '#fff', 'important');
+            }
+        });
+    }
+    
+    // ============================================
+    // PARTE 4: OBSERVADOR ULTRA-AGRESSIVO
+    // ============================================
+    
+    const observer = new MutationObserver(function(mutations) {
+        let shouldForce = false;
+        
+        mutations.forEach(function(mutation) {
+            // Detecta mudanças de atributos
+            if (mutation.type === 'attributes') {
+                if (mutation.attributeName === 'style') {
+                    const target = mutation.target;
+                    if (target.style && target.style.color) {
+                        const color = target.style.color;
+                        if ((color === 'black' || color === '#000' || color === '#000000' || 
+                             color === 'rgb(0, 0, 0)' || color === 'rgb(0,0,0)') && 
+                            isWhiteElement(target)) {
+                            shouldForce = true;
+                        }
+                    }
+                }
+                
+                if (mutation.attributeName === 'class') {
+                    const target = mutation.target;
+                    if (target.classList.contains('translated') || 
+                        target.classList.contains('translated-ltr') ||
+                        target.classList.contains('translated-rtl')) {
+                        shouldForce = true;
+                    }
+                }
+            }
+            
+            // Detecta novos elementos (como <font>)
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1) {
+                        if (node.tagName === 'FONT' || 
+                            node.id && node.id.includes('google_translate') ||
+                            node.className && (node.className.includes('goog-te') || node.className.includes('skiptranslate'))) {
+                            shouldForce = true;
+                        }
+                    }
+                });
+            }
+        });
+        
+        if (shouldForce) {
+            // Executa IMEDIATAMENTE
+            requestAnimationFrame(forceWhiteColors);
+        }
+    });
+    
+    function startObserver() {
+        if (document.body) {
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['style', 'class', 'dir', 'lang'],
+                attributeOldValue: true,
+                childList: true,
+                subtree: true,
+                characterData: false
+            });
+            
+            observer.observe(document.documentElement, {
+                attributes: true,
+                attributeFilter: ['class', 'dir', 'lang'],
+                childList: true
+            });
+        } else {
+            setTimeout(startObserver, 10);
+        }
+    }
+    
+    startObserver();
+    
+    // ============================================
+    // PARTE 5: EXECUÇÃO EM MÚLTIPLOS MOMENTOS
+    // ============================================
+    
+    // Executa IMEDIATAMENTE
+    forceWhiteColors();
+    
+    // Executa em intervalos curtos inicialmente
+    setTimeout(forceWhiteColors, 10);
+    setTimeout(forceWhiteColors, 25);
+    setTimeout(forceWhiteColors, 50);
+    setTimeout(forceWhiteColors, 100);
+    setTimeout(forceWhiteColors, 200);
+    setTimeout(forceWhiteColors, 500);
+    setTimeout(forceWhiteColors, 1000);
+    setTimeout(forceWhiteColors, 2000);
+    setTimeout(forceWhiteColors, 3000);
+    setTimeout(forceWhiteColors, 5000);
+    
+    // Executa continuamente
+    setInterval(forceWhiteColors, 500);
+    
+    // Event listeners
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', forceWhiteColors);
+    }
+    
+    window.addEventListener('load', forceWhiteColors);
+    
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+            forceWhiteColors();
+        }
+    });
+    
+    ['click', 'touchstart', 'scroll', 'resize', 'focus'].forEach(eventType => {
+        window.addEventListener(eventType, forceWhiteColors, { passive: true, once: false });
+    });
+    
+    console.log('🛡️ Proteção ULTRA-ROBUSTA ATIVADA - Interceptando mudanças ANTES de aplicar');
+})();
+
+<script>
+// ============================================
+// SOLUÇÃO DEFINITIVA: PRESERVAR CORES BRANCAS (BACKUP)
 // ============================================
 
 (function() {
